@@ -38,7 +38,7 @@
     </div>
   </div>
   <div class="lockscreen-footer text-center">
-    Copyright &copy; 2014-2016 <b><a href="http://almsaeedstudio.com" class="text-black">Studio</a></b><br>
+    Copyright &copy; 2014-2016 <b><a href="" class="text-black">Studio</a></b><br>
     All rights reserved
   </div>
 </div>
