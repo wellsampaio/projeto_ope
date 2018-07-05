@@ -27,8 +27,8 @@
 </head>
 <body class="hold-transition login-page">
 <div class="login-box">
-  <div class="login-logo">
-    <a href="/res/admin/index2.html"><b>Admin</b>Confeitaria</a>
+  <div class="login-logo" >
+    <a href="" style="color: ##000000"><b style="color: #000000">Admin</b><b style="color: #000000"> Confeitaria</b></a>
   </div>
   <!-- /.login-logo -->
   <div class="login-box-body">
