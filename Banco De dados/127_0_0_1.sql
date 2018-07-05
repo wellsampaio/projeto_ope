@@ -3,7 +3,7 @@
 -- https://www.phpmyadmin.net/
 --
 -- Host: 127.0.0.1
--- Generation Time: 18-Maio-2018 às 04:48
+-- Generation Time: 05-Jul-2018 às 03:33
 -- Versão do servidor: 10.1.31-MariaDB
 -- PHP Version: 7.2.3
 
@@ -21,77 +21,8 @@ SET time_zone = "+00:00";
 --
 -- Database: `db_ecommerce`
 --
-
-DELIMITER $$
---
--- Procedures
---
-CREATE DEFINER=`root`@`localhost` PROCEDURE `sp_userspasswordsrecoveries_create` (`piduser` INT, `pdesip` VARCHAR(45))  BEGIN
-	
-	INSERT INTO tb_userspasswordsrecoveries (iduser, desip)
-    VALUES(piduser, pdesip);
-    
-    SELECT * FROM tb_userspasswordsrecoveries
-    WHERE idrecovery = LAST_INSERT_ID();
-    
-END$$
-
-CREATE DEFINER=`root`@`localhost` PROCEDURE `sp_usersupdate_save` (`piduser` INT, `pdesperson` VARCHAR(64), `pdeslogin` VARCHAR(64), `pdespassword` VARCHAR(256), `pdesemail` VARCHAR(128), `pnrphone` BIGINT, `pinadmin` TINYINT)  BEGIN
-	
-    DECLARE vidperson INT;
-    
-	SELECT idperson INTO vidperson
-    FROM tb_users
-    WHERE iduser = piduser;
-    
-    UPDATE tb_persons
-    SET 
-		desperson = pdesperson,
-        desemail = pdesemail,
-        nrphone = pnrphone
-	WHERE idperson = vidperson;
-    
-    UPDATE tb_users
-    SET
-		deslogin = pdeslogin,
-        despassword = pdespassword,
-        inadmin = pinadmin
-	WHERE iduser = piduser;
-    
-    SELECT * FROM tb_users a INNER JOIN tb_persons b USING(idperson) WHERE a.iduser = piduser;
-    
-END$$
-
-CREATE DEFINER=`root`@`localhost` PROCEDURE `sp_users_delete` (`piduser` INT)  BEGIN
-	
-    DECLARE vidperson INT;
-    
-	SELECT idperson INTO vidperson
-    FROM tb_users
-    WHERE iduser = piduser;
-    
-    DELETE FROM tb_users WHERE iduser = piduser;
-    DELETE FROM tb_persons WHERE idperson = vidperson;
-    
-END$$
-
-CREATE DEFINER=`root`@`localhost` PROCEDURE `sp_users_save` (`pdesperson` VARCHAR(64), `pdeslogin` VARCHAR(64), `pdespassword` VARCHAR(256), `pdesemail` VARCHAR(128), `pnrphone` BIGINT, `pinadmin` TINYINT)  BEGIN
-	
-    DECLARE vidperson INT;
-    
-	INSERT INTO tb_persons (desperson, desemail, nrphone)
-    VALUES(pdesperson, pdesemail, pnrphone);
-    
-    SET vidperson = LAST_INSERT_ID();
-    
-    INSERT INTO tb_users (idperson, deslogin, despassword, inadmin)
-    VALUES(vidperson, pdeslogin, pdespassword, pinadmin);
-    
-    SELECT * FROM tb_users a INNER JOIN tb_persons b USING(idperson) WHERE a.iduser = LAST_INSERT_ID();
-    
-END$$
-
-DELIMITER ;
+CREATE DATABASE IF NOT EXISTS `db_ecommerce` DEFAULT CHARACTER SET latin1 COLLATE latin1_swedish_ci;
+USE `db_ecommerce`;
 
 -- --------------------------------------------------------
 
@@ -151,6 +82,15 @@ CREATE TABLE `tb_categories` (
   `descategory` varchar(32) NOT NULL,
   `dtregister` timestamp NOT NULL DEFAULT CURRENT_TIMESTAMP
 ) ENGINE=InnoDB DEFAULT CHARSET=utf8;
+
+--
+-- Extraindo dados da tabela `tb_categories`
+--
+
+INSERT INTO `tb_categories` (`idcategory`, `descategory`, `dtregister`) VALUES
+(3, 'Bolos', '2018-06-09 23:53:49'),
+(4, 'Doces', '2018-06-10 00:15:09'),
+(5, 'Salgados', '2018-06-10 00:15:17');
 
 -- --------------------------------------------------------
 
@@ -230,6 +170,21 @@ CREATE TABLE `tb_products` (
   `desurl` varchar(128) NOT NULL,
   `dtregister` timestamp NOT NULL DEFAULT CURRENT_TIMESTAMP
 ) ENGINE=InnoDB DEFAULT CHARSET=utf8;
+
+--
+-- Extraindo dados da tabela `tb_products`
+--
+
+INSERT INTO `tb_products` (`idproduct`, `desproduct`, `vlprice`, `vlwidth`, `vlheight`, `vllength`, `vlweight`, `desurl`, `dtregister`) VALUES
+(1, 'Smartphone Android 7.0', '999.95', '75.00', '151.00', '80.00', '167.00', 'smartphone-android-7.0', '2017-03-13 03:00:00'),
+(2, 'SmartTV LED 4K', '3925.99', '917.00', '596.00', '288.00', '8600.00', 'smarttv-led-4k', '2017-03-13 03:00:00'),
+(3, 'Notebook 14\" 4GB 1TB', '1949.99', '345.00', '23.00', '30.00', '2000.00', 'notebook-14-4gb-1tb', '2017-03-13 03:00:00'),
+(4, 'Bolo de Chocolate4', '151.99', '0.74', '16.95', '24.50', '0.47', 'ipad-32gb', '2018-07-01 00:40:44'),
+(7, 'Smartphone Motorola Moto G5 Plus', '1135.23', '15.20', '7.40', '0.70', '0.16', 'smartphone-motorola-moto-g5-plus', '2018-07-05 00:49:06'),
+(8, 'Smartphone Moto Z Play', '1887.78', '14.10', '0.90', '1.16', '0.00', 'smartphone-moto-z-play', '2018-07-05 00:49:06'),
+(9, 'Smartphone Samsung Galaxy J5 Pro', '1299.00', '14.60', '7.10', '0.80', '0.16', 'smartphone-samsung-galaxy-j5', '2018-07-05 00:49:06'),
+(10, 'Smartphone Samsung Galaxy J7 Prime', '1149.00', '15.10', '7.50', '0.80', '0.16', 'smartphone-samsung-galaxy-j7', '2018-07-05 00:49:06'),
+(11, 'Smartphone Samsung Galaxy J3 Dual', '679.90', '14.20', '7.10', '0.70', '0.14', 'smartphone-samsung-galaxy-j3', '2018-07-05 00:49:06');
 
 -- --------------------------------------------------------
 
@@ -333,7 +288,9 @@ INSERT INTO `tb_userspasswordsrecoveries` (`idrecovery`, `iduser`, `desip`, `dtr
 (28, 10, '127.0.0.1', NULL, '2018-05-12 19:36:23'),
 (29, 10, '127.0.0.1', NULL, '2018-05-14 23:30:34'),
 (30, 10, '127.0.0.1', NULL, '2018-05-14 23:30:52'),
-(31, 10, '127.0.0.1', NULL, '2018-05-15 10:22:49');
+(31, 10, '127.0.0.1', NULL, '2018-05-15 10:22:49'),
+(32, 10, '127.0.0.1', NULL, '2018-05-18 02:58:43'),
+(33, 10, '127.0.0.1', NULL, '2018-05-18 03:04:27');
 
 --
 -- Indexes for dumped tables
@@ -443,7 +400,7 @@ ALTER TABLE `tb_cartsproducts`
 -- AUTO_INCREMENT for table `tb_categories`
 --
 ALTER TABLE `tb_categories`
-  MODIFY `idcategory` int(11) NOT NULL AUTO_INCREMENT;
+  MODIFY `idcategory` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=6;
 
 --
 -- AUTO_INCREMENT for table `tb_orders`
@@ -467,7 +424,7 @@ ALTER TABLE `tb_persons`
 -- AUTO_INCREMENT for table `tb_products`
 --
 ALTER TABLE `tb_products`
-  MODIFY `idproduct` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=4;
+  MODIFY `idproduct` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=12;
 
 --
 -- AUTO_INCREMENT for table `tb_users`
@@ -485,7 +442,7 @@ ALTER TABLE `tb_userslogs`
 -- AUTO_INCREMENT for table `tb_userspasswordsrecoveries`
 --
 ALTER TABLE `tb_userspasswordsrecoveries`
-  MODIFY `idrecovery` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=32;
+  MODIFY `idrecovery` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=34;
 
 --
 -- Constraints for dumped tables
@@ -543,6 +500,88 @@ ALTER TABLE `tb_userslogs`
 --
 ALTER TABLE `tb_userspasswordsrecoveries`
   ADD CONSTRAINT `fk_userspasswordsrecoveries_users` FOREIGN KEY (`iduser`) REFERENCES `tb_users` (`iduser`) ON DELETE NO ACTION ON UPDATE NO ACTION;
+--
+-- Database: `quizzer`
+--
+CREATE DATABASE IF NOT EXISTS `quizzer` DEFAULT CHARACTER SET latin1 COLLATE latin1_swedish_ci;
+USE `quizzer`;
+
+-- --------------------------------------------------------
+
+--
+-- Estrutura da tabela `choices`
+--
+
+CREATE TABLE `choices` (
+  `id` int(11) NOT NULL,
+  `question_number` int(11) NOT NULL,
+  `is_correct` tinyint(1) NOT NULL DEFAULT '0',
+  `text` text NOT NULL
+) ENGINE=InnoDB DEFAULT CHARSET=latin1;
+
+--
+-- Extraindo dados da tabela `choices`
+--
+
+INSERT INTO `choices` (`id`, `question_number`, `is_correct`, `text`) VALUES
+(1, 1, 1, 'Elder Scrolls'),
+(2, 1, 0, 'God of War'),
+(3, 1, 0, 'Baldur\'s Gate'),
+(4, 1, 0, 'Shinning Force '),
+(6, 2, 0, 'Ubisoft'),
+(7, 2, 0, 'Bethesda Softworks'),
+(8, 2, 1, 'Rockstar'),
+(9, 2, 0, 'Square Enix');
+
+-- --------------------------------------------------------
+
+--
+-- Estrutura da tabela `questions`
+--
+
+CREATE TABLE `questions` (
+  `question_number` int(11) NOT NULL,
+  `text` text NOT NULL
+) ENGINE=InnoDB DEFAULT CHARSET=latin1;
+
+--
+-- Extraindo dados da tabela `questions`
+--
+
+INSERT INTO `questions` (`question_number`, `text`) VALUES
+(1, 'Skyrim é a quinta parte de qual série? '),
+(2, 'Que empresa é famosa por sua série \"Grand Theft Auto\"?');
+
+--
+-- Indexes for dumped tables
+--
+
+--
+-- Indexes for table `choices`
+--
+ALTER TABLE `choices`
+  ADD PRIMARY KEY (`id`);
+
+--
+-- Indexes for table `questions`
+--
+ALTER TABLE `questions`
+  ADD PRIMARY KEY (`question_number`);
+
+--
+-- AUTO_INCREMENT for dumped tables
+--
+
+--
+-- AUTO_INCREMENT for table `choices`
+--
+ALTER TABLE `choices`
+  MODIFY `id` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=10;
+--
+-- Database: `test`
+--
+CREATE DATABASE IF NOT EXISTS `test` DEFAULT CHARACTER SET latin1 COLLATE latin1_swedish_ci;
+USE `test`;
 COMMIT;
 
 /*!40101 SET CHARACTER_SET_CLIENT=@OLD_CHARACTER_SET_CLIENT */;
