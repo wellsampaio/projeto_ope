@@ -30,10 +30,11 @@
                         <a class="add_to_cart_button" data-quantity="1" data-product_sku="" data-product_id="70" rel="nofollow" href="/canvas/shop/?add-to-cart=70">Comprar</a>
                     </div>                       
                 </div>
-                <?php } ?>
+                
+            </div>
+            <?php } ?>
 
             </div>
-            
         
         <div class="row">
             <div class="col-md-12">
