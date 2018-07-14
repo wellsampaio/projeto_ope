@@ -55,7 +55,7 @@
             <div class="row">
                 <div class="col-md-8">
                     <div class="copyright">
-                        <p>&copy; 2017 Hcode Treinamentos. <a href="http://www.hcode.com.br" target="_blank">hcode.com.br</a></p>
+                        <p>&copy; Casa de Dona Brasilina. <a href="" target="_blank">www.casadedonabrasilina.com.br</a></p>
                     </div>
                 </div>
                 
