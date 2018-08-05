@@ -55,18 +55,17 @@ DROP TABLE IF EXISTS `tb_carts`;
 /*!40101 SET @saved_cs_client     = @@character_set_client */;
 /*!40101 SET character_set_client = utf8 */;
 CREATE TABLE `tb_carts` (
-  `idcart` int(11) NOT NULL,
+  `idcart` int(11) NOT NULL AUTO_INCREMENT,
   `dessessionid` varchar(64) NOT NULL,
   `iduser` int(11) DEFAULT NULL,
-  `idaddress` int(11) DEFAULT NULL,
+  `deszipcode` char(8) DEFAULT NULL,
   `vlfreight` decimal(10,2) DEFAULT NULL,
+  `nrdays` int(11) DEFAULT NULL,
   `dtregister` timestamp NOT NULL DEFAULT CURRENT_TIMESTAMP,
   PRIMARY KEY (`idcart`),
   KEY `FK_carts_users_idx` (`iduser`),
-  KEY `fk_carts_addresses_idx` (`idaddress`),
-  CONSTRAINT `fk_carts_addresses` FOREIGN KEY (`idaddress`) REFERENCES `tb_addresses` (`idaddress`) ON DELETE NO ACTION ON UPDATE NO ACTION,
   CONSTRAINT `fk_carts_users` FOREIGN KEY (`iduser`) REFERENCES `tb_users` (`iduser`) ON DELETE NO ACTION ON UPDATE NO ACTION
-) ENGINE=InnoDB DEFAULT CHARSET=utf8;
+) ENGINE=InnoDB AUTO_INCREMENT=3 DEFAULT CHARSET=utf8;
 /*!40101 SET character_set_client = @saved_cs_client */;
 
 --
@@ -75,6 +74,7 @@ CREATE TABLE `tb_carts` (
 
 LOCK TABLES `tb_carts` WRITE;
 /*!40000 ALTER TABLE `tb_carts` DISABLE KEYS */;
+INSERT INTO `tb_carts` VALUES (1,'n5nrktct7h0fhl7qjnq05dm0av',1,NULL,NULL,NULL,'2018-08-04 22:13:47'),(2,'ioq04qnn0ntm88aav43hmlvjhf',NULL,NULL,NULL,NULL,'2018-08-05 18:52:07');
 /*!40000 ALTER TABLE `tb_carts` ENABLE KEYS */;
 UNLOCK TABLES;
 
@@ -89,14 +89,14 @@ CREATE TABLE `tb_cartsproducts` (
   `idcartproduct` int(11) NOT NULL AUTO_INCREMENT,
   `idcart` int(11) NOT NULL,
   `idproduct` int(11) NOT NULL,
-  `dtremoved` datetime NOT NULL,
+  `dtremoved` datetime DEFAULT NULL,
   `dtregister` timestamp NOT NULL DEFAULT CURRENT_TIMESTAMP,
   PRIMARY KEY (`idcartproduct`),
   KEY `FK_cartsproducts_carts_idx` (`idcart`),
   KEY `FK_cartsproducts_products_idx` (`idproduct`),
   CONSTRAINT `fk_cartsproducts_carts` FOREIGN KEY (`idcart`) REFERENCES `tb_carts` (`idcart`) ON DELETE NO ACTION ON UPDATE NO ACTION,
   CONSTRAINT `fk_cartsproducts_products` FOREIGN KEY (`idproduct`) REFERENCES `tb_products` (`idproduct`) ON DELETE NO ACTION ON UPDATE NO ACTION
-) ENGINE=InnoDB DEFAULT CHARSET=utf8;
+) ENGINE=InnoDB AUTO_INCREMENT=43 DEFAULT CHARSET=utf8;
 /*!40101 SET character_set_client = @saved_cs_client */;
 
 --
@@ -105,6 +105,7 @@ CREATE TABLE `tb_cartsproducts` (
 
 LOCK TABLES `tb_cartsproducts` WRITE;
 /*!40000 ALTER TABLE `tb_cartsproducts` DISABLE KEYS */;
+INSERT INTO `tb_cartsproducts` VALUES (1,2,18,'2018-08-05 15:55:42','2018-08-05 18:52:07'),(2,2,17,'0000-00-00 00:00:00','2018-08-05 18:54:30'),(3,2,17,'2018-08-05 16:15:06','2018-08-05 19:12:58'),(4,2,17,'2018-08-05 16:15:11','2018-08-05 19:13:10'),(5,2,17,'2018-08-05 16:15:14','2018-08-05 19:13:16'),(6,2,17,'2018-08-05 16:15:53','2018-08-05 19:13:19'),(7,2,17,'2018-08-05 16:16:21','2018-08-05 19:13:30'),(8,2,17,'2018-08-05 16:16:22','2018-08-05 19:13:56'),(9,2,17,'2018-08-05 16:16:29','2018-08-05 19:14:00'),(10,2,17,'2018-08-05 16:27:02','2018-08-05 19:14:00'),(11,2,17,'2018-08-05 16:27:02','2018-08-05 19:14:03'),(12,2,17,'2018-08-05 16:27:02','2018-08-05 19:14:10'),(13,2,17,'2018-08-05 16:27:02','2018-08-05 19:14:10'),(14,2,17,'2018-08-05 16:27:02','2018-08-05 19:14:10'),(15,2,17,'2018-08-05 16:27:02','2018-08-05 19:15:17'),(16,2,17,'2018-08-05 16:27:02','2018-08-05 19:16:04'),(17,2,17,'2018-08-05 16:27:02','2018-08-05 19:16:16'),(18,2,17,'2018-08-05 16:27:02','2018-08-05 19:16:33'),(19,2,17,'2018-08-05 16:27:02','2018-08-05 19:16:33'),(20,2,17,'2018-08-05 16:27:02','2018-08-05 19:26:02'),(21,2,17,'2018-08-05 16:27:02','2018-08-05 19:26:11'),(22,2,17,'2018-08-05 16:27:02','2018-08-05 19:26:16'),(23,2,17,'2018-08-05 16:27:02','2018-08-05 19:26:20'),(24,2,17,'2018-08-05 16:27:02','2018-08-05 19:26:24'),(25,2,17,'2018-08-05 16:27:02','2018-08-05 19:26:43'),(26,2,17,'2018-08-05 16:27:02','2018-08-05 19:26:47'),(27,2,17,'2018-08-05 16:27:02','2018-08-05 19:26:51'),(28,2,18,'2018-08-05 16:34:59','2018-08-05 19:27:44'),(29,2,18,'2018-08-05 16:34:59','2018-08-05 19:34:48'),(30,2,18,'2018-08-05 16:34:59','2018-08-05 19:34:48'),(31,2,18,'2018-08-05 16:34:59','2018-08-05 19:34:48'),(32,2,18,'2018-08-05 16:34:59','2018-08-05 19:34:48'),(33,2,18,'2018-08-05 16:34:59','2018-08-05 19:34:48'),(34,2,18,'2018-08-05 16:36:24','2018-08-05 19:35:12'),(35,2,18,'2018-08-05 16:36:24','2018-08-05 19:35:13'),(36,2,18,'2018-08-05 16:36:24','2018-08-05 19:35:13'),(37,2,18,'2018-08-05 16:36:24','2018-08-05 19:35:13'),(38,2,18,'2018-08-05 16:36:24','2018-08-05 19:35:13'),(39,2,18,'2018-08-05 16:36:24','2018-08-05 19:35:13'),(40,2,18,'2018-08-05 16:36:24','2018-08-05 19:35:13'),(41,2,18,'2018-08-05 16:36:24','2018-08-05 19:35:13'),(42,2,18,'2018-08-05 16:36:24','2018-08-05 19:35:28');
 /*!40000 ALTER TABLE `tb_cartsproducts` ENABLE KEYS */;
 UNLOCK TABLES;
 
@@ -131,29 +132,6 @@ LOCK TABLES `tb_categories` WRITE;
 /*!40000 ALTER TABLE `tb_categories` DISABLE KEYS */;
 INSERT INTO `tb_categories` VALUES (3,'Bolos','2018-06-09 23:53:49'),(4,'Doces','2018-06-10 00:15:09'),(5,'Salgados','2018-06-10 00:15:17');
 /*!40000 ALTER TABLE `tb_categories` ENABLE KEYS */;
-UNLOCK TABLES;
-
---
--- Table structure for table `tb_categoriesproducts`
---
-
-DROP TABLE IF EXISTS `tb_categoriesproducts`;
-/*!40101 SET @saved_cs_client     = @@character_set_client */;
-/*!40101 SET character_set_client = utf8 */;
-CREATE TABLE `tb_categoriesproducts` (
-  `idcategory` int(11) NOT NULL,
-  `idproduct` int(11) NOT NULL,
-  PRIMARY KEY (`idcategory`,`idproduct`)
-) ENGINE=InnoDB DEFAULT CHARSET=utf8;
-/*!40101 SET character_set_client = @saved_cs_client */;
-
---
--- Dumping data for table `tb_categoriesproducts`
---
-
-LOCK TABLES `tb_categoriesproducts` WRITE;
-/*!40000 ALTER TABLE `tb_categoriesproducts` DISABLE KEYS */;
-/*!40000 ALTER TABLE `tb_categoriesproducts` ENABLE KEYS */;
 UNLOCK TABLES;
 
 --
@@ -266,7 +244,7 @@ CREATE TABLE `tb_products` (
 
 LOCK TABLES `tb_products` WRITE;
 /*!40000 ALTER TABLE `tb_products` DISABLE KEYS */;
-INSERT INTO `tb_products` VALUES (15,'Doce Thor',1.50,'',0.00,'dsfffff','2018-07-08 16:43:01'),(16,'Doce Escudo CapitÃ£o AmÃ©rica',1.50,'',0.00,'','2018-07-08 17:21:40'),(17,'Doce Concha Diamante',1.50,'',0.00,'','2018-07-08 17:22:09'),(18,'Doce Capacete do Homem de Ferro',1.50,'',0.00,'','2018-07-08 17:22:29'),(19,'Bolo  BÃ­blia Aberta',1.50,'',0.00,'','2018-07-08 17:24:58');
+INSERT INTO `tb_products` VALUES (15,'Doce Thor',1.50,'',0.00,'doce-thor','2018-07-08 16:43:01'),(16,'Doce Escudo CapitÃ£o AmÃ©rica',1.50,'',0.00,'doce_escudo_capitao_america','2018-07-08 17:21:40'),(17,'Doce Concha Diamante',1.50,'',0.00,'doce_concha_diamante','2018-07-08 17:22:09'),(18,'Doce Capacete do Homem de Ferro',1.50,'',0.00,'Doce_Capacete_do_Homem_de_Ferro','2018-07-08 17:22:29'),(19,'Bolo  BÃ­blia Aberta',1.50,'',0.00,'bolo-biblia','2018-07-08 17:24:58');
 /*!40000 ALTER TABLE `tb_products` ENABLE KEYS */;
 UNLOCK TABLES;
 
@@ -394,6 +372,54 @@ UNLOCK TABLES;
 --
 -- Dumping routines for database 'db_ecommerce'
 --
+/*!50003 DROP PROCEDURE IF EXISTS `sp_carts_save` */;
+/*!50003 SET @saved_cs_client      = @@character_set_client */ ;
+/*!50003 SET @saved_cs_results     = @@character_set_results */ ;
+/*!50003 SET @saved_col_connection = @@collation_connection */ ;
+/*!50003 SET character_set_client  = utf8 */ ;
+/*!50003 SET character_set_results = utf8 */ ;
+/*!50003 SET collation_connection  = utf8_general_ci */ ;
+/*!50003 SET @saved_sql_mode       = @@sql_mode */ ;
+/*!50003 SET sql_mode              = 'NO_AUTO_CREATE_USER,NO_ENGINE_SUBSTITUTION' */ ;
+DELIMITER ;;
+CREATE DEFINER=`root`@`localhost` PROCEDURE `sp_carts_save`(
+pidcart INT,
+pdessessionid VARCHAR(64),
+piduser INT,
+pdeszipcode CHAR(8),
+pvlfreight DECIMAL(10,2),
+pnrdays INT
+)
+BEGIN
+
+    IF pidcart > 0 THEN
+        
+        UPDATE tb_carts
+        SET
+            dessessionid = pdessessionid,
+            iduser = piduser,
+            deszipcode = pdeszipcode,
+            vlfreight = pvlfreight,
+            nrdays = pnrdays
+        WHERE idcart = pidcart;
+        
+    ELSE
+        
+        INSERT INTO tb_carts (dessessionid, iduser, deszipcode, vlfreight, nrdays)
+        VALUES(pdessessionid, piduser, pdeszipcode, pvlfreight, pnrdays);
+        
+        SET pidcart = LAST_INSERT_ID();
+        
+    END IF;
+    
+    SELECT * FROM tb_carts WHERE idcart = pidcart;
+
+END ;;
+DELIMITER ;
+/*!50003 SET sql_mode              = @saved_sql_mode */ ;
+/*!50003 SET character_set_client  = @saved_cs_client */ ;
+/*!50003 SET character_set_results = @saved_cs_results */ ;
+/*!50003 SET collation_connection  = @saved_col_connection */ ;
 /*!50003 DROP PROCEDURE IF EXISTS `sp_categories_save` */;
 /*!50003 SET @saved_cs_client      = @@character_set_client */ ;
 /*!50003 SET @saved_cs_results     = @@character_set_results */ ;
@@ -608,4 +634,4 @@ DELIMITER ;
 /*!40101 SET COLLATION_CONNECTION=@OLD_COLLATION_CONNECTION */;
 /*!40111 SET SQL_NOTES=@OLD_SQL_NOTES */;
 
--- Dump completed on 2018-07-09 18:29:08
+-- Dump completed on 2018-08-05 16:52:21
