@@ -100,7 +100,7 @@ class Cart extends Model {
 			':idcart'=>$this->getidcart(),
 			':dessessionid'=>$this->getdessessionid(),
 			':iduser'=>$this->getiduser(),
-			':deszipcode'=>$this->getideszipcode(),
+			':deszipcode'=>$this->getdeszipcode(),
 			':vlfreight'=>$this->getvlfreight(),
 			':nrdays'=>$this->getnrdays()
 		]);
@@ -300,7 +300,7 @@ class Cart extends Model {
 		$totals = $this->getProductsTotals();
 
 		$this->setvlsubtotal($totals['vlprice']);
-		$this->setvltotal($totals['vlprice'] + $this->getvlfreight());
+		$this->setvltotal($totals['vlprice']); //+ $this->getvlfreight())
 
 	}
 
