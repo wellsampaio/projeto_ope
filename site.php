@@ -6,6 +6,8 @@ use \Hcode\Model\Category;
 use \Hcode\Model\Cart;
 use \Hcode\Model\Address;
 use \Hcode\Model\User;
+use \Hcode\Model\Order;
+use \Hcode\Model\OrderStatus;
 
 
 
@@ -164,6 +166,7 @@ $app->get("/checkout", function(){
 	}
 
 	if (!$address->getdesaddress()) $address->setdesaddress('');
+	if (!$address->getdesnumber()) $address->setdesnumber('');
 	if (!$address->getdescomplement()) $address->setdescomplement('');
 	if (!$address->getdesdistrict()) $address->setdesdistrict('');
 	if (!$address->getdescity()) $address->setdescity('');
@@ -244,8 +247,24 @@ $app->post("/checkout", function(){
 	$address->setData($_POST);
 
 	$address->save();
+
+	$cart = Cart::getFromSession();
+
+	$totals = $cart->getCalculateTotal();
+
+	$order = new Order();
+
+	$order->setData([
+		'idcart'=>$cart->getidcart(),
+		'idaddress'=>$address->getidadress(),
+		'iduser'=>$user->getiduser(),
+		'idstatus'=>OrderStatus::EM_ABERTO,
+		'vltotal'=>$totals['vlprice']/*-+$cart->getvlfreight()*/
+	]);
+
+	$order->save();
 	
-	header("Location: /order");
+	header("Location: /order/".$order->getidorder());
 	exit;
 });
 
@@ -460,6 +479,22 @@ $app->post("/profile", function(){
 
 	header("Location: /profile");
 	exit;
+
+});
+
+$app->get("/order/:idorder", function($idorder) {
+
+	User::verifyLogin(false);
+
+	$order = new Order();
+
+	$order->get((int)$idorder);
+
+	$page = new Page();
+
+	$page->setTpl("payment", [
+		'order'=>$order->getValues()
+	]);
 
 });
 
