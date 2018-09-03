@@ -3,12 +3,12 @@
 			<div class="block-slider block-slider4">
 				<ul class="" id="bxslider-home4">
 					<li>
-						<img src="/res/site/img/h4-slide.png" alt="Slide">
+						<img src="/res/site/img/h4-slide7.png" alt="Slide">
 						<div class="caption-group">
 							<h2 class="caption title">
-								iPhone <span class="primary">6 <strong>Plus</strong></span>
+								Mini Trufa <span class="primary">de <strong> Coruja</strong></span>
 							</h2>
-							<h4 class="caption subtitle">Dual SIM</h4>
+							<h4 class="caption subtitle">Doces</h4>
 							<a class="caption button-radius" href="#"><span class="icon"></span>Comprar</a>
 						</div>
 					</li>
