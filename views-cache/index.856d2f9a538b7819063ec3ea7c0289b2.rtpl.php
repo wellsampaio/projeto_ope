@@ -6,36 +6,36 @@
 						<img src="/res/site/img/h4-slide7.png" alt="Slide">
 						<div class="caption-group">
 							<h2 class="caption title">
-								Mini Trufa <span class="primary">de <strong> Coruja</strong></span>
+							 <span class="primary">Mini Trufa de <strong> Coruja</strong></span>
 							</h2>
-							<h4 class="caption subtitle">Doces</h4>
+							<h4 class="caption subtitle" style="color: #fff">Doces</h4>
 							<a class="caption button-radius" href="#"><span class="icon"></span>Comprar</a>
 						</div>
 					</li>
 					<li><img src="/res/site/img/h4-slide2.png" alt="Slide">
 						<div class="caption-group">
 							<h2 class="caption title">
-								by one, get one <span class="primary">50% <strong>off</strong></span>
+								<span class="primary">Bolos <strong>personalizados</strong></span>
 							</h2>
-							<h4 class="caption subtitle">school supplies & backpacks.*</h4>
+							<h4 class="caption subtitle" style="color: #fff">Bolos</h4>
 							<a class="caption button-radius" href="#"><span class="icon"></span>Comprar</a>
 						</div>
 					</li>
 					<li><img src="/res/site/img/h4-slide3.png" alt="Slide">
 						<div class="caption-group">
 							<h2 class="caption title">
-								Apple <span class="primary">Store <strong>Ipod</strong></span>
+								<span class="primary">Bolo Esculpido de  <strong>Ursinho</strong></span>
 							</h2>
-							<h4 class="caption subtitle">Select Item</h4>
+							<h4 class="caption subtitle" style="color: #fff">Bolos</h4>
 							<a class="caption button-radius" href="#"><span class="icon"></span>Comprar</a>
 						</div>
 					</li>
 					<li><img src="/res/site/img/h4-slide4.png" alt="Slide">
 						<div class="caption-group">
 						  <h2 class="caption title">
-								Apple <span class="primary">Store <strong>Ipod</strong></span>
+								<span class="primary"><strong>Trufas Artesanais</strong></span>
 							</h2>
-							<h4 class="caption subtitle">& Phone</h4>
+							<h4 class="caption subtitle" style="color: #fff">Doces</h4>
 							<a class="caption button-radius" href="#"><span class="icon"></span>Comprar</a>
 						</div>
 					</li>
@@ -51,7 +51,7 @@
                 <div class="col-md-3 col-sm-6">
                     <div class="single-promo promo1">
                         <i class="fa fa-refresh"></i>
-                        <p>1 ano de garantia</p>
+                        <p>Bolo Personalizado</p>
                     </div>
                 </div>
                 <div class="col-md-3 col-sm-6">
@@ -108,7 +108,7 @@
         </div>
     </div> <!-- End main content area -->
     
-    <div class="brands-area">
+    <!--<div class="brands-area">
         <div class="zigzag-bottom"></div>
         <div class="container">
             <div class="row">
@@ -128,4 +128,4 @@
                 </div>
             </div>
         </div>
-    </div> <!-- End brands area -->
+    </div>--> <!-- End brands area -->
