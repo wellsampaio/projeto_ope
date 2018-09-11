@@ -299,7 +299,7 @@ $app->post("/login", function(){
 		User::setError($e->getMessage());
 	}
 
-	header("Location: /profile");
+	header("Location: /cart");
 	exit;
 });
 
