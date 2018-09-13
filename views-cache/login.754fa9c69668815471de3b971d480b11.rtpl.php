@@ -26,14 +26,17 @@
   <![endif]-->
 </head>
 <body class="hold-transition login-page">
-<div class="login-box">
+
+<div class="login-box">              
+               
+               
+            
   <div class="login-logo" >
     <a href="" style="color: ##000000"><b style="color: #000000">Admin</b><b style="color: #000000"> Confeitaria</b></a>
   </div>
   <!-- /.login-logo -->
   <div class="login-box-body">
     <p class="login-box-msg">Entre para iniciar a sua sessão</p>
-
     <form action="/admin/login" method="post">
       <div class="form-group has-feedback">
         <input type="text" class="form-control" placeholder="Login" name="login">
@@ -60,16 +63,22 @@
     </form>
 
     <div class="social-auth-links text-center">
-      <p>- ou-</p>
+      <!--<p>- ou-</p>
       <a href="#" class="btn btn-block btn-social btn-facebook btn-flat"><i class="fa fa-facebook"></i> Sign in using
         Facebook</a>
       <a href="#" class="btn btn-block btn-social btn-google btn-flat"><i class="fa fa-google-plus"></i> Sign in using
-        Google+</a>
+        Google+</a>-->
     </div>
     <!-- /.social-auth-links -->
 
     <a href="/admin/forgot">Esqueci a minha senha</a><br>
     <a href="register.html" class="text-center">Registra -se </a>
+
+     <?php if( $error != '' ){ ?>
+                <div class="alert alert-danger">
+                    <?php echo htmlspecialchars( $error, ENT_COMPAT, 'UTF-8', FALSE ); ?>
+                </div>
+                <?php } ?>
 
   </div>
   <!-- /.login-box-body -->
