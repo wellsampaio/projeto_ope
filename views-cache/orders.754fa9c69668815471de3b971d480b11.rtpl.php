@@ -25,7 +25,7 @@
                     <th style="width: 10px">#</th>
                     <th>Cliente</th>
                     <th>Valor Total</th>
-                    <th>Valor do Frete</th>
+                    <!--<th>Valor do Frete</th>-->
                     <th>Status</th>
                     <th style="width: 220px">&nbsp;</th>
                   </tr>
@@ -36,7 +36,7 @@
                     <td><?php echo htmlspecialchars( $value1["idorder"], ENT_COMPAT, 'UTF-8', FALSE ); ?></td>
                     <td><?php echo htmlspecialchars( $value1["desperson"], ENT_COMPAT, 'UTF-8', FALSE ); ?></td>
                     <td>R$<?php echo formatPrice($value1["vltotal"]); ?></td>
-                    <td>R$<?php echo formatPrice($value1["vlfreight"]); ?></td>
+                    <!--<td>R$<?php echo formatPrice($value1["vlfreight"]); ?></td>-->
                     <td><?php echo htmlspecialchars( $value1["desstatus"], ENT_COMPAT, 'UTF-8', FALSE ); ?></td>
                     <td>
                       <a href="/admin/orders/<?php echo htmlspecialchars( $value1["idorder"], ENT_COMPAT, 'UTF-8', FALSE ); ?>" class="btn btn-default btn-xs"><i class="fa fa-search"></i> Detalhes</a>

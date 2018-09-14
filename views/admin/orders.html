@@ -25,7 +25,7 @@
                     <th style="width: 10px">#</th>
                     <th>Cliente</th>
                     <th>Valor Total</th>
-                    <th>Valor do Frete</th>
+                    <!--<th>Valor do Frete</th>-->
                     <th>Status</th>
                     <th style="width: 220px">&nbsp;</th>
                   </tr>
@@ -36,7 +36,7 @@
                     <td>{$value.idorder}</td>
                     <td>{$value.desperson}</td>
                     <td>R${function="formatPrice($value.vltotal)"}</td>
-                    <td>R${function="formatPrice($value.vlfreight)"}</td>
+                    <!--<td>R${function="formatPrice($value.vlfreight)"}</td>-->
                     <td>{$value.desstatus}</td>
                     <td>
                       <a href="/admin/orders/{$value.idorder}" class="btn btn-default btn-xs"><i class="fa fa-search"></i> Detalhes</a>
