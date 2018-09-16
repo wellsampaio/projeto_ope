@@ -50,8 +50,8 @@
             <div class="col-sm-4 invoice-col">
             <b>Pedido #<?php echo htmlspecialchars( $order["idorder"], ENT_COMPAT, 'UTF-8', FALSE ); ?></b><br>
             <br>
-            <b>Emitido em:</b> <?php echo formatDate($order["dtregister"]); ?><br>
-            <b>Pago em:</b> <?php echo formatDate($order["dtregister"]); ?>
+            <b>Emitido em: </b> <?php echo formatDate($order["dtregister"]); ?><br>
+            <b>Pago em: </b> <?php echo formatDate($order["dtregister"]); ?>
             </div>
             <!-- /.col -->
         </div>
@@ -75,7 +75,7 @@
                     <td><?php echo htmlspecialchars( $value1["nrqtd"], ENT_COMPAT, 'UTF-8', FALSE ); ?></td>
                     <td><?php echo htmlspecialchars( $value1["desproduct"], ENT_COMPAT, 'UTF-8', FALSE ); ?></td>
                     <td><?php echo htmlspecialchars( $value1["idproduct"], ENT_COMPAT, 'UTF-8', FALSE ); ?></td>
-                    <td>R$<?php echo formatPrice($order["vltotal"]); ?></td>
+                    <td>R$ <?php echo formatPrice($order["vltotal"]); ?></td>
                 </tr>
                 <?php } ?>
                 </tbody>
@@ -119,7 +119,7 @@
                 <table class="table">
                 <tbody><tr>
                     <th style="width:50%">Subtotal:</th>
-                    <td>R$<?php echo formatPrice($cart["vlsubtotal"]); ?></td>
+                    <td>R$ <?php echo formatPrice($cart["vlsubtotal"]); ?></td>
                 </tr>
                 <!--<tr>
                     <th>Frete:</th>
@@ -127,7 +127,7 @@
                 </tr>-->
                 <tr>
                     <th>Total:</th>
-                    <td>R$<?php echo formatPrice($cart["vltotal"]); ?></td>
+                    <td>R$ <?php echo formatPrice($cart["vltotal"]); ?></td>
                 </tr>
                 </tbody></table>
             </div>
