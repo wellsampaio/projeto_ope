@@ -34,7 +34,7 @@ $app->post("/admin/orders/:idorder/status", function($idorder){
 	if (!isset($_POST['idstatus']) || !(int)$_POST['idstatus'] > 0){
 
 		Order::setError("Informe o status atual");
-		header("Location: /admin/orders".$idorder."/status");
+		header("Location: /admin/orders/".$idorder."/status");
 		exit;
 
 	}
@@ -49,7 +49,7 @@ $app->post("/admin/orders/:idorder/status", function($idorder){
 
 	Order::setSuccess("Status Atualizado");
 
-	header("Location: /admin/orders".$idorder."/status");
+	header("Location: /admin/orders/".$idorder."/status");
 	exit;
 
 });
