@@ -251,7 +251,7 @@ $app->post("/login", function(){
 		User::setError($e->getMessage());
 	}
 
-	header("Location: /cart");
+	header("Location: /profile");
 	exit;
 });
 
