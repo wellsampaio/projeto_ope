@@ -22,8 +22,6 @@ $app->get('/payment', function(){
         array_push($years, $y);
     }
 
-    var_dump($years);
-
 	$page = new Page([
 		"footer"=>false
 	]);
@@ -33,7 +31,7 @@ $app->get('/payment', function(){
 
 		"order"=>$order->getValues(),
 		"msgError"=>Order::getError(),
-		"years"=>"$years",
+		"years"=>$years,
 		"pagseguro"=>[
 			"urlJS"=>Config::getUrlJS()
 
