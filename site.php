@@ -195,8 +195,6 @@ $app->post("/checkout", function(){
 		'idstatus'=>OrderStatus::EM_ABERTO,
 		'vltotal'=>$cart->getvltotal()
 	]);
-
-	$order->save();
 	
 	/**switch ((int)$_POST['payment-method']) {
 
@@ -209,7 +207,11 @@ $app->post("/checkout", function(){
 		break;
 	}**/
 
-	header("Location: /order/".$order->getidorder());
+	$order->save();
+
+	$order->toSession();
+
+	header("Location: /payment");
 	exit;
 
 });
