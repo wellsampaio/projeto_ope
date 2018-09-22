@@ -129,6 +129,8 @@
 
                                                     <form action="/payment/credit" class="checkout" method="post" name="checkout" style="padding:10px;" id="form-credit">
 
+                                                        <input type="hidden" name="brand" id="brand_field">
+
                                                         <div class="row">
                                                             <div class="col-sm-4">
                                                                 <div class="form-row form-row-wide address-field validate-required">
@@ -310,9 +312,11 @@ scripts.push(function(){
 
             $("#payment-methods").removeClass("hide");
         },
+
         error: function(response) {
             
             var errors = [];
+
             for (var code in response.errors)
             {
                 errors.push(response.errors[code]);
@@ -320,9 +324,43 @@ scripts.push(function(){
             showError(errors.toString());
             
         },
+
         complete: function(response) {
             
                         
+        }
+    });
+
+    $("#number_field").on("change", function(){
+
+        var value = $(this).val();
+
+        if (value.length >= 6) {
+
+            PagSeguroDirectPayment.getBrand({
+                cardBin: value.substring(0, 6),
+
+                success: function(response) {
+
+                    $("#brand_field").val(response.brand.name);
+                    console.log(response.brand.name);
+                },
+
+                error: function(response) {
+                    //tratamento do erro
+                    var errors = [];
+                    
+                    for (var code in response.errors)
+                    {
+                        errors.push(response.errors[code]);
+                    }
+                    showError(errors.toString());
+                },
+
+                complete: function(response) {
+                        //tratamento comum para todas chamadas
+                }
+            });
         }
     });
 });
