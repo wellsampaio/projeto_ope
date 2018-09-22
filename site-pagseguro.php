@@ -12,7 +12,7 @@ $app->get('/payment', function(){
 
 	$order = new Order();
 
-	$order->getFomSession();
+	$order->getFromSession();
 
 	$years = [];
 
@@ -22,9 +22,7 @@ $app->get('/payment', function(){
         array_push($years, $y);
     }
 
-	$page = new Page([
-		"footer"=>false
-	]);
+	$page = new Page();
 
 
 	$page->setTpl("payment", [
