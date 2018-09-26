@@ -40,7 +40,6 @@
                     <th>Valor Total</th>
                     <!--<th>Valor do Frete</th>-->
                     <th>Status</th>
-                    <th>Data de Registro</th>
                     <th style="width: 220px">&nbsp;</th>
                   </tr>
                 </thead>
@@ -52,7 +51,6 @@
                     <td>R$ <?php echo formatPrice($value1["vltotal"]); ?></td>
                     <!--<td>R$<?php echo formatPrice($value1["vlfreight"]); ?></td>-->
                     <td><?php echo htmlspecialchars( $value1["desstatus"], ENT_COMPAT, 'UTF-8', FALSE ); ?></td>
-                    <td><?php echo htmlspecialchars( $order["dtregister"], ENT_COMPAT, 'UTF-8', FALSE ); ?></td>
                     <td>
                       <a href="/admin/orders/<?php echo htmlspecialchars( $value1["idorder"], ENT_COMPAT, 'UTF-8', FALSE ); ?>" class="btn btn-default btn-xs"><i class="fa fa-search"></i> Detalhes</a>
                       <a href="/admin/orders/<?php echo htmlspecialchars( $value1["idorder"], ENT_COMPAT, 'UTF-8', FALSE ); ?>/status" class="btn btn-primary btn-xs"><i class="fa fa-pencil"></i> Status</a>

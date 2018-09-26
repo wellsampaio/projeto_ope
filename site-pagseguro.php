@@ -32,7 +32,9 @@ $app->get('/payment', function(){
 		"years"=>$years,
 		"pagseguro"=>[
 			"urlJS"=>Config::getUrlJS(),
-			"id"=>Transporter::createSession() 
+			"id"=>Transporter::createSession(),
+			"maxInstallmentNoInterest"=>Config::MAX_INSTALL_MENT_NO_INTEREST,
+			"maxInstallment"=>Config::MAX_INSTALLMENT
 
 		]
 
