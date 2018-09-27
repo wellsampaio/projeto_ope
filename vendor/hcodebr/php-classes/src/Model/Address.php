@@ -54,7 +54,7 @@ class Address extends Model {
 
 		$sql = new Sql();
 
-		$results = $sql->select("CALL sp_addresses_save(:idaddress, :idperson, :desaddress, :desnumber, :descomplement, :descity, :desstate, :descountry, :deszipcode, :desdistrict)", [
+		$results = $sql->select("CALL sp_addresses_save(:idaddress, :idperson, :desaddress, :desnumber, :descomplement, :descity, :desstate, :descountry, :deszipcode, :desdistrict, :desdelivery)", [
 		    ':idaddress'=>$this->getidaddress(),
 		    ':idperson'=>$this->getidperson(),
 		    ':desaddress'=>$this->getdesaddress(),
@@ -64,7 +64,8 @@ class Address extends Model {
 		    ':desstate'=>$this->getdesstate(),
 		    ':descountry'=>$this->getdescountry(),
 		    ':deszipcode'=>$this->getdeszipcode(),
-		    ':desdistrict'=>$this->getdesdistrict()
+		    ':desdistrict'=>$this->getdesdistrict(),
+		    ':desdelivery'=>$this->getdesdelivery()
 	]);
 
 		if (count($results) > 0) {

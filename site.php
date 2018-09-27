@@ -95,6 +95,7 @@ $app->get("/checkout", function(){
 	if (!$address->getdesnumber()) $address->setdesnumber('');
 	if (!$address->getdescomplement()) $address->setdescomplement('');
 	if (!$address->getdesdistrict()) $address->setdesdistrict('');
+	if (!$address->getdesdelivery()) $address->setdesdelivery('');
 	if (!$address->getdescity()) $address->setdescity('');
 	if (!$address->getdesstate()) $address->setdesstate('');
 	if (!$address->getdescountry()) $address->setdescountry('');
@@ -126,6 +127,14 @@ $app->post("/checkout", function(){
 	if (!isset($_POST['desaddress']) || $_POST['desaddress'] === '') {
 
 		Address::setMsgError("Informe o endereço.");
+
+		header('Location: /checkout');
+		exit;
+	}
+
+	if (!isset($_POST['desdelivery']) || $_POST['desdelivery'] === '') {
+
+		Address::setMsgError("Informe a Data de Entrega.");
 
 		header('Location: /checkout');
 		exit;
