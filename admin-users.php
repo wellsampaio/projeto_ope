@@ -11,6 +11,7 @@ $app->get("/admin/users", function() {
 
 	$search = (isset($_GET['search'])) ? $_GET['search'] : "";
 
+
 	$page = (isset($_GET['page'])) ? (int)$_GET['page'] : 1;
 
  	if ($search != '') {
