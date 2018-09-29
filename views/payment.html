@@ -432,7 +432,6 @@ scripts.push(function(){
             params[field.name] = field.value;
         });
 
-        console.log(params);
 
         PagSeguroDirectPayment.createCardToken({
             cardNumber: params.number,
@@ -441,9 +440,20 @@ scripts.push(function(){
             expirationYear: params.year,
             success: function(response) {
                 //token gerado, esse deve ser usado na chamada da API do Checkout Transparente
-                console.log("TOKEN", response.card.token);
-                console.log("HASH", PagSeguroDirectPayment.getSenderHash());
-                console.log("params", params);
+
+                params.token = response.card.token;
+                params.hash = PagSeguroDirectPayment.getSenderHash();
+
+                $.post(
+                    "/payment/credit",
+                    $.param(params),
+                    function(r){
+                        console.log(r);
+
+
+                    }
+
+                );
 
             },
             error: function(response) {
