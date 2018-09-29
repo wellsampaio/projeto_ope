@@ -140,6 +140,22 @@ $app->post("/checkout", function(){
 		exit;
 	}
 
+	if (!isset($_POST['desconf_delivery']) || $_POST['desconf_delivery'] === '') {
+
+		Address::setMsgError("Confirme a Data de Entrega.");
+
+		header('Location: /checkout');
+		exit;
+	}
+
+	if ($_POST['desconf_delivery'] !== $_POST['desdelivery']){
+
+		Address::setMsgError("Data de entrega não correspondem");
+		header("Location: /checkout");
+		exit;
+
+	}
+
 		if (!isset($_POST['desnumber']) || $_POST['desnumber'] === '') {
 
 		Address::setMsgError("Informe o Número.");

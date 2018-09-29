@@ -441,7 +441,7 @@ scripts.push(function(){
             expirationYear: params.year,
             success: function(response) {
                 //token gerado, esse deve ser usado na chamada da API do Checkout Transparente
-                console.log("TOKEN", response);
+                console.log("TOKEN", response.card.token);
                 console.log("HASH", PagSeguroDirectPayment.getSenderHash());
                 console.log("params", params);
 

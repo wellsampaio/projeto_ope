@@ -76,6 +76,11 @@
 											<label class="" for="billing_state">Data de Entrega</label>
 											<input type="date" id="billing_state" name="desdelivery" placeholder="Data de entrega" value="<?php echo htmlspecialchars( $address["desdelivery"], ENT_COMPAT, 'UTF-8', FALSE ); ?>" class="input-date">
 										</p>
+
+										<p id="billing_state_field" class="form-row form-row-first address-field validate-state" data-o_class="form-row form-row-first address-field validate-state">
+											<label class="" for="billing_state"> Confirmar Data de Entrega</label>
+											<input type="date" id="billing_state" name="desconf_delivery" placeholder="Data de entrega" value="<?php echo htmlspecialchars( $address["desdelivery"], ENT_COMPAT, 'UTF-8', FALSE ); ?>" class="input-date">
+										</p>
 										<div class="clear"></div>
 										<h3 id="order_review_heading" style="margin-top:30px;">Detalhes do Pedido</h3>
 										<div id="order_review" style="position: relative;">
