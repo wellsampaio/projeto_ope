@@ -109,17 +109,25 @@ $app->get("/admin/orders", function(){
  	}
  	$pages = [];
 
- 	for ($x = 0; $x < $pagination['pages']; $x++)
+ 			
 
+ 	for ($x = 0; $x < $pagination['pages']; $x++)
+ 
 	{
  		array_push($pages, [
 			'href'=>'/admin/orders?'.http_build_query([
 				'page'=>$x+1,
 				'search'=>$search
 			]),
-			'text'=>$x+1
+			'text'=>$x+1,
+			
 		]);
+
  	}
+
+
+
+ 	
 
  	$order = new Order();
 
@@ -131,7 +139,7 @@ $app->get("/admin/orders", function(){
 		"order"=>$order->getValues(),
 		"orders"=>$pagination['data'],
 		"search"=>$search,
-		"pages"=>$pages
+		"pages"=>$pages,
 	]);
 
  });
