@@ -188,10 +188,15 @@ class Order extends Model {
 
  		$resultTotal = $sql->select("SELECT FOUND_ROWS() AS nrtotal;");
 
+ 		if (count($resultTotal) > 0) {
+         	return $resultsTotal[0]['nrtotal'];
+     	}
+
  		return [
 			'data'=>$results,
 			'total'=>(int)$resultTotal[0]["nrtotal"],
-			'pages'=>ceil($resultTotal[0]["nrtotal"] / $itemsPerPage)
+			'pages'=>ceil($resultTotal[0]["nrtotal"] / $itemsPerPage),
+			'quantSearch'=>$resultsTotal[0]['nrtotal']
 		];
  	}
 
@@ -216,6 +221,22 @@ class Order extends Model {
 
  		return $address;
  	}
+
+ 	public static function quantOrders()
+	{ 
+     	$sql = new Sql();
+ 
+     	$count = $sql->select("SELECT COUNT(*) AS nrtotal FROM tb_orders a 
+			INNER JOIN tb_ordersstatus b USING(idstatus) 
+			INNER JOIN tb_carts c USING(idcart)
+			INNER JOIN tb_users d ON d.iduser = a.iduser
+			INNER JOIN tb_addresses e USING(idaddress)
+			INNER JOIN tb_persons f ON f.idperson = d.idperson;");
+
+     	if (count($count) > 0) {
+         	return $count[0]['nrtotal'];
+     	}
+	}
 }
 	
 ?>

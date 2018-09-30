@@ -94,6 +94,8 @@ $app->get("/admin/orders", function(){
 
 	User::verifyLogin();
 
+	$quantOrders = Order::quantOrders();
+
 
 	$search = (isset($_GET['search'])) ? $_GET['search'] : "";
 
@@ -101,7 +103,8 @@ $app->get("/admin/orders", function(){
 
  	if ($search != '') {
 
- 		$pagination = Order::getPageSearch($search, $page);
+ 		$pagination = Order::getPageSearch($search, $page
+ 		);
 
  	} else {
 
@@ -119,7 +122,7 @@ $app->get("/admin/orders", function(){
 				'page'=>$x+1,
 				'search'=>$search
 			]),
-			'text'=>$x+1,
+			'text'=>$x+1
 			
 		]);
 
@@ -140,6 +143,7 @@ $app->get("/admin/orders", function(){
 		"orders"=>$pagination['data'],
 		"search"=>$search,
 		"pages"=>$pages,
+		"quantOrders"=>$quantOrders
 	]);
 
  });

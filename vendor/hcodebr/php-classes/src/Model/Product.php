@@ -227,7 +227,16 @@ class Product extends Model {
 			'pages'=>ceil($resultTotal[0]["nrtotal"] / $itemsPerPage)
 		];
  	}
-	
+
+ 	public static function quantProducts()
+	{ 
+     	$sql = new Sql();
+ 
+     	$count = $sql->select("SELECT COUNT(*) AS nrtotal FROM tb_products;");
+     	if (count($count) > 0) {
+         	return $count[0]['nrtotal'];
+     	}
+	}
 }
 
 

@@ -4,6 +4,7 @@ use \Hcode\Page;
 use \Hcode\Model\User;
 use \Hcode\PagSeguro\Config;
 use \Hcode\PagSeguro\Transporter;
+use \Hcode\PagSeguro\Document;
 use \Hcode\Model\Order;
 
 $app->post("/payment/credit", function(){
@@ -18,9 +19,17 @@ $app->post("/payment/credit", function(){
 
 	$cart = $order->getCart();
 
-	var_dump($order->getValues());
-	var_dump($address->getValues());
-	var_dump($cart->getValues());
+	$cpf = new Document(Document::CPF, $_POST['cpf']);
+
+	$dom = new DOMDocument();
+
+	$test = $cpf->getDOMElement();
+
+	$testNode = $dom->importNode($test, true);
+
+	$dom->appendChild($testNode);
+
+	echo $dom->saveXml();
 
 
 

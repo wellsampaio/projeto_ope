@@ -76,7 +76,7 @@
           </div>
   	</div>
   </div>
-
+Pedidos Cadastrados: <?php echo htmlspecialchars( $quantOrders, ENT_COMPAT, 'UTF-8', FALSE ); ?>
 </section>
 <!-- /.content -->
 </div>

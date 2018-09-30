@@ -7,6 +7,8 @@ $app->get("/admin/users", function() {
 
 	User::verifyLogin();
 
+	$quantUsers = User::quantUsers();
+
 	$users = User::listAll();
 
 	$search = (isset($_GET['search'])) ? $_GET['search'] : "";
@@ -42,7 +44,8 @@ $app->get("/admin/users", function() {
 		"users"=>$users,
 		"users"=>$pagination['data'],
 		"search"=>$search,
-		"pages"=>$pages
+		"pages"=>$pages,
+		"quantUsers"=>$quantUsers
 	));
 
  });

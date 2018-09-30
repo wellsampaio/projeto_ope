@@ -423,6 +423,15 @@ class User extends Model {
 			'total'=>(int)$resultTotal[0]["nrtotal"],
 			'pages'=>ceil($resultTotal[0]["nrtotal"] / $itemsPerPage)
 		];
- 	} 
- }
- ?>
+ 	}
+ 	public static function quantUsers()
+	{ 
+     	$sql = new Sql();
+ 
+     	$count = $sql->select("SELECT COUNT(*) AS nrtotal FROM tb_users a INNER JOIN tb_persons b USING(idperson);");
+     	if (count($count) > 0) {
+         	return $count[0]['nrtotal'];
+     	}
+	} 
+}
+?>

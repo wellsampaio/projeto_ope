@@ -27,11 +27,11 @@
           <div class="box-body">
             <div class="form-group">
               <label for="desproduct">Nome da produto</label>
-              <input type="text" class="form-control" id="desproduct" name="desproduct" placeholder="Digite o nome do produto">
+              <input type="text" class="form-control" id="desproduct" name="desproduct" placeholder="Digite o nome do produto" required>
             </div>
             <div class="form-group">
               <label for="vlprice">Preço</label>
-              <input type="number" class="form-control" id="vlprice" name="vlprice" step="0.01" placeholder="0.00">
+              <input type="number" class="form-control" id="vlprice" name="vlprice" step="0.01" placeholder="0.00" required>
             </div>
             <div class="form-group">
               <label for="vlfilling">Recheio</label>
@@ -43,11 +43,11 @@
             </div>
             <div class="form-group">
               <label for="file">Foto</label>
-              <input type="file" class="form-control" id="file" name="file">              
+              <input type="file" class="form-control" id="file" name="file" required>              
             </div>
              <div class="form-group">
               <label for="desurl">URL</label>
-              <input type="text" class="form-control" id="desurl" name="desurl">
+              <input type="text" class="form-control" id="desurl" name="desurl" required>
             </div>
           </div>
           <!-- /.box-body -->

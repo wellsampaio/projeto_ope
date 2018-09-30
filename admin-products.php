@@ -8,6 +8,8 @@ $app->get("/admin/products", function(){
 
 	User::verifyLogin();
 
+	$quantProducts = Product::quantProducts();
+
 	$search = (isset($_GET['search'])) ? $_GET['search'] : "";
 
 	$page = (isset($_GET['page'])) ? (int)$_GET['page'] : 1;
@@ -42,7 +44,8 @@ $app->get("/admin/products", function(){
 	$page->setTpl("products", [
 		"products"=>$pagination['data'],
 		"search"=>$search,
-		"pages"=>$pages
+		"pages"=>$pages,
+		"quantProducts"=>$quantProducts
 	]);
 
 });
