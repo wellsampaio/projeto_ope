@@ -21,6 +21,9 @@ class Config{
 	const  MAX_INSTALL_MENT_NO_INTEREST = 10;
 	const  MAX_INSTALLMENT = 10;
 
+	const NOTIFICATION_URL = "http://www.casadedonabrasilina.com.br/payment/notification";
+
+	
 	public static function getAuthentication():array
 	{
 

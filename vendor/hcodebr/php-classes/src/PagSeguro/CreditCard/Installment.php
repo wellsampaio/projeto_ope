@@ -2,6 +2,11 @@
 
 namespace Hcode\PagSeguro\CreditCard;
 
+use Exception;
+use DOMDocument;
+use DOMElement;
+use Hcode\PagSeguro\Config;
+
 class Installment {
 
     private $quantity;
@@ -46,7 +51,7 @@ class Installment {
         $quantity = $dom->createElement("quantity", $this->quantity);
         $quantity = $installment->appendChild($quantity);
 
-        $noInterestInstallmentQuantity = $dom->createElement("noInterestInstallmentQuantity", Config::MAX_INSTALLMENT_NO_INTEREST);
+        $noInterestInstallmentQuantity = $dom->createElement("noInterestInstallmentQuantity", Config::MAX_INSTALL_MENT_NO_INTEREST);
         $noInterestInstallmentQuantity = $installment->appendChild($noInterestInstallmentQuantity);
 
         return $installment;

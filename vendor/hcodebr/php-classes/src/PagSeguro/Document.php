@@ -34,6 +34,9 @@ class Document {
 
         }
 
+        $this->type = $type;
+        $this->value = $value;
+
     }
 
     public static function isValidCPF($number):bool

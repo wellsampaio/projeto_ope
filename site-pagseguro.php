@@ -1,78 +1,126 @@
-<?php
+<?php 
 
 use \Hcode\Page;
 use \Hcode\Model\User;
 use \Hcode\PagSeguro\Config;
 use \Hcode\PagSeguro\Transporter;
 use \Hcode\PagSeguro\Document;
+use \Hcode\PagSeguro\Phone;
+use \Hcode\PagSeguro\Address;
+use \Hcode\PagSeguro\Sender;
+use \Hcode\PagSeguro\Shipping;
+use \Hcode\PagSeguro\Item;
+use \Hcode\PagSeguro\Payment;
+use \Hcode\PagSeguro\CreditCard;
+use \Hcode\PagSeguro\CreditCard\Installment;
+use \Hcode\PagSeguro\CreditCard\Holder;
 use \Hcode\Model\Order;
 
-$app->post("/payment/credit", function(){
+$app->post('/payment/credit', function(){
 
-	User::verifyLogin(false);
+    User::verifyLogin(false);
 
-	$order = new Order();
+    $order = new Order();
 
-	$order->getFromSession();
+    $order->getFromSession();
 
-	$address = $order->getAddress();
+    $order->get((int)$order->getidorder());
 
-	$cart = $order->getCart();
+    $address = $order->getAddress();
 
-	$cpf = new Document(Document::CPF, $_POST['cpf']);
+    $cart = $order->getCart();
 
-	$dom = new DOMDocument();
+    $cpf = new Document(Document::CPF, $_POST['cpf']);
 
-	$test = $cpf->getDOMElement();
+    $phone = new Phone($_POST['ddd'], $_POST['phone']);
 
-	$testNode = $dom->importNode($test, true);
+    $shippingAddress = new Address(
+        $address->getdesaddress(),
+        $address->getdesnumber(),
+        $address->getdescomplement(),       
+        $address->getdesdistrict(),
+        $address->getdeszipcode(),
+        $address->getdescity(),
+        $address->getdesstate(),
+        $address->getdescountry()
+    );
 
-	$dom->appendChild($testNode);
+    $birthDate = new DateTime($_POST['birth']);
 
-	echo $dom->saveXml();
+    $sender = new Sender($order->getdesperson(), $cpf, $birthDate, $phone, $order->getdesemail(), $_POST['hash']);
 
+    $holder = new Holder($order->getdesperson(), $cpf, $birthDate, $phone);
 
+    $shipping = new Shipping($shippingAddress, (float)$cart->getvlfreight(), Shipping::PAC);
 
+    $installment = new Installment((int)$_POST["installments_qtd"], (float)$_POST["installments_value"]);
+
+    $billingAddress = new Address(
+        $address->getdesaddress(),
+        $address->getdesnumber(),
+        $address->getdescomplement(),       
+        $address->getdesdistrict(),
+        $address->getdeszipcode(),
+        $address->getdescity(),
+        $address->getdesstate(),
+        $address->getdescountry()
+    );
+
+    $creditCard = new CreditCard($_POST['token'], $installment, $holder, $billingAddress);
+
+    $payment = new Payment($order->getidorder(), $sender, $shipping);
+
+    foreach($cart->getProducts() as $product)
+    {
+
+        $item = new Item(
+            (int)$product['idproduct'],
+            $product['desproduct'],
+            (float)$product['vlprice'],
+            (int)$product['nrqtd']
+        );
+
+        $payment->addItem($item);
+
+    }
+
+    $payment->setCreditCard($creditCard);
+
+    $dom = $payment->getDOMDocument();
+
+    echo $dom->saveXml();
 
 });
 
 $app->get('/payment', function(){
 
-	User::verifyLogin(false);
+    User::verifyLogin(false);
 
-	$order = new Order();
+    $order = new Order();
 
-	$order->getFromSession();
+    $order->getFromSession();
 
-	$years = [];
+    $years = [];
 
-
-	for ($y = date('Y'); $y < date('Y')+14; $y++)
+    for ($y = date('Y'); $y < date('Y')+14; $y++)
     {
         array_push($years, $y);
     }
 
-	$page = new Page();
+    $page = new Page();
 
-
-	$page->setTpl("payment", [
-
-		"order"=>$order->getValues(),
-		"msgError"=>Order::getError(),
-		"years"=>$years,
-		"pagseguro"=>[
-			"urlJS"=>Config::getUrlJS(),
-			"id"=>Transporter::createSession(),
-			"maxInstallmentNoInterest"=>Config::MAX_INSTALL_MENT_NO_INTEREST,
-			"maxInstallment"=>Config::MAX_INSTALLMENT
-
-		]
-
-	]);
+    $page->setTpl("payment", [
+        "order"=>$order->getValues(),
+        "msgError"=>Order::getError(),
+        "years"=>$years,
+        "pagseguro"=>[
+            "urlJS"=>Config::getUrlJS(),
+            "id"=>Transporter::createSession(),
+            "maxInstallmentNoInterest"=>Config::MAX_INSTALL_MENT_NO_INTEREST,
+            "maxInstallment"=>Config::MAX_INSTALLMENT
+        ]
+    ]);
 
 });
-
-
-
 
 ?>
