@@ -132,10 +132,6 @@ class Payment {
 
         }
 
-
-        
-
-
         return $dom;
 
     }

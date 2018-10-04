@@ -10,13 +10,16 @@ class Config{
 	const PRODUCTION_EMAIL = "wellington.victalino@gmail.com";
 
 	const SANDBOX_TOKEN = "24F19271CF5B42ED8CE789EEB0EECF6B";
-	const PRODUCTION_TOKEN = "7FA6F0929BCA4AB1BF47CEBB67A6E7D2";
+	const PRODUCTION_TOKEN = "";
 
 	const SANDBOX_SESSIONS = "https://ws.sandbox.pagseguro.uol.com.br/v2/sessions";
 	const PRODUCTION_SESSIONS = "https://ws.pagseguro.uol.com.br/v2/sessions";
 
 	const SANDBOX_URL_JS = "https://stc.sandbox.pagseguro.uol.com.br/pagseguro/api/v2/checkout/pagseguro.directpayment.js";
 	const PRODUCTION_URL_JS = "https://stc.pagseguro.uol.com.br/pagseguro/api/v2/checkout/pagseguro.directpayment.js";
+
+	const SANDBOX_URL_TRANSACTION  = "https://ws.sandbox.pagseguro.uol.com.br/v2/transactions";
+	const PRODUCTION_URL_TRANSACTION = "https://ws.sandbox.pagseguro.uol.com.br/v2/transactions";
 
 	const  MAX_INSTALL_MENT_NO_INTEREST = 10;
 	const  MAX_INSTALLMENT = 10;
@@ -57,6 +60,12 @@ class Config{
 
 	}
 
+	public static function getUrlTransaction()
+	{
+
+		return (Config::SANDBOX === true) ? Config::SANDBOX_URL_TRANSACTION : Config::PRODUCTION_URL_TRANSACTION;
+
+	} 
 
 }
 

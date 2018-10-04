@@ -113,7 +113,9 @@
                                                         </div>
 
                                                         <fieldset class="form-group row">
-                                                            <div class="col-sm-10 contents"></div>
+                                                            <div class="col-sm-10 contents">
+
+                                                            </div>
                                                         </fieldset>
 
                                                         <div class="form-row place-order">
@@ -130,7 +132,7 @@
                                                     <form action="/payment/credit" class="checkout" method="post" name="checkout" style="padding:10px;" id="form-credit">
 
                                                         <input type="hidden" name="brand" id="brand_field">
-                                                        
+
                                                         <div class="row">
                                                             <div class="col-sm-4">
                                                                 <div class="form-row form-row-wide address-field validate-required">
@@ -198,7 +200,7 @@
                                                             <div class="col-xs-6 col-sm-2">
                                                                 <div class="form-row form-row-wide address-field validate-required">
                                                                     <label class="" for="month_name">&nbsp;</label>
-                                                                    <select name="year" id="year_field" class="input-text" required="required">
+                                                                    <select name="year" class="input-text" required="required">
                                                                         <option disabled="disabled" selected="selected" value="">Ano</option>
                                                                         <?php $counter1=-1;  if( isset($years) && ( is_array($years) || $years instanceof Traversable ) && sizeof($years) ) foreach( $years as $key1 => $value1 ){ $counter1++; ?>
                                                                         <option value="<?php echo htmlspecialchars( $value1, ENT_COMPAT, 'UTF-8', FALSE ); ?>"><?php echo htmlspecialchars( $value1, ENT_COMPAT, 'UTF-8', FALSE ); ?></option>
@@ -248,15 +250,7 @@
         </div>
     </div>
 </div>
-
 <script id="tpl-payment-debit" type="text/x-handlebars-template">
-    
-    <!-- text/x-handlebars-template 
-       -> Biblioteca JS que controla templates 
-       -> Utiliza o arquivo handlebars-v4.0.11.js
-       -> Tem como dependência o JQuery, logo, esse JS tem que ser adicionado após o JQuery.
-    -->
-    
     <div class="form-check" style="padding: 10px;">
         <label class="form-check-label">
             <input class="form-check-input" type="radio" name="bank" value="{{value}}" checked>
@@ -265,380 +259,274 @@
         </label>
     </div>
 </script>
-
 <script id="tpl-payment-credit" type="text/x-handlebars-template">
     <img src="https://stc.pagseguro.uol.com.br/{{image}}" alt="{{name}}" style="float:left; margin-right:4px;">
 </script>
-
 <script id="tpl-installment-free" type="text/x-handlebars-template">
     <option>{{quantity}}x de {{installmentAmount}} sem juros</option>
 </script>
-
 <script id="tpl-installment" type="text/x-handlebars-template">
     <option>{{quantity}}x de {{installmentAmount}} com juros ({{totalAmount}})</option>
 </script>
-
 <script src="<?php echo htmlspecialchars( $pagseguro["urlJS"], ENT_COMPAT, 'UTF-8', FALSE ); ?>"></script>
-
 <script type="text/javascript">
-    PagSeguroDirectPayment.setSessionId( '<?php echo htmlspecialchars( $pagseguro["id"], ENT_COMPAT, 'UTF-8', FALSE ); ?>' );
+PagSeguroDirectPayment.setSessionId('<?php echo htmlspecialchars( $pagseguro["id"], ENT_COMPAT, 'UTF-8', FALSE ); ?>');
 </script>
+<script>
+scripts.push(function(){
 
-<script type="text/javascript">
+    function showError(error)
+    {
 
-    // Variável scripts está definida no header.html. Esta função será executada no footer.html.
-    scripts.push( function() {
+        $("#alert-error span.msg").text(error);
+        $("#alert-error").removeClass("hide");
 
-        // Função para exibir o erro.
-        function showError( error )
-        {
+    }
 
-            // Pegando o objeto pelo ID dele e colocando o texto dentro.
-            $( "#alert-error span.msg" ).text( error );
-
-            // Removendo a classe que deixa o componente invisível.
-            $( "#alert-error" ).removeClass( "hide" );
-
-        }
-
-        // Função para esconder o erro.
-        function clearError()
-        {
-
-            // Pegando o objeto pelo ID dele e removendo o texto de dentro.
-            $( "#alert-error span.msg" ).text( "" );
-
-            // Removendo a classe que deixa o componente invisível.
-            $( "#alert-error" ).addClass( "hide" );
-
-        }
-
-        PagSeguroDirectPayment.getPaymentMethods({
+    PagSeguroDirectPayment.getPaymentMethods({
+        amount: parseFloat("<?php echo htmlspecialchars( $order["vltotal"], ENT_COMPAT, 'UTF-8', FALSE ); ?>"),
+        success: function(response) {
             
-            amount: parseFloat( "<?php echo htmlspecialchars( $order["vltotal"], ENT_COMPAT, 'UTF-8', FALSE ); ?>" ),
-            
-            success: function(response) {
-
-                clearError();
-
-                // Criando os templates dos meios de pagamento.
-                var tplDebit  = Handlebars.compile( $( "#tpl-payment-debit" ).html() );
-                var tplCredit = Handlebars.compile( $( "#tpl-payment-credit" ).html() );
-
-                // Varrendo as formas de pagamento para débito online.
-                $.each( response.paymentMethods.ONLINE_DEBIT.options, function( index, option ) {
-
-                    $( "#tab-debito .contents" ).append( tplDebit( {
-                        value:option.name,
-                        image:option.images.SMALL.path,
-                        text:option.displayName
-                    }));
-
-                });
-
-                // Varrendo bandeiras de cartões de crédito.
-                $.each( response.paymentMethods.CREDIT_CARD.options, function( index, option ) {
-
-                    $( "#tab-credito .contents" ).append( tplCredit( {
-                        name:option.name,
-                        image:option.images.SMALL.path
-                    }));
-
-                });
-
-                // Escondendo o icone load;
-                $( "#loading" ).hide();
-
-                // Selecionando o link da primeira aba dos meios de pagamento.
-                $( "#tabs-methods .nav-link:first" ).tab( "show" );
-
-                // Exibindo os paines com as formas de pagamento.
-                $( "#payment-methods" ).removeClass( "hide" );
-
-            },
-
-            error: function(response) {
-                
-                // Array de erros retornados.
-                var errors = [];
-
-                // Varrendo os erros retornados para exibir para o usuário.
-                for ( var code in response.errors )
-                {
-                    errors.push( response.errors[ code ] );
-                }
-
-                showError( errors.toString() );
-
-            },
-
-            complete: function(response) {
-                //meios de pagamento disponíveis
-            }
-
-        });    
-
-        // Pegando o valor do campo quando ele for alterado.
-        $( "#installments_field" ).on( "blur", function() {
-
-            var installment = $( this ).find( "option:selected" ).data( "installment" );
-
-            console.log(installment);
-
-            // Atualizando os valores dos imputs.
-            $( "[name=installments_qtd]" ).val( installment.quantity );
-            $( "[name=installments_value]" ).val( installment.installmentAmount );
-            $( "[name=installments_total]" ).val( installment.totalAmount );
-
-        });
-
-        // Forçando o foco no combo de parcelas.
-        $( "#year_field" ).on( "change", function() {
-
-            $( "#installments_field" ).focus();
-            $( "#year_field" ).focus();
-
-        });
-
-        // Descobrindo a bandeira do cartão de crédito.
-        $( "#number_field" ).on( "change", function() {
-
-            var value = $(this).val();
-
-            if ( value.length >= 6 ) {
-
-                PagSeguroDirectPayment.getBrand( {
-                    
-                    cardBin: value.substring( 0, 6 ),
-                    
-                    success: function(response) {
-                        
-                        clearError();
-                        
-                        $( "#brand_field" ).val( response.brand.name );
-
-                        PagSeguroDirectPayment.getInstallments( {
-
-                            amount: parseFloat( "<?php echo htmlspecialchars( $order["vltotal"], ENT_COMPAT, 'UTF-8', FALSE ); ?>" ),
-                            
-                            brand: response.brand.name,
-                            
-                            maxInstallmentNoInterest: parseInt( "<?php echo htmlspecialchars( $pagseguro["maxInstallmentNoInterest"], ENT_COMPAT, 'UTF-8', FALSE ); ?>" ),
-
-                            success: function(response) {
-
-                                clearError();
-
-                                // Opções de parcelamento disponíveis.
-                                $( "#installments_field" ).html( '<option disabled="disabled"></option>' );
-
-                                // Template das parcelas com juros.
-                                var tplInstallmentFree = Handlebars.compile( $( "#tpl-installment-free" ).html() );
-
-                                // Template das parcelas sem juros.
-                                var tplInstallment = Handlebars.compile( $( "#tpl-installment" ).html() );
-
-                                // Formatação da moeda.
-                                var formatReal = {
-                                    minimumFractionDigits: 2,
-                                    style: "currency",
-                                    currency: "BRL"
-                                };
-
-                                $.each( response.installments[ $("#brand_field").val() ], function( index, installment ) {
-
-                                    // Exibindo apenas a quantidade de parcelas máximas permitidas.
-                                    if ( parseInt( "<?php echo htmlspecialchars( $pagseguro["maxInstallment"], ENT_COMPAT, 'UTF-8', FALSE ); ?>" ) > index ) {
-
-                                        // Parcelas sem juros.
-                                        if ( installment.interestFree === true ){
-
-                                            var $option = $( tplInstallmentFree({
-                                                quantity:installment.quantity,
-                                                installmentAmount:installment.installmentAmount.toLocaleString( 'pt-BR', formatReal )
-
-                                            } ) );
-                                        
-                                        // Parcelas com juros.
-                                        } else {
-
-                                            var $option = $( tplInstallment({
-                                                quantity:installment.quantity,
-                                                installmentAmount:installment.installmentAmount.toLocaleString( 'pt-BR', formatReal ),
-                                                totalAmount:installment.totalAmount.toLocaleString( 'pt-BR', formatReal )
-
-                                            } ) );
-
-                                        }
-
-                                        // Guardando os elementos retornados pelo pagseguro dentro do elemento do DOM.
-                                        $option.data( "installment", installment );
-
-                                        // Alimentando a lista do combo.
-                                        $( "#installments_field" ).append( $option );
-
-                                    }
-                                
-                                });
-
-                            },
-                            error: function(response) {
-
-                                // Array de erros retornados.
-                                var errors = [];
-
-                                // Varrendo os erros retornados para exibir para o usuário.
-                                for ( var code in response.errors )
-                                {
-                                    errors.push( response.errors[ code ] );
-                                }
-
-                                showError( errors.toString() );
-
-                            },
-                            complete: function(response) {
-                                //tratamento comum para todas chamadas
-                            }
-
-                        });        
-
-                    },
-                    error: function(response) {
-
-                        // Array de erros retornados.
-                        var errors = [];
-
-                        // Varrendo os erros retornados para exibir para o usuário.
-                        for ( var code in response.errors )
-                        {
-                            errors.push( response.errors[ code ] );
-                        }
-
-                        showError( errors.toString() );
-
-                    },
-                    complete: function(response) {
-                        //tratamento comum para todas chamadas
-                    }
-
-                });        
-
-            }
-
-        });
-
-        // Função para validação de CPF.
-        function isValidCPF(number) {
-            var sum;
-            var rest;
-            sum = 0;
-            if (number == "00000000000") return false;
-
-            for (i=1; i<=9; i++) sum = sum + parseInt(number.substring(i-1, i)) * (11 - i);
-            rest = (sum * 10) % 11;
-
-            if ((rest == 10) || (rest == 11))  rest = 0;
-            if (rest != parseInt(number.substring(9, 10)) ) return false;
-
-            sum = 0;
-            for (i = 1; i <= 10; i++) sum = sum + parseInt(number.substring(i-1, i)) * (12 - i);
-            rest = (sum * 10) % 11;
-
-            if ((rest == 10) || (rest == 11))  rest = 0;
-            if (rest != parseInt(number.substring(10, 11) ) ) return false;
-            return true;
-        }
-
-        // Obtendo o formulário de envio.
-        $( "#form-credit" ).on( "submit", function( e ) {
-
-            // Cancelando o redirecionamento da página.
-            e.preventDefault();
-
-            // Validando o CPF.
-            if ( !isValidCPF( $( "#form-credit [name=cpf]" ).val() ) ) {
-
-                showError( "CPF inválido!" );
-                return false;
-
-            }
-
-            // Desabilitando o botão de compra.
-            $( "#form-credit [ type=submit ]" ).attr( "disabled", "disabled" );
-
-            // Obtendo todos os campos do formulário.
-            var formData = $( this ).serializeArray();
-
-            // Transformando os campos da página em um objeto único.
-            var params = {};
-
-            $.each( formData, function( index, field ) {
-
-                params[ field.name ] = field.value;
+            var tplDebit = Handlebars.compile($("#tpl-payment-debit").html());
+            var tplCredit = Handlebars.compile($("#tpl-payment-credit").html());
+
+            $.each(response.paymentMethods.ONLINE_DEBIT.options, function(index, option){
+
+                $("#tab-debito .contents").append(tplDebit({
+                    value:option.name,
+                    image:option.images.MEDIUM.path,
+                    text:option.displayName
+                }));
 
             });
 
-            // Obtendo o token do cartão de crédito.
-            PagSeguroDirectPayment.createCardToken( {
+            $.each(response.paymentMethods.CREDIT_CARD.options, function(index, option){
 
-                cardNumber: params.number,
-                cvv: params.cvv,
-                expirationMonth: params.month,
-                expirationYear: params.year,
-
-                success: function(response) {
-                    
-                    clearError();
-
-                    // Token gerado, esse deve ser usado na chamada da API do Checkout Transparente.
-                    
-                    params.token = response.card.token;
-                    params.hash  = PagSeguroDirectPayment.getSenderHash();
-
-                    // Utilizando o JQuery para criar uma solicitação AJAX, via POST, para uma rota.
-
-                    // Rota
-                    // Passando os parâmetros concatenados.
-                    // Função de callback 
-
-                    $.post(
-                        "/payment/credit",  
-                        $.param( params ),  
-                        function(r){      
-
-                            console.log(r);
-
-                        }
-                    );
-
-                },
-                error: function(response) {
-
-                    // Array de erros retornados.
-                    var errors = [];
-
-                    // Varrendo os erros retornados para exibir para o usuário.
-                    for ( var code in response.errors )
-                    {
-                        errors.push( response.errors[ code ] );
-                    }
-
-                    showError( errors.toString() );
-
-                },
-                complete: function(response) {
-                    
-                    // Tratamento comum para todas chamadas.
-
-                    // Desabilitando o botão de compra.
-                    $( "#form-credit [ type=submit ]" ).removeAttr( "disabled" );
-
-                }
+                $("#tab-credito .contents").append(tplCredit({
+                    name:option.name,
+                    image:option.images.MEDIUM.path
+                }));
 
             });
 
-        } );
+            $("#loading").hide();
+
+            $("#tabs-methods .nav-link:first").tab("show");
+
+            $("#payment-methods").removeClass("hide");
+
+        },
+        error: function(response) {
+            
+            var errors = [];
+
+            for (var code in response.errors)
+            {
+                errors.push(response.errors[code]);
+            }
+
+            showError(errors.toString());
+            
+
+        },
+        complete: function(response) {
+            
+                        
+
+        }
+    });
+
+    $("#installments_field").on("change", function(){
+
+        var installment = $(this).find("option:selected").data("installment");
+
+        console.log(installment);
+
+        $("[name=installments_qtd]").val(installment.quantity);
+        $("[name=installments_value]").val(installment.installmentAmount);
+        $("[name=installments_total]").val(installment.totalAmount);
 
     });
 
+    $("#number_field").on("change", function(){
+
+        var value  = $(this).val();
+
+        if (value.length >= 6) {
+
+            PagSeguroDirectPayment.getBrand({
+                cardBin: value.substring(0, 6),
+                success: function(response) {
+                    
+                    $("#brand_field").val(response.brand.name);
+                    
+                    PagSeguroDirectPayment.getInstallments({
+                        amount: parseFloat("<?php echo htmlspecialchars( $order["vltotal"], ENT_COMPAT, 'UTF-8', FALSE ); ?>"),
+                        brand: response.brand.name,
+                        maxInstallmentNoInterest: parseInt("<?php echo htmlspecialchars( $pagseguro["maxInstallmentNoInterest"], ENT_COMPAT, 'UTF-8', FALSE ); ?>"),
+                        success: function(response) {
+                            
+                            $("#installments_field").html('<option disabled="disabled"></option>');
+                            
+                            var tplInstallmentFree = Handlebars.compile($("#tpl-installment-free").html());
+                            var tplInstallment = Handlebars.compile($("#tpl-installment").html());
+
+                            var formatReal = {
+                                minimumFractionDigits:2,
+                                style:"currency",
+                                currency:"BRL"
+                            };
+
+                            $.each(response.installments[$("#brand_field").val()], function(index, installment){
+
+                                if (parseInt("<?php echo htmlspecialchars( $pagseguro["maxInstallment"], ENT_COMPAT, 'UTF-8', FALSE ); ?>") > index) {
+
+                                    if (installment.interestFree === true) {
+
+                                        var $option = $(tplInstallmentFree({
+                                            quantity:installment.quantity,
+                                            installmentAmount:installment.installmentAmount.toLocaleString('pt-BR', formatReal)
+                                        }));
+
+                                    } else {
+
+                                        var $option = $(tplInstallment({
+                                            quantity:installment.quantity,
+                                            installmentAmount:installment.installmentAmount.toLocaleString('pt-BR', formatReal),
+                                            totalAmount:installment.totalAmount.toLocaleString('pt-BR', formatReal)
+                                        }));
+
+                                    }
+
+                                    $option.data("installment", installment);
+
+                                    $("#installments_field").append($option);
+
+                                }
+
+                            });
+
+                        },
+                        error: function(response) {
+                            
+                            var errors = [];
+
+                            for (var code in response.errors)
+                            {
+                                errors.push(response.errors[code]);
+                            }
+
+                            showError(errors.toString());
+
+                        },
+                        complete: function(response) {
+                            //tratamento comum para todas chamadas
+                        }
+                    });
+
+                },
+                error: function(response) {
+                    
+                    var errors = [];
+
+                    for (var code in response.errors)
+                    {
+                        errors.push(response.errors[code]);
+                    }
+
+                    showError(errors.toString());
+
+                },
+                complete: function(response) {
+                    //tratamento comum para todas chamadas
+                }
+            });
+
+        }
+
+    });
+
+    function isValidCPF(number) {
+        var sum;
+        var rest;
+        sum = 0;
+        if (number == "00000000000") return false;
+
+        for (i=1; i<=9; i++) sum = sum + parseInt(number.substring(i-1, i)) * (11 - i);
+        rest = (sum * 10) % 11;
+
+        if ((rest == 10) || (rest == 11))  rest = 0;
+        if (rest != parseInt(number.substring(9, 10)) ) return false;
+
+        sum = 0;
+        for (i = 1; i <= 10; i++) sum = sum + parseInt(number.substring(i-1, i)) * (12 - i);
+        rest = (sum * 10) % 11;
+
+        if ((rest == 10) || (rest == 11))  rest = 0;
+        if (rest != parseInt(number.substring(10, 11) ) ) return false;
+        return true;
+    }
+
+    $("#form-credit").on("submit", function(e){
+
+        e.preventDefault();
+
+        if (!isValidCPF($("#form-credit [name=cpf]").val())) {
+            showError("Este número de CPF não é válido.");
+            return false;
+        }
+
+        $("#form-credit [type=submit]").attr("disabled", "disabled");
+
+        var formData = $(this).serializeArray();
+
+        var params = {};
+
+        $.each(formData, function(index, field){
+
+            params[field.name] = field.value;
+
+        });
+
+        PagSeguroDirectPayment.createCardToken({
+            cardNumber: params.number,
+            cvv: params.cvv,
+            expirationMonth: params.month,
+            expirationYear: params.year,
+            success: function(response) {
+                
+                params.token = response.card.token;
+                params.hash = PagSeguroDirectPayment.getSenderHash();
+
+                $.post(
+                    "/payment/credit",
+                    $.param(params),
+                    function(r){
+
+                        console.log(r);
+
+                    }
+                );
+
+            },
+            error: function(response) {
+                var errors = [];
+
+                for (var code in response.errors)
+                {
+                    errors.push(response.errors[code]);
+                }
+
+                showError(errors.toString());
+            },
+            complete: function(response) {
+                
+                $("#form-credit [type=submit]").removeAttr("disabled");                
+
+            }
+        });
+
+    });
+
+});
 </script>
