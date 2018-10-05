@@ -138,7 +138,7 @@ class Order extends Model {
 		$_SESSION[Order::SUCCESS] = NULL;
 	}
 
-	public static function getPage($page = 1, $itemsPerPage = 8)
+	public static function getPage($page = 1, $itemsPerPage = 10)
 	{
 
  		$start = ($page - 1) * $itemsPerPage;
@@ -188,15 +188,10 @@ class Order extends Model {
 
  		$resultTotal = $sql->select("SELECT FOUND_ROWS() AS nrtotal;");
 
- 		if (count($resultTotal) > 0) {
-         	return $resultTotal[0]['nrtotal'];
-     	}
-
  		return [
 			'data'=>$results,
 			'total'=>(int)$resultTotal[0]["nrtotal"],
-			'pages'=>ceil($resultTotal[0]["nrtotal"] / $itemsPerPage),
-			'quantSearch'=>$resultsTotal[0]['nrtotal']
+			'pages'=>ceil($resultTotal[0]["nrtotal"] / $itemsPerPage)
 		];
  	}
 

@@ -147,14 +147,10 @@ $app->get("/admin/orders", function(){
 
  	
 
- 	$order = new Order();
-
-
  	$page = new PageAdmin();
 
  	$page->setTpl("orders", [
 		"orders"=>Order::listAll(),
-		"order"=>$order->getValues(),
 		"orders"=>$pagination['data'],
 		"search"=>$search,
 		"pages"=>$pages,
