@@ -81,7 +81,7 @@
     <div class="col-md-12">
       <div class="box box-primary">
  <div class="box-body no-padding">
-              <table class="table table-striped" style="width: 850px">
+              <table class="table table-striped">
                 <thead>
                   <tr>
                     <th style="width: 70px">Pedidos Cadastrados</th>
