@@ -96,6 +96,19 @@ $app->get("/admin/orders", function(){
 
 	$quantOrders = Order::quantOrders();
 
+	$somaVlTotalEmAberto = Order::somaVlTotalEmAberto();
+
+	$somaVlTotalAgPagamento = Order::somaVlTotalAgPagamento();
+
+	$somaVlTotalPago = Order::somaVlTotalPago(); 
+	
+	$somaVlTotal = Order::somaVlTotal(); 
+
+	$quantOrdersEmAberto = Order::quantOrdersEmAberto();
+
+	$quantOrdersAgPagamento = Order::quantOrdersAgPagamento();
+
+	$quantOrdersPago = Order::quantOrdersPago();
 
 	$search = (isset($_GET['search'])) ? $_GET['search'] : "";
 
@@ -103,18 +116,20 @@ $app->get("/admin/orders", function(){
 
  	if ($search != '') {
 
- 		$pagination = Order::getPageSearch($search, $page
- 		);
+ 		$pagination = Order::getPageSearch($search, $page);
 
  	} else {
 
  		$pagination = Order::getPage($page);
  	}
+
  	$pages = [];
 
- 			
 
  	for ($x = 0; $x < $pagination['pages']; $x++)
+
+
+
  
 	{
  		array_push($pages, [
@@ -143,10 +158,84 @@ $app->get("/admin/orders", function(){
 		"orders"=>$pagination['data'],
 		"search"=>$search,
 		"pages"=>$pages,
-		"quantOrders"=>$quantOrders
+		"quantOrders"=>$quantOrders,
+		"somaVlTotalEmAberto"=>$somaVlTotalEmAberto, 
+		"somaVlTotalAgPagamento"=>$somaVlTotalAgPagamento,
+		"somaVlTotalPago"=>$somaVlTotalPago,
+		"somaVlTotal"=>$somaVlTotal,
+		"quantOrdersPago"=>$quantOrdersPago,
+		"quantOrdersAgPagamento"=>$quantOrdersAgPagamento,
+		"quantOrdersEmAberto"=>$quantOrdersEmAberto,
 	]);
 
  });
+
+
+$app->get("/admin/ordersstatuspago", function(){
+
+	User::verifyLogin();
+
+
+	$somaVlTotalPago = Order::somaVlTotalPago(); 
+
+	$quantOrdersPago = Order::quantOrdersPago();
+
+	$search = (isset($_GET['search'])) ? $_GET['search'] : "";
+
+	$page = (isset($_GET['page'])) ? (int)$_GET['page'] : 1;
+
+ 	if ($search != '') {
+
+ 		$pagination = Order::getPageSearch($search, $page);
+
+ 	} else {
+
+ 		$pagination = Order::getPage($page);
+ 	}
+
+ 	$pages = [];
+
+
+ 	for ($x = 0; $x < $pagination['pages']; $x++)
+
+
+
+ 
+	{
+ 		array_push($pages, [
+			'href'=>'/admin/orders?'.http_build_query([
+				'page'=>$x+1,
+				'search'=>$search
+			]),
+			'text'=>$x+1
+			
+		]);
+
+ 	}
+
+
+
+ 	
+
+ 	$order = new Order();
+
+
+ 	$page = new PageAdmin();
+
+ 	$page->setTpl("orders-status-pago", [
+		"orders"=>Order::listAllOrdersPagos(),
+		"order"=>$order->getValues(),
+		"orders"=>$pagination['data'],
+		"search"=>$search,
+		"pages"=>$pages,
+		"somaVlTotalPago"=>$somaVlTotalPago,
+		"quantOrdersPago"=>$quantOrdersPago
+
+
+	]);
+
+ });
+
 
 
 

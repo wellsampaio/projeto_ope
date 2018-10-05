@@ -76,7 +76,66 @@
           </div>
   	</div>
   </div>
-Pedidos Cadastrados: <?php echo htmlspecialchars( $quantOrders, ENT_COMPAT, 'UTF-8', FALSE ); ?>
+
+<div class="row">
+    <div class="col-md-12">
+      <div class="box box-primary">
+ <div class="box-body no-padding">
+              <table class="table table-striped" style="width: 850px">
+                <thead>
+                  <tr>
+                    <th style="width: 70px">Pedidos Cadastrados</th>
+                    <th style="width: 20px">Pedidos Pagos</th>
+                    <th style="width: 50px">Pedidos Aguardando Pagamento</th>
+                    <th style="width: 150px">Pedidos Em aberto</th>
+                    <!--<th>Valor do Frete</th>-->
+                  </tr>
+                </thead>
+                <tbody>
+
+                    <td style="width: 70px"><?php echo htmlspecialchars( $quantOrders, ENT_COMPAT, 'UTF-8', FALSE ); ?></td>
+                    <td style="width: 70px"><?php echo htmlspecialchars( $quantOrdersPago, ENT_COMPAT, 'UTF-8', FALSE ); ?></td>
+                    <td style="width: 70px"><?php echo htmlspecialchars( $quantOrdersAgPagamento, ENT_COMPAT, 'UTF-8', FALSE ); ?></td>
+                    <td style="width: 70px"><?php echo htmlspecialchars( $quantOrdersEmAberto, ENT_COMPAT, 'UTF-8', FALSE ); ?></td>
+                   
+                </tbody>
+              </table>
+            </div>
+             </div>
+    </div>
+  </div>
+
+<div class="row">
+    <div class="col-md-12">
+      <div class="box box-primary">
+            <div class="box-body no-padding">
+              <table class="table table-striped">
+                <thead>
+                  <tr>
+                    <th>Valor Total dos Pedidos</th>
+                    <th>Valor Total dos Pedidos - Pago</th>
+                    <th>Valor Total dos Pedidos - Aguardando Pagamento</th>
+                    <th>Valor Total dos Pedidos - Em aberto</th>
+                    
+                    
+                  </tr>
+                </thead>
+                <tbody>
+
+                    <td>R$ <?php echo formatPrice($somaVlTotal); ?></td>
+                    <td>R$ <?php echo formatPrice($somaVlTotalPago); ?></td>
+                    <td>R$ <?php echo formatPrice($somaVlTotalAgPagamento); ?></td>
+                    <td>R$ <?php echo formatPrice($somaVlTotalEmAberto); ?></td>
+                    
+                    
+                    
+                   
+                </tbody>
+              </table>
+            </div>
+             </div>
+    </div>
+  </div>
 </section>
 <!-- /.content -->
 </div>

@@ -77,6 +77,29 @@
   	</div>
   </div>
 
+<div class="row">
+    <div class="col-md-12">
+      <div class="box box-primary">
+ <div class="box-body no-padding">
+              <table class="table table-striped" style="width: 850px">
+                <thead>
+                  <tr>
+                    <th style="width: 20px">Pedidos Pagos</th>
+                    <th>Valor Total dos Pedidos - Pago</th>
+                    <!--<th>Valor do Frete</th>-->
+                  </tr>
+                </thead>
+                <tbody>
+
+                    <td style="width: 70px"><?php echo htmlspecialchars( $quantOrdersPago, ENT_COMPAT, 'UTF-8', FALSE ); ?></td>   
+                    <td>R$ <?php echo formatPrice($somaVlTotalPago); ?></td>                
+                </tbody>
+              </table>
+            </div>
+             </div>
+    </div>
+
+  </div>
 </section>
 <!-- /.content -->
 </div>

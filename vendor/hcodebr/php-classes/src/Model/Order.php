@@ -138,7 +138,7 @@ class Order extends Model {
 		$_SESSION[Order::SUCCESS] = NULL;
 	}
 
-	public static function getPage($page = 1, $itemsPerPage = 10)
+	public static function getPage($page = 1, $itemsPerPage = 8)
 	{
 
  		$start = ($page - 1) * $itemsPerPage;
@@ -189,7 +189,7 @@ class Order extends Model {
  		$resultTotal = $sql->select("SELECT FOUND_ROWS() AS nrtotal;");
 
  		if (count($resultTotal) > 0) {
-         	return $resultsTotal[0]['nrtotal'];
+         	return $resultTotal[0]['nrtotal'];
      	}
 
  		return [
@@ -237,6 +237,109 @@ class Order extends Model {
          	return $count[0]['nrtotal'];
      	}
 	}
+
+	public static function quantOrdersEmAberto()
+	{ 
+     	$sql = new Sql();
+ 
+     	$count = $sql->select("SELECT COUNT(*) AS nrtotal FROM tb_orders where idstatus = 1;");
+
+     	if (count($count) > 0) {
+         	return $count[0]['nrtotal'];
+     	}
+	}
+
+
+	public static function quantOrdersAgPagamento()
+	{ 
+     	$sql = new Sql();
+ 
+     	$count = $sql->select("SELECT COUNT(*) AS nrtotal FROM tb_orders where idstatus = 2;");
+
+     	if (count($count) > 0) {
+         	return $count[0]['nrtotal'];
+     	}
+    } 		
+
+	public static function quantOrdersPago()
+	{ 
+     	$sql = new Sql();
+ 
+     	$count = $sql->select("SELECT COUNT(*) AS nrtotal FROM tb_orders where idstatus = 3;");
+
+     	if (count($count) > 0) {
+         	return $count[0]['nrtotal'];
+     	}
+	}
+
+
+
+	public static function somaVlTotalEmAberto()
+	{ 
+     	$sql = new Sql();
+ 
+     	$soma = $sql->select("select SUM(vltotal) as valor_total from tb_orders where idstatus = 1;");
+
+         	return $soma[0]['valor_total'];
+     	
+	}
+
+	public static function somaVlTotalAgPagamento()
+	{ 
+     	$sql = new Sql();
+ 
+     	$soma = $sql->select("select SUM(vltotal) as valor_total from tb_orders where idstatus = 2;");
+
+         	return $soma[0]['valor_total'];
+     	
+	}
+
+	public static function somaVlTotalPago()
+	{ 
+     	$sql = new Sql();
+ 
+     	$soma = $sql->select("select SUM(vltotal) as valor_total from tb_orders where idstatus = 3;");
+
+         	return $soma[0]['valor_total'];
+     	
+	}
+
+	public static function somaVlTotal()
+	{ 
+     	$sql = new Sql();
+ 
+     	$soma = $sql->select("select SUM(vltotal) as valor_total from tb_orders;");
+
+         	return $soma[0]['valor_total'];
+     	
+	}
+
+	public function listAllOrdersPagos()
+	{
+
+		$sql = new Sql();
+
+		
+		return $sql->select("
+			SELECT * 
+			FROM tb_orders a 
+			INNER JOIN tb_ordersstatus b USING(idstatus) 
+			INNER JOIN tb_carts c USING(idcart)
+			INNER JOIN tb_users d ON d.iduser = a.iduser
+			INNER JOIN tb_addresses e USING(idaddress)
+			INNER JOIN tb_persons f ON f.idperson = d.idperson
+			WHERE b.idstatus = 3
+			ORDER BY a.dtregister DESC
+
+		",[
+
+		]);
+
+	}
+
+
+     	
+	
 }
 	
 ?>
