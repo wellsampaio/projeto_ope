@@ -74,6 +74,8 @@
   	</div>
   </div>
 
+    Usuários Cadastrado: <?php echo htmlspecialchars( $quantUsers, ENT_COMPAT, 'UTF-8', FALSE ); ?>
+
 </section>
 <!-- /.content -->
 </div>

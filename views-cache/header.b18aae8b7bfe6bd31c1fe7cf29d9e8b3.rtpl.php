@@ -250,12 +250,15 @@ desired effect
 
       <!-- Sidebar Menu -->
       <ul class="sidebar-menu">
-        <li class="header">HEADER</li>
+        <li> <a href="/admin">DASHBOARD</a></li>
         <!-- Optionally, you can add icons to the links -->
         <li><a href="/admin/users"><i class="fa fa-users"></i> <span>Usuarios</span></a></li>
         <li><a href="/admin/categories"><i class="fa fa-link"></i> <span>Categorias</span></a></li>
         <li><a href="/admin/products"><i class="fa fa-gift"></i> <span>Produtos</span></a></li>
         <li><a href="/admin/orders"><i class="fa fa-shopping-cart"></i> <span>Pedidos</span></a></li>
+        <li><a href="/admin/ordersstatuspago"><i class="fa fa-shopping-cart"></i> <span>Pedidos Pagos</span></a></li>
+         <li><a href="/admin/orders_aguardando_pag"><i class="fa fa-shopping-cart"></i> <span>Pedidos Aguard Pagamento</span></a></li>
+         <li><a href="/admin/orders_em_aberto"><i class="fa fa-shopping-cart"></i> <span>Pedidos Em Aberto</span></a></li>
        
       <!-- /.sidebar-menu -->
     </section>

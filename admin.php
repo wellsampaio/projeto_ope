@@ -2,15 +2,39 @@
 
 use \Hcode\PageAdmin;
 use \Hcode\Model\User;
+use \Hcode\Model\Order;
 
 
 $app->get('/admin', function() {
 
 	User::verifyLogin();
 
+	$quantUsers = User::quantUsers();
+
+	$quantOrders = Order::quantOrders();
+
+	$quantOrdersPago = Order::quantOrdersPago();
+
+	$quantOrdersAgPagamento = Order::quantOrdersAgPagamento();
+
+	$somaVlTotal = Order::somaVlTotal();
+
+	$somaVlTotalPago = Order::somaVlTotalPago(); 
+
+
+
 	$page = new PageAdmin();
 
-	$page->setTpl("index");
+	$page->setTpl("index",[
+
+		"quantUsers"=>$quantUsers,
+		"quantOrders"=>$quantOrders,
+		"quantOrdersPago"=>$quantOrdersPago,
+		"quantOrdersAgPagamento"=>$quantOrdersAgPagamento,
+		"somaVlTotal"=>$somaVlTotal,
+		"somaVlTotalPago"=>$somaVlTotalPago
+
+	]);
     
 	
 
