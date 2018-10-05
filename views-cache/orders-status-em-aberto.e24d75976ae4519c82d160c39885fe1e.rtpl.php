@@ -84,15 +84,15 @@
               <table class="table table-striped" style="width: 850px">
                 <thead>
                   <tr>
-                    <th style="width: 20px">Pedidos Pagos</th>
-                    <th>Valor Total dos Pedidos - Pago</th>
+                    <th style="width: 300px">Pedidos Em Aberto</th>
+                    <th>Valor Total dos Pedidos - Em Aberto</th>
                     <!--<th>Valor do Frete</th>-->
                   </tr>
                 </thead>
                 <tbody>
 
-                    <td style="width: 300px"><?php echo htmlspecialchars( $quantOrdersPago, ENT_COMPAT, 'UTF-8', FALSE ); ?></td>   
-                    <td>R$ <?php echo formatPrice($somaVlTotalPago); ?></td>                
+                    <td style="width: 70px"><?php echo htmlspecialchars( $quantOrdersEmAberto, ENT_COMPAT, 'UTF-8', FALSE ); ?></td>   
+                    <td>R$ <?php echo formatPrice($somaVlTotalEmAberto); ?></td>                  
                 </tbody>
               </table>
             </div>

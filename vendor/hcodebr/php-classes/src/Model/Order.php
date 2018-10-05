@@ -332,6 +332,88 @@ class Order extends Model {
 
 	}
 
+	public static function getlistAllOrdersPagos($status = 3)
+	{
+
+ 		$sql = new Sql();
+
+ 		$results = $sql->select("
+			SELECT SQL_CALC_FOUND_ROWS *
+			FROM tb_orders a 
+			INNER JOIN tb_ordersstatus b USING(idstatus) 
+			INNER JOIN tb_carts c USING(idcart)
+			INNER JOIN tb_users d ON d.iduser = a.iduser
+			INNER JOIN tb_addresses e USING(idaddress)
+			INNER JOIN tb_persons f ON f.idperson = d.idperson
+			WHERE b.idstatus = $status
+			ORDER BY a.dtregister DESC
+		", [
+
+		]);
+
+ 		$resultTotal = $sql->select("SELECT FOUND_ROWS() AS nrtotal;");
+
+ 		return [
+			'data'=>$results
+			
+		];
+ 	}
+
+ 	public static function getlistAllOrdersEmAberto($status = 1)
+	{
+
+ 		$sql = new Sql();
+
+ 		$results = $sql->select("
+			SELECT SQL_CALC_FOUND_ROWS *
+			FROM tb_orders a 
+			INNER JOIN tb_ordersstatus b USING(idstatus) 
+			INNER JOIN tb_carts c USING(idcart)
+			INNER JOIN tb_users d ON d.iduser = a.iduser
+			INNER JOIN tb_addresses e USING(idaddress)
+			INNER JOIN tb_persons f ON f.idperson = d.idperson
+			WHERE b.idstatus = $status
+			ORDER BY a.dtregister DESC
+		", [
+
+		]);
+
+ 		$resultTotal = $sql->select("SELECT FOUND_ROWS() AS nrtotal;");
+
+ 		return [
+			'data'=>$results
+			
+		];
+ 	}
+
+
+ 	public static function getlistAllOrdersAgPagamento($status = 2)
+	{
+
+ 		$sql = new Sql();
+
+ 		$results = $sql->select("
+			SELECT SQL_CALC_FOUND_ROWS *
+			FROM tb_orders a 
+			INNER JOIN tb_ordersstatus b USING(idstatus) 
+			INNER JOIN tb_carts c USING(idcart)
+			INNER JOIN tb_users d ON d.iduser = a.iduser
+			INNER JOIN tb_addresses e USING(idaddress)
+			INNER JOIN tb_persons f ON f.idperson = d.idperson
+			WHERE b.idstatus = $status
+			ORDER BY a.dtregister DESC
+		", [
+
+		]);
+
+ 		$resultTotal = $sql->select("SELECT FOUND_ROWS() AS nrtotal;");
+
+ 		return [
+			'data'=>$results
+			
+		];
+ 	}
+
 
      	
 	

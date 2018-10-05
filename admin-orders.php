@@ -189,7 +189,13 @@ $app->get("/admin/ordersstatuspago", function(){
  		$pagination = Order::getPage($page);
  	}
 
+
+
  	$pages = [];
+
+ 	$listorderpago = Order::getlistAllOrdersPagos();
+
+
 
 
  	for ($x = 0; $x < $pagination['pages']; $x++)
@@ -213,19 +219,155 @@ $app->get("/admin/ordersstatuspago", function(){
 
  	
 
- 	$order = new Order();
+
 
 
  	$page = new PageAdmin();
 
  	$page->setTpl("orders-status-pago", [
-		"orders"=>Order::listAllOrdersPagos(),
-		"order"=>$order->getValues(),
-		"orders"=>$pagination['data'],
+		"orders"=>$listorderpago['data'],		
 		"search"=>$search,
 		"pages"=>$pages,
 		"somaVlTotalPago"=>$somaVlTotalPago,
 		"quantOrdersPago"=>$quantOrdersPago
+
+
+	]);
+
+ });
+
+$app->get("/admin/orders_em_aberto", function(){
+
+	User::verifyLogin();
+
+
+	$somaVlTotalEmAberto = Order::somaVlTotalEmAberto(); 
+
+	$quantOrdersEmAberto = Order::quantOrdersEmAberto();
+
+	$search = (isset($_GET['search'])) ? $_GET['search'] : "";
+
+	$page = (isset($_GET['page'])) ? (int)$_GET['page'] : 1;
+
+ 	if ($search != '') {
+
+ 		$pagination = Order::getPageSearch($search, $page);
+
+ 	} else {
+
+ 		$pagination = Order::getPage($page);
+ 	}
+
+
+
+ 	$pages = [];
+
+ 	$listorderpago = Order::getlistAllOrdersEmAberto();
+
+
+
+
+ 	for ($x = 0; $x < $pagination['pages']; $x++)
+
+
+
+ 
+	{
+ 		array_push($pages, [
+			'href'=>'/admin/orders?'.http_build_query([
+				'page'=>$x+1,
+				'search'=>$search
+			]),
+			'text'=>$x+1
+			
+		]);
+
+ 	}
+
+
+
+ 	
+
+
+
+
+ 	$page = new PageAdmin();
+
+ 	$page->setTpl("orders-status-em-aberto", [
+		"orders"=>$listorderpago['data'],		
+		"search"=>$search,
+		"pages"=>$pages,
+		"somaVlTotalEmAberto"=>$somaVlTotalEmAberto,
+		"quantOrdersEmAberto"=>$quantOrdersEmAberto
+
+
+	]);
+
+ });
+
+$app->get("/admin/orders_aguardando_pag", function(){
+
+	User::verifyLogin();
+
+
+	$somaVlTotalAgPagamento= Order::somaVlTotalAgPagamento(); 
+
+	$quantOrdersAgPagamento = Order::quantOrdersAgPagamento();
+
+	$search = (isset($_GET['search'])) ? $_GET['search'] : "";
+
+	$page = (isset($_GET['page'])) ? (int)$_GET['page'] : 1;
+
+ 	if ($search != '') {
+
+ 		$pagination = Order::getPageSearch($search, $page);
+
+ 	} else {
+
+ 		$pagination = Order::getPage($page);
+ 	}
+
+
+
+ 	$pages = [];
+
+ 	$listorderpago = Order::getlistAllOrdersAgPagamento();
+
+
+
+
+ 	for ($x = 0; $x < $pagination['pages']; $x++)
+
+
+
+ 
+	{
+ 		array_push($pages, [
+			'href'=>'/admin/orders?'.http_build_query([
+				'page'=>$x+1,
+				'search'=>$search
+			]),
+			'text'=>$x+1
+			
+		]);
+
+ 	}
+
+
+
+ 	
+
+
+
+
+ 	$page = new PageAdmin();
+
+ 	$page->setTpl("orders-status-aguardando-pag", [
+		"orders"=>$listorderpago['data'],		
+		"search"=>$search,
+		"pages"=>$pages,
+		"somaVlTotalAgPagamento"=>$somaVlTotalAgPagamento,
+		"quantOrdersAgPagamento"=>$quantOrdersAgPagamento
 
 
 	]);
