@@ -6,7 +6,7 @@
     Lista de Pedidos
   </h1>
   <ol class="breadcrumb">
-    <li><a href="/admin"><i class="fa fa-dashboard"></i> Home</a></li>
+    <li><a href="/admin/dashboard"><i class="fa fa-dashboard"></i> Home</a></li>
     <li class="active"><a href="/admin/orders">Pedidos</a></li>
   </ol>
 </section>
@@ -84,7 +84,7 @@
               <table class="table table-striped">
                 <thead>
                   <tr>
-                    <th style="width: 70px">Pedidos Cadastrados</th>
+                    <th style="width: 70px">Total de Pedidos</th>
                     <th style="width: 20px">Pedidos Pagos</th>
                     <th style="width: 50px">Pedidos Aguardando Pagamento</th>
                     <th style="width: 150px">Pedidos Em aberto</th>

@@ -254,7 +254,8 @@ class Order extends Model {
      	if (count($count) > 0) {
          	return $count[0]['nrtotal'];
      	}
-    } 		
+    }
+
 
 	public static function quantOrdersPago()
 	{ 
@@ -267,6 +268,97 @@ class Order extends Model {
      	}
 	}
 
+	public static function quantOrdersEntregue()
+	{ 
+     	$sql = new Sql();
+ 
+     	$count = $sql->select("SELECT COUNT(*) AS nrtotal FROM tb_orders where idstatus = 4;");
+
+     	if (count($count) > 0) {
+         	return $count[0]['nrtotal'];
+     	}
+	}
+
+
+	public static function quantOrdersPgCincoDias()
+	{ 
+     	$sql = new Sql();
+ 
+     	$count = $sql->select("SELECT COUNT(*) AS nrtotal FROM tb_orders WHERE idstatus = 3 AND dtregister
+			BETWEEN CURRENT_DATE()-5 AND CURRENT_DATE() 
+			AND now();");
+
+     	if (count($count) > 0) {
+         	return $count[0]['nrtotal'];
+     	}
+	}
+
+	public static function quantOrdersPgDezDias()
+	{ 
+     	$sql = new Sql();
+ 
+     	$count = $sql->select("SELECT COUNT(*) AS nrtotal FROM tb_orders WHERE idstatus = 3 AND dtregister
+			BETWEEN CURRENT_DATE()-10 AND CURRENT_DATE() 
+			AND now();");
+
+     	if (count($count) > 0) {
+         	return $count[0]['nrtotal'];
+     	}
+	}
+
+
+	public static function quantOrdersPgQuinzeDias()
+	{ 
+     	$sql = new Sql();
+ 
+     	$count = $sql->select("SELECT COUNT(*) AS nrtotal FROM tb_orders WHERE idstatus = 3 AND dtregister
+			BETWEEN CURRENT_DATE()-15 AND CURRENT_DATE() 
+			AND now();");
+
+     	if (count($count) > 0) {
+         	return $count[0]['nrtotal'];
+     	}
+	}
+
+
+	public static function quantOrdersPgVinteDias()
+	{ 
+     	$sql = new Sql();
+ 
+     	$count = $sql->select("SELECT COUNT(*) AS nrtotal FROM tb_orders WHERE idstatus = 3 AND dtregister
+			BETWEEN CURRENT_DATE()-20 AND CURRENT_DATE() 
+			AND now();");
+
+     	if (count($count) > 0) {
+         	return $count[0]['nrtotal'];
+     	}
+	}
+
+	public static function quantOrdersPgVtCincoDias()
+	{ 
+     	$sql = new Sql();
+ 
+     	$count = $sql->select("SELECT COUNT(*) AS nrtotal FROM tb_orders WHERE idstatus = 3 AND dtregister
+			BETWEEN CURRENT_DATE()-25 AND CURRENT_DATE() 
+			AND now();");
+
+     	if (count($count) > 0) {
+         	return $count[0]['nrtotal'];
+     	}
+	}
+
+	public static function quantOrdersPgTrintaDias()
+	{ 
+     	$sql = new Sql();
+ 
+     	$count = $sql->select("SELECT COUNT(*) AS nrtotal FROM tb_orders WHERE idstatus = 3 AND dtregister
+			BETWEEN CURRENT_DATE()-30 AND CURRENT_DATE() 
+			AND now();");
+
+     	if (count($count) > 0) {
+         	return $count[0]['nrtotal'];
+     	}
+	}
 
 
 	public static function somaVlTotalEmAberto()

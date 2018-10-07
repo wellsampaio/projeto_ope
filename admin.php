@@ -40,6 +40,52 @@ $app->get('/admin', function() {
 
 });
 
+$app->get('/admin/dashboard', function() {
+
+	User::verifyLogin();
+
+	
+	$quantUsers = User::quantUsers();
+
+	$quantOrders = Order::quantOrders();
+
+	$quantOrdersPago = Order::quantOrdersPago();
+
+	$quantOrdersEmAberto = Order::quantOrdersEmAberto();
+
+	$quantOrdersEntregue = Order::quantOrdersEntregue();
+
+	$quantOrdersAgPagamento = Order::quantOrdersAgPagamento();
+
+	$somaVlTotal = Order::somaVlTotal();
+
+	$somaVlTotalPago = Order::somaVlTotalPago(); 
+
+	$somaVlTotalAgPagamento = Order::somaVlTotalAgPagamento();
+
+
+	$page = new PageAdmin([
+		"header"=>false,
+		"footer"=>false
+	]);
+
+	$page->setTpl("flot",[
+		"quantUsers"=>$quantUsers,
+		"quantOrders"=>$quantOrders,
+		"quantOrdersEmAberto"=>$quantOrdersEmAberto,
+		"quantOrdersPago"=>$quantOrdersPago,
+		"quantOrdersEntregue"=>$quantOrdersEntregue,
+		"quantOrdersAgPagamento"=>$quantOrdersAgPagamento,
+		"somaVlTotal"=>$somaVlTotal,
+		"somaVlTotalPago"=>$somaVlTotalPago,
+		"somaVlTotalAgPagamento"=>$somaVlTotalAgPagamento
+
+	]);
+    
+	
+
+});
+
 $app->get('/admin/login', function(){
 
 	$page = new PageAdmin([
@@ -65,7 +111,7 @@ $app->post("/admin/login", function(){
 		User::setError($e->getMessage());
 	}
 
-	header("Location: /admin");
+	header("Location: /admin/dashboard");
 	exit;
 
 });

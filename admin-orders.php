@@ -143,7 +143,8 @@ $app->get("/admin/orders", function(){
 
  	}
 
-
+ 	$order = Order::listAll();
+ 	
 
  	
 
@@ -263,6 +264,8 @@ $app->get("/admin/orders_em_aberto", function(){
  	$pages = [];
 
  	$listorderpago = Order::getlistAllOrdersEmAberto();
+
+
 
 
 
