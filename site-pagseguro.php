@@ -51,7 +51,7 @@ $app->post('/payment/credit', function(){
 
     $holder = new Holder($order->getdesperson(), $cpf, $birthDate, $phone);
 
-    $shipping = new Shipping($shippingAddress, (float)$cart->getvlfreight(), Shipping::PAC);
+    $shipping = new Shipping($shippingAddress, (float)$cart->getCalculateFreight(), Shipping::PAC);
 
     $installment = new Installment((int)$_POST["installments_qtd"], (float)$_POST["installments_value"]);
 
@@ -87,6 +87,12 @@ $app->post('/payment/credit', function(){
     $payment->setCreditCard($creditCard);
 
     Transporter::sendTransaction($payment);
+
+    echo json_encode([
+        'success'=>true
+    ]);
+
+
 
 });
 

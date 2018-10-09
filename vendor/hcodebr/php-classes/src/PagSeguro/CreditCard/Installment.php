@@ -37,25 +37,25 @@ class Installment {
 
     }
 
-    public function getDOMElement():DOMElement
-    {
-
-        $dom = new DOMDocument();
-
+       public function getDOMElement(){
+        $dom = new \DOMDocument();
         $installment = $dom->createElement("installment");
         $installment = $dom->appendChild($installment);
-
+     
         $value = $dom->createElement("value", number_format($this->value, 2, ".", ""));
         $value = $installment->appendChild($value);
-
+     
         $quantity = $dom->createElement("quantity", $this->quantity);
         $quantity = $installment->appendChild($quantity);
+     
+     
+        if(Config::MAX_INSTALL_MENT_NO_INTEREST>1) {
 
-        $noInterestInstallmentQuantity = $dom->createElement("noInterestInstallmentQuantity", Config::MAX_INSTALL_MENT_NO_INTEREST);
-        $noInterestInstallmentQuantity = $installment->appendChild($noInterestInstallmentQuantity);
-
+            $noInterestInstallmentQuantity = $dom->createElement("noInterestInstallmentQuantity", Config::MAX_INSTALL_MENT_NO_INTEREST);
+            $noInterestInstallmentQuantity = $installment->appendChild($noInterestInstallmentQuantity);
+        }
+     
         return $installment;
-
     }
 
 }

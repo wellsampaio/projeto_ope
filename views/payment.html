@@ -422,8 +422,11 @@
                             amount: parseFloat( "{$order.vltotal}" ),
                             
                             brand: response.brand.name,
+
+                             {if="$pagseguro.maxInstallmentNoInterest>1"}
+                                maxInstallmentNoInterest: parseInt("{$pagseguro.maxInstallmentNoInterest}"),
+                            {/if}
                             
-                            maxInstallmentNoInterest: parseInt( "{$pagseguro.maxInstallmentNoInterest}" ),
 
                             success: function(response) {
 

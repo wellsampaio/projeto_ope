@@ -304,6 +304,20 @@ class Cart extends Model {
 
 	}
 
+	public function getCalculateFreight()
+	{
+	
+
+		$totals = 0;
+
+		return $totals;
+
+	
+		 //+ $this->getvlfreight())
+
+	}
+
+
 }
 
 ?>
