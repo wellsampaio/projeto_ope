@@ -81,6 +81,29 @@ class Order extends Model {
 
 	}
 
+	public static function listAllDash()
+	{
+
+		$sql = new Sql();
+
+		
+			return $sql->select("
+			SELECT * 
+			FROM tb_orders a 
+			INNER JOIN tb_ordersstatus b USING(idstatus) 
+			INNER JOIN tb_carts c USING(idcart)
+			INNER JOIN tb_users d ON d.iduser = a.iduser
+			INNER JOIN tb_addresses e USING(idaddress)
+			INNER JOIN tb_persons f ON f.idperson = d.idperson
+			WHERE a.idstatus = 3
+			ORDER BY a.dtregister DESC LIMIT 8
+
+		",[
+
+		]);
+
+	}
+
 	public function delete()
 	{
 		
@@ -319,73 +342,6 @@ class Order extends Model {
      	}
 	}
 
-	public static function quantOrdersPgDezDias()
-	{ 
-     	$sql = new Sql();
- 
-     	$count = $sql->select("SELECT COUNT(*) AS nrtotal FROM tb_orders WHERE idstatus = 3 AND dtregister
-			BETWEEN CURRENT_DATE()-10 AND CURRENT_DATE() 
-			AND now();");
-
-     	if (count($count) > 0) {
-         	return $count[0]['nrtotal'];
-     	}
-	}
-
-
-	public static function quantOrdersPgQuinzeDias()
-	{ 
-     	$sql = new Sql();
- 
-     	$count = $sql->select("SELECT COUNT(*) AS nrtotal FROM tb_orders WHERE idstatus = 3 AND dtregister
-			BETWEEN CURRENT_DATE()-15 AND CURRENT_DATE() 
-			AND now();");
-
-     	if (count($count) > 0) {
-         	return $count[0]['nrtotal'];
-     	}
-	}
-
-
-	public static function quantOrdersPgVinteDias()
-	{ 
-     	$sql = new Sql();
- 
-     	$count = $sql->select("SELECT COUNT(*) AS nrtotal FROM tb_orders WHERE idstatus = 3 AND dtregister
-			BETWEEN CURRENT_DATE()-20 AND CURRENT_DATE() 
-			AND now();");
-
-     	if (count($count) > 0) {
-         	return $count[0]['nrtotal'];
-     	}
-	}
-
-	public static function quantOrdersPgVtCincoDias()
-	{ 
-     	$sql = new Sql();
- 
-     	$count = $sql->select("SELECT COUNT(*) AS nrtotal FROM tb_orders WHERE idstatus = 3 AND dtregister
-			BETWEEN CURRENT_DATE()-25 AND CURRENT_DATE() 
-			AND now();");
-
-     	if (count($count) > 0) {
-         	return $count[0]['nrtotal'];
-     	}
-	}
-
-	public static function quantOrdersPgTrintaDias()
-	{ 
-     	$sql = new Sql();
- 
-     	$count = $sql->select("SELECT COUNT(*) AS nrtotal FROM tb_orders WHERE idstatus = 3 AND dtregister
-			BETWEEN CURRENT_DATE()-30 AND CURRENT_DATE() 
-			AND now();");
-
-     	if (count($count) > 0) {
-         	return $count[0]['nrtotal'];
-     	}
-	}
-
 
 	public static function somaVlTotalEmAberto()
 	{ 
@@ -426,6 +382,120 @@ class Order extends Model {
          	return $soma[0]['valor_total'];
      	
 	}
+
+	public static function TotalPagoMesJan()
+	{ 
+     	$sql = new Sql();
+ 
+     	$soma = $sql->select("select SUM(vltotal) as valor_total from tb_orders where MONTH(dtregister) = '1' AND year(dtregister) = '2018' AND idstatus = 3;");
+
+         	return $soma[0]['valor_total'];
+     	
+	}
+
+	public static function TotalPagoMesFev()
+	{ 
+     	$sql = new Sql();
+ 
+     	$soma = $sql->select("select SUM(vltotal) as valor_total from tb_orders where MONTH(dtregister) = '2' AND year(dtregister) = '2018' AND idstatus = 3;");
+
+         	return $soma[0]['valor_total'];
+     	
+	}
+
+	public static function TotalPagoMesMar()
+	{ 
+     	$sql = new Sql();
+ 
+     	$soma = $sql->select("select SUM(vltotal) as valor_total from tb_orders where MONTH(dtregister) = '3' AND year(dtregister) = '2018' AND idstatus = 3;");
+
+         	return $soma[0]['valor_total'];
+     	
+	}
+
+	public static function TotalPagoMesAbril()
+	{ 
+     	$sql = new Sql();
+ 
+     	$soma = $sql->select("select SUM(vltotal) as valor_total from tb_orders where MONTH(dtregister) = '4' AND year(dtregister) = '2018' AND idstatus = 3;");
+
+         	return $soma[0]['valor_total'];
+     	
+	}
+
+	public static function TotalPagoMesMaio()
+	{ 
+     	$sql = new Sql();
+ 
+     	$soma = $sql->select("select SUM(vltotal) as valor_total from tb_orders where MONTH(dtregister) = '5' AND year(dtregister) = '2018' AND idstatus = 3;");
+
+         	return $soma[0]['valor_total'];	
+	}
+
+	public static function TotalPagoMesJun()
+	{ 
+     	$sql = new Sql();
+ 
+     	$soma = $sql->select("select SUM(vltotal) as valor_total from tb_orders where MONTH(dtregister) = '6' AND year(dtregister) = '2018' AND idstatus = 3;");
+
+         	return $soma[0]['valor_total'];	
+	}
+
+	public static function TotalPagoMesJul()
+	{ 
+     	$sql = new Sql();
+ 
+     	$soma = $sql->select("select SUM(vltotal) as valor_total from tb_orders where MONTH(dtregister) = '7' AND year(dtregister) = '2018' AND idstatus = 3;");
+
+         	return $soma[0]['valor_total'];	
+	}
+
+	public static function TotalPagoMesAgo()
+	{ 
+     	$sql = new Sql();
+ 
+     	$soma = $sql->select("select SUM(vltotal) as valor_total from tb_orders where MONTH(dtregister) = '8' AND year(dtregister) = '2018' AND idstatus = 3;");
+
+         	return $soma[0]['valor_total'];	
+	}
+
+	public static function TotalPagoMesSet()
+	{ 
+     	$sql = new Sql();
+ 
+     	$soma = $sql->select("select SUM(vltotal) as valor_total from tb_orders where MONTH(dtregister) = '9' AND year(dtregister) = '2018' AND idstatus = 3;");
+
+         	return $soma[0]['valor_total'];	
+	}
+
+	public static function TotalPagoMesOut()
+	{ 
+     	$sql = new Sql();
+ 
+     	$soma = $sql->select("select SUM(vltotal) as valor_total from tb_orders where MONTH(dtregister) = '10' AND year(dtregister) = '2018' AND idstatus = 3;");
+
+         	return $soma[0]['valor_total'];	
+	}
+
+	public static function TotalPagoMesNov()
+	{ 
+     	$sql = new Sql();
+ 
+     	$soma = $sql->select("select SUM(vltotal) as valor_total from tb_orders where MONTH(dtregister) = '11' AND year(dtregister) = '2018' AND idstatus = 3;");
+
+         	return $soma[0]['valor_total'];	
+	}
+
+	public static function TotalPagoMesDez()
+	{ 
+     	$sql = new Sql();
+ 
+     	$soma = $sql->select("select SUM(vltotal) as valor_total from tb_orders where MONTH(dtregister) = '12' AND year(dtregister) = '2018' AND idstatus = 3;");
+
+         	return $soma[0]['valor_total'];	
+	}
+
+
 
 	public function listAllOrdersPagos()
 	{

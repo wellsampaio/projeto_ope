@@ -29,7 +29,7 @@
               <input type="number" class="form-control" id="vlprice" name="vlprice" step="0.01" placeholder="0.00" value="<?php echo htmlspecialchars( $product["vlprice"], ENT_COMPAT, 'UTF-8', FALSE ); ?>" required>
             </div>
             <div class="form-group">
-              <label for="vlfilling">Recheio</label>
+              <label for="vlfilling">Descrição do Produto</label>
               <input type="text" class="form-control" id="vlwidth" name="vlfilling" value="<?php echo htmlspecialchars( $product["vlfilling"], ENT_COMPAT, 'UTF-8', FALSE ); ?>" >
             </div>
             <div class="form-group">

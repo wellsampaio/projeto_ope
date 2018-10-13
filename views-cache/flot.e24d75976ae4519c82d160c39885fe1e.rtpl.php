@@ -122,7 +122,7 @@
       <!-- sidebar menu: : style can be found in sidebar.less -->
       <ul class="sidebar-menu">
 
-        <li> <a href="/admin/dashboard"> <i class="fa fa-dashboard"></i>DASHBOARD</a></li>
+        <li> <a href="/admin/dashboard"> <i class="fa fa-dashboard"></i><span>DASHBOARD</span></a></li>
         <li><a href="/admin/users"><i class="fa fa-users"></i> <span>Usuarios</span></a></li>
         <li><a href="/admin/categories"><i class="fa fa-link"></i> <span>Categorias</span></a></li>
         <li><a href="/admin/products"><i class="fa fa-gift"></i> <span>Produtos</span></a></li>

@@ -18,6 +18,15 @@ class Product extends Model {
 
 	}
 
+	public static function listAllDash()
+	{
+
+	$sql = new Sql();
+
+	return $sql->select("SELECT * FROM tb_products ORDER BY dtregister DESC LIMIT 10");
+
+	}
+
 	public static function checkList($list)
 	{
 

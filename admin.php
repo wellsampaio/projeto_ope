@@ -3,36 +3,89 @@
 use \Hcode\PageAdmin;
 use \Hcode\Model\User;
 use \Hcode\Model\Order;
+use \Hcode\Model\Product;
+use \Hcode\Model\Category;
 
 
 $app->get('/admin', function() {
 
 	User::verifyLogin();
 
+	$users = User::listAllDash();
 	$quantUsers = User::quantUsers();
 
+	$products = Product::listAllDash();
+
 	$quantOrders = Order::quantOrders();
-
 	$quantOrdersPago = Order::quantOrdersPago();
-
 	$quantOrdersAgPagamento = Order::quantOrdersAgPagamento();
+	$quantOrdersEmAberto = Order::quantOrdersEmAberto();
+	$quantOrdersEntregue = Order::quantOrdersEntregue();
 
 	$somaVlTotal = Order::somaVlTotal();
-
 	$somaVlTotalPago = Order::somaVlTotalPago(); 
+	$somaVlTotalAgPagamento = Order::somaVlTotalAgPagamento();
+	$somaVlTotalEmAberto = Order::somaVlTotalEmAberto();
+
+	$quantProducts = Product::quantProducts();
+
+	$quantCategory = Category::quantCategory();
+
+	$totalPagoJan = Order::TotalPagoMesJan();
+	$totalPagoFev = Order::TotalPagoMesFev();
+	$totalPagoMar = Order::TotalPagoMesMar();
+	$totalPagoAbril = Order::TotalPagoMesAbril();
+	$totalPagoMaio = Order::TotalPagoMesMaio();
+	$totalPagoJun= Order::TotalPagoMesJun();
+	$totalPagoJul = Order::TotalPagoMesJul();
+	$totalPagoAgo = Order::TotalPagoMesAgo();
+	$totalPagoSet = Order::TotalPagoMesSet();
+	$totalPagoOut = Order::TotalPagoMesOut();
+	$totalPagoNov = Order::TotalPagoMesNov();
+	$totalPagoDez = Order::TotalPagoMesDez();
 
 
+	$page = new PageAdmin([
+		"header"=>false,
+		"footer"=>false
 
-	$page = new PageAdmin();
+	]);
 
-	$page->setTpl("index",[
+	$page->setTpl("index2",[
+		'totalPagoJan'=>$totalPagoJan,
+		'totalPagoFev'=>$totalPagoFev,
+		'totalPagoMar'=>$totalPagoMar,
+		'totalPagoAbril'=>$totalPagoAbril,
+		'totalPagoMaio'=>$totalPagoMaio,
+		'totalPagoJun'=>$totalPagoJun,
+		'totalPagoJul'=>$totalPagoJul,
+		'totalPagoAgo'=>$totalPagoAgo,
+		'totalPagoSet'=>$totalPagoSet,
+		'totalPagoOut'=>$totalPagoOut,
+		'totalPagoNov'=>$totalPagoNov,
+		'totalPagoDez'=>$totalPagoDez,
 
-		"quantUsers"=>$quantUsers,
-		"quantOrders"=>$quantOrders,
-		"quantOrdersPago"=>$quantOrdersPago,
-		"quantOrdersAgPagamento"=>$quantOrdersAgPagamento,
-		"somaVlTotal"=>$somaVlTotal,
-		"somaVlTotalPago"=>$somaVlTotalPago
+		'somaVlTotalPago'=>$somaVlTotalPago,
+		'somaVlTotalAgPagamento'=>$somaVlTotalAgPagamento,
+		'somaVlTotal'=>$somaVlTotal,
+		'somaVlTotalEmAberto'=>$somaVlTotalEmAberto,
+
+		'quantOrders'=>$quantOrders,
+		'quantOrdersPago'=>$quantOrdersPago,
+		'quantOrdersAgPagamento'=>$quantOrdersAgPagamento,
+		'quantOrdersEmAberto'=>$quantOrdersEmAberto,
+		'quantOrdersEntregue'=>$quantOrdersEntregue,
+
+		'quantUsers'=>$quantUsers,
+		'quantProducts'=>$quantProducts,
+		'quantCategory'=>$quantCategory,
+
+		"users"=>$users,
+
+		"orders"=>Order::listAllDash(),
+
+		'products'=>Product::checkList($products)
+
 
 	]);
     
@@ -78,8 +131,7 @@ $app->get('/admin/dashboard', function() {
 		"quantOrdersAgPagamento"=>$quantOrdersAgPagamento,
 		"somaVlTotal"=>$somaVlTotal,
 		"somaVlTotalPago"=>$somaVlTotalPago,
-		"somaVlTotalAgPagamento"=>$somaVlTotalAgPagamento
-
+		"somaVlTotalAgPagamento"=>$somaVlTotalAgPagamento,
 	]);
     
 	
@@ -111,7 +163,7 @@ $app->post("/admin/login", function(){
 		User::setError($e->getMessage());
 	}
 
-	header("Location: /admin/dashboard");
+	header("Location: /admin");
 	exit;
 
 });

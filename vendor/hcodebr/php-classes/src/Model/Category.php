@@ -222,6 +222,16 @@ class Category extends Model {
 		];
  	}
 
+ 	public static function quantCategory()
+	{ 
+     	$sql = new Sql();
+ 
+     	$count = $sql->select("SELECT COUNT(*) AS nrtotal FROM tb_categories;");
+     	if (count($count) > 0) {
+         	return $count[0]['nrtotal'];
+     	}
+	}
+
 	
 }
 
