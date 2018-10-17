@@ -274,6 +274,10 @@ class Cart extends Model {
 		$_SESSION[Cart::SESSION_ERROR] = NULL;
 
 	}
+	
+	public static function removeFromSession(){
+    $_SESSION[Cart::SESSION] = NULL;
+}
 
 	public function updateFreight()
 	{
@@ -316,6 +320,8 @@ class Cart extends Model {
 		 //+ $this->getvlfreight())
 
 	}
+
+
 
 
 }

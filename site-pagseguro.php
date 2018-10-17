@@ -15,6 +15,7 @@ use \Hcode\PagSeguro\CreditCard;
 use \Hcode\PagSeguro\CreditCard\Installment;
 use \Hcode\PagSeguro\CreditCard\Holder;
 use \Hcode\Model\Order;
+use \Hcode\Model\Cart;
 
 $app->get('/payment/success/boleto', function(){
     
@@ -25,6 +26,10 @@ $app->get('/payment/success/boleto', function(){
     $order->getFromSession();
 
     $order->get((int)$order->getidorder());
+
+    Cart::removeFromSession();
+ 
+    session_regenerate_id();
 
     $page = new Page();
 
@@ -41,6 +46,10 @@ $app->get('/payment/success', function(){
     $order = new Order();
 
     $order->getFromSession();
+
+    Cart::removeFromSession();
+ 
+    session_regenerate_id();
 
     $page = new Page();
 
