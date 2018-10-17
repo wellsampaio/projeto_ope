@@ -1,51 +1,114 @@
-<?php if(!class_exists('Rain\Tpl')){exit;}?><div class="product-big-title-area">
-    <div class="container">
-        <div class="row">
-            <div class="col-md-12">
-                <div class="product-bit-title text-center">
-                    <h2><?php echo htmlspecialchars( $category["descategory"], ENT_COMPAT, 'UTF-8', FALSE ); ?></h2>
-                </div>
-            </div>
-        </div>
-    </div>
-</div>
-
-<div class="single-product-area">
-    <div class="zigzag-bottom"></div>
-    <div class="container">
-        <div class="row">
-            <?php $counter1=-1;  if( isset($products) && ( is_array($products) || $products instanceof Traversable ) && sizeof($products) ) foreach( $products as $key1 => $value1 ){ $counter1++; ?>
-            <div class="col-md-3 col-sm-6">
-                <div class="single-shop-product">
-                    <div class="product-upper">
-                        <img src="<?php echo htmlspecialchars( $value1["desphoto"], ENT_COMPAT, 'UTF-8', FALSE ); ?>" alt="">
+<?php if(!class_exists('Rain\Tpl')){exit;}?>    <!-- service -->
+<div class="biseller-info">
+<div class="container">
+<h2>Products</h2>
+<h3 class="new-models">new varieties</h3>
+            <ul id="flexiselDemo3">
+                <?php $counter1=-1;  if( isset($products) && ( is_array($products) || $products instanceof Traversable ) && sizeof($products) ) foreach( $products as $key1 => $value1 ){ $counter1++; ?>
+                <li>
+                    <div class="biseller-column">
+                    <img src="<?php echo htmlspecialchars( $value1["desphoto"], ENT_COMPAT, 'UTF-8', FALSE ); ?>" alt="" class="veiw-img">
+                        <div class="veiw-img-mark">
+                            <a href="singlepage.html">Quick view</a>
+                        </div>
+                    <div class="biseller-name">
+                        <h4><?php echo htmlspecialchars( $value1["desproduct"], ENT_COMPAT, 'UTF-8', FALSE ); ?></h4>
+                        <p>R$ <?php echo formatPrice($value1["vlprice"]); ?></p>
                     </div>
-                    <h2><a href="/products/<?php echo htmlspecialchars( $value1["desurl"], ENT_COMPAT, 'UTF-8', FALSE ); ?>"><?php echo htmlspecialchars( $value1["desproduct"], ENT_COMPAT, 'UTF-8', FALSE ); ?></a></h2>
-                    <div class="product-carousel-price">
-                        <ins>R$<?php echo formatPrice($value1["vlprice"]); ?></ins>
-                    </div>  
-                    
-                    <div class="product-option-shop">
-                        <a class="add_to_cart_button" data-quantity="1" data-product_sku="" data-product_id="70" rel="nofollow" href="/cart/<?php echo htmlspecialchars( $value1["idproduct"], ENT_COMPAT, 'UTF-8', FALSE ); ?>/add">Comprar</a>
-                    </div>                       
-                </div>
+                        <a href="/cart/<?php echo htmlspecialchars( $value1["idproduct"], ENT_COMPAT, 'UTF-8', FALSE ); ?>/add"><button class="add2cart">
+                            <span>| Add to Cart</span>
+                        </button></a>                   
+                    </div>
+                </li>
+                <?php } ?>
                 
+                
+            </ul>
             </div>
-            <?php } ?>
-            </div>
-        
-        <div class="row">
-            <div class="col-md-12">
-                <div class="product-pagination text-center">
-                    <nav>
-                        <ul class="pagination">
-                            <?php $counter1=-1;  if( isset($pages) && ( is_array($pages) || $pages instanceof Traversable ) && sizeof($pages) ) foreach( $pages as $key1 => $value1 ){ $counter1++; ?>
-                        <li><a href="<?php echo htmlspecialchars( $value1["link"], ENT_COMPAT, 'UTF-8', FALSE ); ?>"><?php echo htmlspecialchars( $value1["page"], ENT_COMPAT, 'UTF-8', FALSE ); ?></a></li>
+        </div>  
+
+            <script type="text/javascript">
+                 $(window).load(function() {
+                    $("#flexiselDemo3").flexisel({
+                        visibleItems: 4,
+                        animationSpeed: 1000,
+                        autoPlay: false,
+                        autoPlaySpeed: 3000,            
+                        pauseOnHover: true,
+                        enableResponsiveBreakpoints: true,
+                        responsiveBreakpoints: { 
+                            portrait: { 
+                                changePoint:480,
+                                visibleItems: 1
+                            }, 
+                            landscape: { 
+                                changePoint:640,
+                                visibleItems: 2
+                            },
+                            tablet: { 
+                                changePoint:768,
+                                visibleItems: 3
+                            }
+                        }
+                    });
+                    
+                });
+               </script>
+               <script type="text/javascript" src="/res/site/js2/jquery.flexisel.js"></script>
+            
+                <div class="best-seller">
+                <div class="container">
+                    <div class="biseller-info">
+                     <h3 class="new-models">varieties</h3>
+                    <ul id="flexiselDemo1">
+                        <?php $counter1=-1;  if( isset($products) && ( is_array($products) || $products instanceof Traversable ) && sizeof($products) ) foreach( $products as $key1 => $value1 ){ $counter1++; ?>
+                        <li>
+                            <div class="biseller-column">
+                            <img src="<?php echo htmlspecialchars( $value1["desphoto"], ENT_COMPAT, 'UTF-8', FALSE ); ?>" alt="">
+                            <div class="veiw-img-mark">
+                            <a href="singlepage.html">Quick view</a>
+                        </div>
+                    <div class="biseller-name">
+                        <h4><?php echo htmlspecialchars( $value1["desproduct"], ENT_COMPAT, 'UTF-8', FALSE ); ?> </h4>
+                        <p>R$ <?php echo formatPrice($value1["vlprice"]); ?></p>
+                    </div>
+                        <a href="/cart/<?php echo htmlspecialchars( $value1["idproduct"], ENT_COMPAT, 'UTF-8', FALSE ); ?>/add"><button class="add2cart">
+                            <span>| Add to Cart</span>
+                        </button></a>
+                            </div>
+                        </li>
                         <?php } ?>
-                        </ul>
-                    </nav>                        
-                </div>
+                    </ul>
+                    </div>
             </div>
-        </div>
-    </div>
-</div>
+            </div>
+            <script type="text/javascript">
+                 $(window).load(function() {
+                    $("#flexiselDemo1").flexisel({
+                        visibleItems: 4,
+                        animationSpeed: 1000,
+                        autoPlay: true,
+                        autoPlaySpeed: 3000,            
+                        pauseOnHover: true,
+                        enableResponsiveBreakpoints: true,
+                        responsiveBreakpoints: { 
+                            portrait: { 
+                                changePoint:480,
+                                visibleItems: 1
+                            }, 
+                            landscape: { 
+                                changePoint:640,
+                                visibleItems: 2
+                            },
+                            tablet: { 
+                                changePoint:768,
+                                visibleItems: 3
+                            }
+                        }
+                    });
+                    
+                });
+               </script>
+               <script type="text/javascript" src="/res/site/js2/jquery.flexisel.js"></script>
+            
+            <div class="clearfix"></div>

@@ -46,7 +46,7 @@ class Order extends Model {
 				b.desstatus,
 				c.dessessionid, c.deszipcode, c.vlfreight, c.nrdays,
 				d.idperson, d.deslogin,
-				e.desaddress, e.desnumber, e.descomplement, e.descity, e.desstate, e.descountry, e.deszipcode, e.desdistrict,
+				e.desaddress, e.desnumber, e.descomplement, e.descity, e.desstate, e.descountry, e.deszipcode, e.desdistrict, e.desdelivery,
 				f.desperson, f.desemail, f.nrphone,
 				g.descode, g.vlgrossamount, g.vldiscountamount, g.vlfeeamount, g.vlnetamount, g.vlextraamount, g.despaymentlink
 			FROM tb_orders a 

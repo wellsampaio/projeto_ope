@@ -1,105 +1,47 @@
-<?php if(!class_exists('Rain\Tpl')){exit;}?> <div class="footer-top-area">
-        <div class="zigzag-bottom"></div>
+<?php if(!class_exists('Rain\Tpl')){exit;}?><!-- footer -->
+    <div class="footer">
         <div class="container">
-            <div class="row">
-                <div class="col-md-3 col-sm-6">
-                    <div class="footer-about-us">
-                        
-                        <div class="footer-social">
-                            <a href="https://www.facebook.com/hcodebr" target="_blank"><i class="fa fa-facebook"></i></a>
-                            <a href="https://twitter.com/hcodebr" target="_blank"><i class="fa fa-twitter"></i></a>
-                            <a href="https://www.youtube.com/channel/UCjWENuSH2gX55-y7QSZiWxA" target="_blank"><i class="fa fa-youtube"></i></a>
-                        </div>
-                    </div>
+            <div class="footer-top">
+                <div class="col-md-3 location">
+                    <h4>location</h4>
+                    <p>#04 Dist.City,State,PK</p>
+                    <h4>hours</h4>
+                    <p>Weekdays 7 a.m.-7 p.m.</p>
+                    <p>Weekends 8 a.m.-7 p.m.</p>
+                    <p>Call for Holidays Hours.</p>
                 </div>
-                
-                <div class="col-md-3 col-sm-6">
-                    <div class="footer-menu">
-                        <h2 class="footer-wid-title">Navegação </h2>
-                        <ul>
-                            <li><a href="#">Minha Conta</a></li>
-                            <li><a href="#">Meus Pedidos</a></li>
-                            <li><a href="#">Lista de Desejos</a></li>
-                        </ul>                        
-                    </div>
+                <div class="col-md-3 customer">
+                    <h4>customer service</h4>
+                    <p>Lorem ipsum dolor sit amet, consectetuer adipiscing elit, sed diam nonummy nibh euismod. </p>
+                    <h4>phone</h4>
+                    <h6>1(234)567-8910</h6>
+                    <h4>contact us</h4>
+                    <h6>contact us page.</h6>
                 </div>
-                
-                <div class="col-md-3 col-sm-6">
-                    <div class="footer-menu">
-                        <h2 class="footer-wid-title">Categorias</h2>
-                        <ul>
-                            <?php require $this->checkTemplate("categories-menu");?>                            
-                        </ul>                        
+                <div class="col-md-3 social">
+                    <h4>get social</h4>
+                    <div class="face-b">
+                        <img src="/res/site/images/foot.png" title="name"/>
+                        <a href="#"><i class="fb"> </i></a>
                     </div>
+                    <div class="twet">      
+                        <img src="/res/site/images/foot.png" title="name"/>
+                            <a href="#"><i class="twt"> </i></a>
+                    </div>  
                 </div>
-                
-                <div class="col-md-3 col-sm-6">
-                    <div class="footer-newsletter">
-                            <form action="#">
-                                
-                            </form>
-                        </div>
-                    </div>
+                <div class="col-md-3 sign">
+                    <h4>sign up for news later</h4> 
+                        <form>
+                        <input type="text" class="text" value="YOUR EMAIL" onfocus="this.value = '';" onblur="if (this.value == '') {this.value = 'YOUR EMAIL ';}">
+                        </form>
                 </div>
+                    <div class="clearfix"> </div>
+            </div>
+            <div class="footer-bottom">
+                <p>Template by <a href="" target="_blank"> w3layouts</a></p>
             </div>
         </div>
-    </div> <!-- End footer top area -->
-    
-    <div class="footer-bottom-area">
-        <div class="container">
-            <div class="row">
-                <div class="col-md-8">
-                    <div class="copyright">
-                        <p>&copy; Casa de Dona Brasilina. <a href="" target="_blank">www.casadedonabrasilina.com.br</a></p>
-                    </div>
-                </div>
-                
-                <div class="col-md-4">
-                    <div class="footer-card-icon">
-                        <i class="fa fa-cc-discover"></i>
-                        <i class="fa fa-cc-mastercard"></i>
-                        <i class="fa fa-cc-paypal"></i>
-                        <i class="fa fa-cc-visa"></i>
-                    </div>
-                </div>
-            </div>
-        </div>
-    </div> <!-- End footer bottom area -->
-   
-    <!-- Latest jQuery form server -->
-    <script src="https://code.jquery.com/jquery.min.js"></script>
-
-    <script src="/res/site/js/handlebars-v4.0.10.js"></script>
-    
-    <!-- Bootstrap JS form CDN -->
-    <script src="http://maxcdn.bootstrapcdn.com/bootstrap/3.2.0/js/bootstrap.min.js"></script>
-    
-    <!-- jQuery sticky menu -->
-    <script src="/res/site/js/owl.carousel.min.js"></script>
-    <script src="/res/site/js/jquery.sticky.js"></script>
-    
-    <!-- jQuery easing -->
-    <script src="/res/site/js/jquery.easing.1.3.min.js"></script>
-    
-    <!-- Main Script -->
-    <script src="/res/site/js/main.js"></script>
-    
-    <!-- Slider -->
-    <script type="text/javascript" src="/res/site/js/bxslider.min.js"></script>
-	<script type="text/javascript" src="/res/site/js/script.slider.js"></script>
-    <script>
-        $(function(){
-
-            if (scripts instanceof Array) {
-
-                $.each(scripts, function(index, fn){
-
-                    if (typeof fn === 'function') fn();
-
-                });
-            }
-
-        });
-    </script>
-  </body>
+    </div>
+    <!-- /footer -->
+    </body>
 </html>

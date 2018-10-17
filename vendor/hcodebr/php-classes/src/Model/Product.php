@@ -27,6 +27,15 @@ class Product extends Model {
 
 	}
 
+	public static function newProducts()
+	{
+
+	$sql = new Sql();
+
+	return $sql->select("SELECT * FROM tb_products ORDER BY dtregister DESC LIMIT 6");
+
+	}
+
 	public static function checkList($list)
 	{
 
