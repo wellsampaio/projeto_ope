@@ -3,7 +3,7 @@
 <!-- Content Header (Page header) -->
 <section class="content-header">
   <h1>
-    Lista de Pedidos
+    Lista de Pedidos Pagos
   </h1>
   <ol class="breadcrumb">
     <li><a href="/admin"><i class="fa fa-dashboard"></i> Home</a></li>
@@ -38,6 +38,7 @@
                     <th style="width: 10px">#</th>
                     <th>Cliente</th>
                     <th>Valor Total</th>
+                    <th>Data de Entregue</th>
                     <!--<th>Valor do Frete</th>-->
                     <th>Status</th>
                     <th style="width: 220px">&nbsp;</th>
@@ -49,6 +50,7 @@
                     <td><?php echo htmlspecialchars( $value1["idorder"], ENT_COMPAT, 'UTF-8', FALSE ); ?></td>
                     <td><?php echo htmlspecialchars( $value1["desperson"], ENT_COMPAT, 'UTF-8', FALSE ); ?></td>
                     <td>R$ <?php echo formatPrice($value1["vltotal"]); ?></td>
+                    <td><?php echo formatDate($value1["desdelivery"]); ?></td>
                     <!--<td>R$<?php echo formatPrice($value1["vlfreight"]); ?></td>-->
                     <td><?php echo htmlspecialchars( $value1["desstatus"], ENT_COMPAT, 'UTF-8', FALSE ); ?></td>
                     <td>

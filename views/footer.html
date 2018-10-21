@@ -3,8 +3,8 @@
         <div class="container">
             <div class="footer-top">
                 <div class="col-md-3 location">
-                    <h4>location</h4>
-                    <p>#04 Dist.City,State,PK</p>
+                    <h4>Localização</h4>
+                    <p>Rua Irapuru, 00 - Freguesia do Ó - SP, 02960070</p>
                     <h4>hours</h4>
                     <p>Weekdays 7 a.m.-7 p.m.</p>
                     <p>Weekends 8 a.m.-7 p.m.</p>
@@ -19,26 +19,26 @@
                     <h6>contact us page.</h6>
                 </div>
                 <div class="col-md-3 social">
-                    <h4>get social</h4>
+                    <h4>Rede Social</h4>
                     <div class="face-b">
-                        <img src="/res/site/images/foot.png" title="name"/>
-                        <a href="#"><i class="fb"> </i></a>
+                        <img src="/res/site/images/logo - Copia.png" title="name"/>
+                        <a href="https://www.facebook.com/casadedonabrasilina/" target="_blank"><i class="fb"> </i></a>
                     </div>
-                    <div class="twet">      
+                    <!--<div class="twet">      
                         <img src="/res/site/images/foot.png" title="name"/>
                             <a href="#"><i class="twt"> </i></a>
-                    </div>  
+                    </div>-->  
                 </div>
-                <div class="col-md-3 sign">
+                <!--<div class="col-md-3 sign">
                     <h4>sign up for news later</h4> 
                         <form>
                         <input type="text" class="text" value="YOUR EMAIL" onfocus="this.value = '';" onblur="if (this.value == '') {this.value = 'YOUR EMAIL ';}">
                         </form>
-                </div>
+                </div>-->
                     <div class="clearfix"> </div>
             </div>
             <div class="footer-bottom">
-                <p>Template by <a href="" target="_blank"> w3layouts</a></p>
+                <p>&copy; Casa de Dona Brasilina.<a href="http://www.casadedonabrasilina.com.br" target="_blank"> www.casadedonabrasilina.com.br</a></p>
             </div>
         </div>
     </div>

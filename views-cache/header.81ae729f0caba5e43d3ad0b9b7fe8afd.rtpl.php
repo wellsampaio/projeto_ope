@@ -82,6 +82,7 @@
                             <li><a href="/logout"><i class="fa fa-close"></i> Sair</a></li>
                             <?php }else{ ?>
                             <li><a href="/login"><i class="fa fa-lock"></i> Login</a></li>
+                            <li><a href="/login"><i class="fa fa-lock"></i> Criar Conta</a></li>
                             <?php } ?>
                     </ul>
                 </div>
@@ -97,7 +98,7 @@
                 <ul>
                     <li><a href="/">Home</a></li>
                     
-                    <li><a href="about.html">about</a></li>
+                    <li><a href="/about">Sobre</a></li>
                     <li><?php require $this->checkTemplate("categories-menu");?></li>
                     <div class="clearfix"> </div>
 

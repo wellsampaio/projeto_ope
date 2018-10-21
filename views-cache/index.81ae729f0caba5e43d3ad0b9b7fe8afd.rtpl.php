@@ -171,7 +171,7 @@ License URL: http://creativecommons.org/licenses/by/3.0/
 						<h4><?php echo htmlspecialchars( $value1["desproduct"], ENT_COMPAT, 'UTF-8', FALSE ); ?></h4>
 					</div>
 					<div class="top-grid-info">
-						<img src="<?php echo htmlspecialchars( $value1["desphoto"], ENT_COMPAT, 'UTF-8', FALSE ); ?>" class="img-responsive" title="name" style="height: 320px;" />
+						<a href="/products/<?php echo htmlspecialchars( $value1["desurl"], ENT_COMPAT, 'UTF-8', FALSE ); ?>"> <img src="<?php echo htmlspecialchars( $value1["desphoto"], ENT_COMPAT, 'UTF-8', FALSE ); ?>" class="img-responsive" title="Ver detalhes" style="height: 320px;" /></a>
 						<p><?php echo htmlspecialchars( $value1["vlfilling"], ENT_COMPAT, 'UTF-8', FALSE ); ?></p>
 						<span>R$ <?php echo formatPrice($value1["vlprice"]); ?></span>
 						<div class="clearfix"> </div>
@@ -192,29 +192,20 @@ License URL: http://creativecommons.org/licenses/by/3.0/
 		<div class="bottom-grids">
 			<div class="container">
 				<div class="col-md-8 bottom-grid-left">
+					
+				
+					<?php $counter1=-1;  if( isset($productsBestSellers) && ( is_array($productsBestSellers) || $productsBestSellers instanceof Traversable ) && sizeof($productsBestSellers) ) foreach( $productsBestSellers as $key1 => $value1 ){ $counter1++; ?>
 					<div class="col-md-3 bottom-grid-left-grid text-center">
-						<img src="images/pic2.jpg" title="name"/>
-						<h4>kids birthday cake</h4>
-						<p>$40</p>
+						<a href="/products/<?php echo htmlspecialchars( $value1["desurl"], ENT_COMPAT, 'UTF-8', FALSE ); ?>"><img src="<?php echo htmlspecialchars( $value1["desphoto"], ENT_COMPAT, 'UTF-8', FALSE ); ?>" title="Detalhes" style="height: 130px; width: 130px;" /></a>
+						<h4><?php echo htmlspecialchars( $value1["desproduct"], ENT_COMPAT, 'UTF-8', FALSE ); ?></h4>
+						<p>R$ <?php echo formatPrice($value1["vlprice"]); ?></p>
 					</div>
-					<div class="col-md-3 bottom-grid-left-grid text-center">
-						<img src="images/pic1.jpg" title="name"/>
-						<h4>kids birthday cake</h4>
-						<p>$40</p>
-					</div>
-					<div class="col-md-3 bottom-grid-left-grid text-center">
-						<img src="images/pic3.jpg" title="name"/>
-						<h4>kids birthday cake</h4>
-						<p>$40</p>
-					</div>
-					<div class="col-md-3 bottom-grid-left-grid text-center">
-						<img src="images/pic4.jpg" title="name"/>
-						<h4>kids birthday cake</h4>
-						<p>$40</p>
-					</div>
+					<?php } ?>
+
+
 					<div class="clearfix"> </div>
-					<span class="best-sale">Best sellers</span>
-					<a href="#" class="order"> </a>
+					<span class="best-sale">Mais Vendidos</span>
+					<!--<a href="#" class="order"> </a>-->
 				</div>
 				<div class="col-md-4 bottom-grid-right">
 					<h3><span class="tweet"> </span> latest tweet</h3>

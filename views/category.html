@@ -2,27 +2,7 @@
 <div class="biseller-info">
 <div class="container">
 <h2 class="new-models">{$category.descategory}</h2>
-            <ul id="flexiselDemo3">
-                {loop="$products"}
-                <li>
-                    <div class="biseller-column">
-                    <img src="{$value.desphoto}" alt="" class="veiw-img">
-                        <div class="veiw-img-mark">
-                            <a href="singlepage.html">Quick view</a>
-                        </div>
-                    <div class="biseller-name">
-                        <h4>{$value.desproduct}</h4>
-                        <p>R$ {function="formatPrice($value.vlprice)"}</p>
-                    </div>
-                        <a href="/cart/{$value.idproduct}/add"><button class="add2cart">
-                            <span>| Add to Cart</span>
-                        </button></a>                   
-                    </div>
-                </li>
-                {/loop}
-                
-                
-            </ul>
+           
             </div>
 
             <div class="single-product-area">

@@ -3,7 +3,7 @@
 <!-- Content Header (Page header) -->
 <section class="content-header">
   <h1>
-    Lista de Pedidos
+    Lista de Pedidos Pagos
   </h1>
   <ol class="breadcrumb">
     <li><a href="/admin"><i class="fa fa-dashboard"></i> Home</a></li>
@@ -38,6 +38,7 @@
                     <th style="width: 10px">#</th>
                     <th>Cliente</th>
                     <th>Valor Total</th>
+                    <th>Data de Entregue</th>
                     <!--<th>Valor do Frete</th>-->
                     <th>Status</th>
                     <th style="width: 220px">&nbsp;</th>
@@ -49,6 +50,7 @@
                     <td>{$value.idorder}</td>
                     <td>{$value.desperson}</td>
                     <td>R$ {function="formatPrice($value.vltotal)"}</td>
+                    <td>{function="formatDate($value.desdelivery)"}</td>
                     <!--<td>R${function="formatPrice($value.vlfreight)"}</td>-->
                     <td>{$value.desstatus}</td>
                     <td>

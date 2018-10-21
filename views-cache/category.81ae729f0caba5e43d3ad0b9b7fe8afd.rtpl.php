@@ -2,27 +2,7 @@
 <div class="biseller-info">
 <div class="container">
 <h2 class="new-models"><?php echo htmlspecialchars( $category["descategory"], ENT_COMPAT, 'UTF-8', FALSE ); ?></h2>
-            <ul id="flexiselDemo3">
-                <?php $counter1=-1;  if( isset($products) && ( is_array($products) || $products instanceof Traversable ) && sizeof($products) ) foreach( $products as $key1 => $value1 ){ $counter1++; ?>
-                <li>
-                    <div class="biseller-column">
-                    <img src="<?php echo htmlspecialchars( $value1["desphoto"], ENT_COMPAT, 'UTF-8', FALSE ); ?>" alt="" class="veiw-img">
-                        <div class="veiw-img-mark">
-                            <a href="singlepage.html">Quick view</a>
-                        </div>
-                    <div class="biseller-name">
-                        <h4><?php echo htmlspecialchars( $value1["desproduct"], ENT_COMPAT, 'UTF-8', FALSE ); ?></h4>
-                        <p>R$ <?php echo formatPrice($value1["vlprice"]); ?></p>
-                    </div>
-                        <a href="/cart/<?php echo htmlspecialchars( $value1["idproduct"], ENT_COMPAT, 'UTF-8', FALSE ); ?>/add"><button class="add2cart">
-                            <span>| Add to Cart</span>
-                        </button></a>                   
-                    </div>
-                </li>
-                <?php } ?>
-                
-                
-            </ul>
+           
             </div>
 
             <div class="single-product-area">

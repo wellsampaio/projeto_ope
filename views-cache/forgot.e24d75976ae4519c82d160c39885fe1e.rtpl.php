@@ -3,7 +3,7 @@
 <head>
   <meta charset="utf-8">
   <meta http-equiv="X-UA-Compatible" content="IE=edge">
-  <title>Reset Password</title>
+  <title>Recuperar Senha</title>
   <!-- Tell the browser to be responsive to screen width -->
   <meta content="width=device-width, initial-scale=1, maximum-scale=1, user-scalable=no" name="viewport">
   <!-- Bootstrap 3.3.6 -->
@@ -26,21 +26,17 @@
 <!-- Automatic element centering -->
 <div class="lockscreen-wrapper">
   <div class="lockscreen-logo">
-    <a href="/res/admin/index2.html"><b>Admin</b>Reset Password</a>
+    <a href="/res/admin/index2.html"><b>Admin</b>Recuperar Senha</a>
   </div>
-  
-   <div class="help-block text-center">
-     Olá <?php echo htmlspecialchars( $name, ENT_COMPAT, 'UTF-8', FALSE ); ?>, digite uma nova senha:
-    </div>
 
   <!-- START LOCK SCREEN ITEM -->
   <div class="lockscreen-item">
 
     <!-- lockscreen credentials (contains the form) -->
-    <form  action="/admin/forgot/reset" method="post">
-      <input type="hidden" name="code" value="<?php echo htmlspecialchars( $code, ENT_COMPAT, 'UTF-8', FALSE ); ?>">
+    <form  action="/admin/forgot" method="post">
       <div class="input-group">
-        <input type="password" class="form-control" placeholder="Digite a nova senha" name="password">
+        <input type="email" class="form-control" placeholder="Digite o e-mail" name="email">
+
         <div class="input-group-btn">
           <button type="submit" class="btn"><i class="fa fa-arrow-right text-muted"></i></button>
         </div>
@@ -50,7 +46,12 @@
 
   </div>
   <!-- /.lockscreen-item -->
-  
+  <div class="help-block text-center">
+    Digite seu e-mail e receba as instruções para redefinir a sua senha.
+  </div>
+  <div class="text-center">
+    <a href="/admin/login">Ou entre como um usuário diferente</a>
+  </div>
   <div class="lockscreen-footer text-center">
     Copyright &copy; 2014-2016 <b><a href="" class="text-black">Studio</a></b><br>
     All rights reserved

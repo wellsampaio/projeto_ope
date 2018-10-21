@@ -15,12 +15,23 @@ $app->get('/', function() {
 
 	$products = Product::newProducts();
 
+	$productsBestSellers = Cart::listBestSellers();
+
 	$page = new Page();
 
 	$page->setTpl("index", [
-		'products'=>Product::checkList($products)
+		'products'=>Product::checkList($products),
+		'productsBestSellers'=>Product::checkList($productsBestSellers)
 
 	]);
+});
+
+$app->get('/about', function() {
+
+	$page = new Page();
+
+	$page->setTpl("about");
+
 });
 
 $app->get ("/categories/:idcategory", function($idcategory){
