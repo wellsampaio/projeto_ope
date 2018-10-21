@@ -32,7 +32,7 @@ class Product extends Model {
 
 	$sql = new Sql();
 
-	return $sql->select("SELECT * FROM tb_products ORDER BY dtregister DESC LIMIT 6");
+	return $sql->select("SELECT * FROM tb_products ORDER BY dtregister DESC LIMIT 3");
 
 	}
 

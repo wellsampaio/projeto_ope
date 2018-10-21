@@ -164,7 +164,6 @@ License URL: http://creativecommons.org/licenses/by/3.0/
 		<div class="top-grids">
 			<div class="container">
                 <?php $counter1=-1;  if( isset($products) && ( is_array($products) || $products instanceof Traversable ) && sizeof($products) ) foreach( $products as $key1 => $value1 ){ $counter1++; ?>
-
 				<div class="col-md-4 top-grid">
 
                     
@@ -172,16 +171,15 @@ License URL: http://creativecommons.org/licenses/by/3.0/
 						<h4><?php echo htmlspecialchars( $value1["desproduct"], ENT_COMPAT, 'UTF-8', FALSE ); ?></h4>
 					</div>
 					<div class="top-grid-info">
-						<img src="<?php echo htmlspecialchars( $value1["desphoto"], ENT_COMPAT, 'UTF-8', FALSE ); ?>" class="img-responsive" title="name"/>
+						<img src="<?php echo htmlspecialchars( $value1["desphoto"], ENT_COMPAT, 'UTF-8', FALSE ); ?>" class="img-responsive" title="name" style="height: 320px;" />
 						<p><?php echo htmlspecialchars( $value1["vlfilling"], ENT_COMPAT, 'UTF-8', FALSE ); ?></p>
 						<span>R$ <?php echo formatPrice($value1["vlprice"]); ?></span>
 						<div class="clearfix"> </div>
-						<a class="btn" href="/cart/<?php echo htmlspecialchars( $value1["idproduct"], ENT_COMPAT, 'UTF-8', FALSE ); ?>/add">Buy Now</a>
+						<a class="btn" href="/cart/<?php echo htmlspecialchars( $value1["idproduct"], ENT_COMPAT, 'UTF-8', FALSE ); ?>/add">Comprar</a>
 					</div>
                     
 				</div>
 				<?php } ?>
-
 			</div>
 			<!-- top-grids-bg -->
 			<div class="top-grids-bg">

@@ -29,7 +29,7 @@
                                     </div>
 
                                     <div class="woocommerce-billing-fields">
-                                        <h3>Forma de Pagamento</h3>
+                                        <h3 style="color: #fff">Forma de Pagamento</h3>
 
                                         <div id="loading" style="margin:10px 0;">
                                             <i class="fa fa-refresh fa-spin fa-fw margin-bottom"></i> Carregando métodos de pagamento...
@@ -58,19 +58,19 @@
                                                         <div class="row">
                                                             <div class="col-sm-4">
                                                                 <div class="form-row form-row-wide address-field validate-required">
-                                                                    <label class="" for="cpf_field">CPF:</label>
+                                                                    <label class="" for="cpf_field" style="color: #fff">CPF:</label>
                                                                     <input type="text" required="required" placeholder="" id="cpf_field" name="cpf" class="input-text">
                                                                 </div>
                                                             </div>
                                                             <div class="col-sm-4">
                                                                 <div class="form-row form-row-wide address-field validate-required">
-                                                                    <label class="" for="nascimento_field">Data de nascimento:</label>
+                                                                    <label class="" for="nascimento_field" style="color: #fff">Data de nascimento:</label>
                                                                     <input type="date" required="required" placeholder="" id="nascimento_field" name="birth" class="input-text" style="margin-bottom: 10px; width: 100%; border: 1px solid #ddd; padding: 2px 10px;">
                                                                 </div>
                                                             </div>
                                                             <div class="col-sm-4">
                                                                 <div class="form-row form-row-wide address-field validate-required">
-                                                                    <label class="" for="telefone_field">Telefone:</label>
+                                                                    <label class="" for="telefone_field" style="color: #fff">Telefone:</label>
                                                                     <input type="text" required="required" maxlength="2" minlength="2" placeholder="DDD" id="ddd_field" name="ddd" class="input-text" style="float:left; width: 60px;">
                                                                     <input type="text" required="required" maxlength="9" minlength="8" placeholder="Número" id="telefone_field" name="phone" class="input-text" style="float: left; margin-left: 10px; width: calc(100% - 70px);">
                                                                 </div>
@@ -88,24 +88,24 @@
                                                 </div>
                                                 <div class="tab-pane" id="tab-debito" role="tabpanel">
 
-                                                    <form action="/payment/debit" class="checkout" method="post" name="checkout" style="padding:10px;" id="form-debit">
+                                                    <form action="/payment/debit" class="checkout" method="post" name="checkout" style="padding:10px;" id="form-debit" >
 
                                                         <div class="row">
                                                             <div class="col-sm-4">
                                                                 <div class="form-row form-row-wide address-field validate-required">
-                                                                    <label class="" for="cpf_field">CPF:</label>
+                                                                    <label class="" for="cpf_field" style="color: #fff">CPF:</label>
                                                                     <input type="text" required="required" placeholder="" id="cpf_field" name="cpf" class="input-text">
                                                                 </div>
                                                             </div>
                                                             <div class="col-sm-4">
                                                                 <div class="form-row form-row-wide address-field validate-required">
-                                                                    <label class="" for="nascimento_field">Data de nascimento:</label>
+                                                                    <label class="" for="nascimento_field" style="color: #fff">Data de nascimento:</label>
                                                                     <input type="date" required="required" placeholder="" id="nascimento_field" name="birth" class="input-text" style="margin-bottom: 10px; width: 100%; border: 1px solid #ddd; padding: 2px 10px;">
                                                                 </div>
                                                             </div>
                                                             <div class="col-sm-4">
                                                                 <div class="form-row form-row-wide address-field validate-required">
-                                                                    <label class="" for="telefone_field">Telefone:</label>
+                                                                    <label class="" for="telefone_field" style="color: #fff">Telefone:</label>
                                                                     <input type="text" required="required" maxlength="2" minlength="2" placeholder="DDD" id="ddd_field" name="ddd" class="input-text" style="float:left; width: 60px;">
                                                                     <input type="text" required="required" maxlength="9" minlength="8" placeholder="Número" id="telefone_field" name="phone" class="input-text" style="float: left; margin-left: 10px; width: calc(100% - 70px);">
                                                                 </div>
@@ -134,19 +134,19 @@
                                                         <div class="row">
                                                             <div class="col-sm-4">
                                                                 <div class="form-row form-row-wide address-field validate-required">
-                                                                    <label class="" for="cpf_field">CPF:</label>
+                                                                    <label class="" for="cpf_field" style="color: #fff">CPF:</label>
                                                                     <input type="text" required="required" placeholder="" id="cpf_field" name="cpf" class="input-text">
                                                                 </div>
                                                             </div>
                                                             <div class="col-sm-4">
                                                                 <div class="form-row form-row-wide address-field validate-required">
-                                                                    <label class="" for="nascimento_field">Data de nascimento:</label>
+                                                                    <label class="" for="nascimento_field" style="color: #fff">Data de nascimento:</label>
                                                                     <input type="date" required="required" placeholder="" id="nascimento_field" name="birth" class="input-text" style="margin-bottom: 10px; width: 100%; border: 1px solid #ddd; padding: 2px 10px;">
                                                                 </div>
                                                             </div>
                                                             <div class="col-sm-4">
                                                                 <div class="form-row form-row-wide address-field validate-required">
-                                                                    <label class="" for="telefone_field">Telefone:</label>
+                                                                    <label class="" for="telefone_field" style="color: #fff">Telefone:</label>
                                                                     <input type="text" required="required" maxlength="2" minlength="2" placeholder="DDD" id="ddd_field" name="ddd" class="input-text" style="float:left; width: 60px;">
                                                                     <input type="text" required="required" maxlength="9" minlength="8" placeholder="Número" id="telefone_field" name="phone" class="input-text" style="float: left; margin-left: 10px; width: calc(100% - 70px);">
                                                                 </div>
@@ -156,19 +156,19 @@
                                                         <div class="row">
                                                             <div class="col-sm-4">
                                                                     <div class="form-row form-row-wide address-field validate-required">
-                                                                        <label class="" for="name_field">Nome impresso no cartão:</label>
+                                                                        <label class="" for="name_field" style="color: #fff">Nome impresso no cartão:</label>
                                                                         <input type="text" required="required" placeholder="" id="name_field" name="name" class="input-text">
                                                                     </div>
                                                             </div>
                                                             <div class="col-sm-4">
                                                                 <div class="form-row form-row-wide address-field validate-required">
-                                                                    <label class="" for="number_field">Número do cartão:</label>
+                                                                    <label class="" for="number_field" style="color: #fff">Número do cartão:</label>
                                                                     <input type="text" required="required" placeholder="" id="number_field" name="number" class="input-text">
                                                                 </div>
                                                             </div>
                                                             <div class="col-sm-4">
                                                                 <div class="form-row form-row-wide address-field validate-required">
-                                                                    <label class="" for="cvv_field">Código de segurança:</label>
+                                                                    <label class="" for="cvv_field" style="color: #fff">Código de segurança:</label>
                                                                     <input type="text" required="required" placeholder="" id="cvv_field" name="cvv" class="input-text">
                                                                 </div>
                                                             </div>
@@ -177,7 +177,7 @@
                                                         <div class="row">
                                                             <div class="col-xs-6 col-sm-2">
                                                                 <div class="form-row form-row-wide address-field validate-required">
-                                                                    <label class="" for="month_name">Validade:</label>
+                                                                    <label class="" for="month_name" style="color: #fff">Validade:</label>
                                                                     <select name="month" class="input-text" required="required">
                                                                         <option disabled="disabled" selected="selected" value="">Mês</option>
                                                                         <option value="1">1</option>
@@ -211,7 +211,7 @@
                                                             <input type="hidden" name="installments_total">
                                                             <div class="col-xs-12 col-sm-4">
                                                                 <div class="form-row form-row-wide address-field validate-required">
-                                                                    <label class="" for="installments_field">Parcelamento</label>
+                                                                    <label class="" for="installments_field" style="color: #fff">Parcelamento</label>
                                                                     <select name="installments" id="installments_field" class="input-text" required="required">
                                                                         <option disabled="disabled" selected="selected">Carregando...</option>
                                                                     </select>
@@ -219,7 +219,7 @@
                                                             </div>
                                                             <div class="col-xs-12">
                                                                 <div class="form-row form-row-wide address-field validate-required" style="margin-bottom:10px; display:inline-block;">
-                                                                    <label class="" for="month_name">Bandeiras aceitas</label>
+                                                                    <label class="" for="month_name" style="color: #fff">Bandeiras aceitas</label>
                                                                     <div class="contents"></div>
                                                                 </div>
                                                             </div>

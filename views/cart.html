@@ -1,16 +1,5 @@
-<div class="product-big-title-area">
-    <div class="container">
-        <div class="row">
-            <div class="col-md-12">
-                <div class="product-bit-title text-center">
-                    <h2>Carrinho de Compras</h2>
-                </div>
-            </div>
-        </div>
-    </div>
-</div> <!-- End Page title area -->
-
 <div class="single-product-area">
+    <h2 style="color: #ffffff; text-align: center; font-size: 50px;">Carrinho de Compras</h2><br>
     <div class="zigzag-bottom"></div>
     <div class="container">
         <div class="row">
@@ -42,7 +31,7 @@
                                     {loop="$products"}                                    
                                     <tr class="cart_item">
                                         <td class="product-remove">
-                                            <a title="Remove this item" class="remove" href="/cart/{$value.idproduct}/remove">×</a> 
+                                            <a title="Remove this item" class="remove" href="/cart/{$value.idproduct}/remove" style="color: #fff">×</a> 
                                         </td>
 
                                         <td class="product-thumbnail">
@@ -50,10 +39,10 @@
                                         </td>
 
                                         <td class="product-name">
-                                            <a href="/products/{$value.desurl}">{$value.desproduct}</a> 
+                                            <a href="/products/{$value.desurl}" style="color: #fff">{$value.desproduct}</a> 
                                         </td>
 
-                                        <td class="product-price">
+                                        <td class="product-price" style="color: #fff">
                                             <span class="amount">R$ {function="formatPrice($value.vlprice)"}</span> 
                                         </td>
 
@@ -65,7 +54,7 @@
                                             </div>
                                         </td>
 
-                                        <td class="product-subtotal">
+                                        <td class="product-subtotal" style="color: #fff">
                                             <span class="amount">R$ {function="formatPrice($value.vltotal)"}</span> 
                                         </td>
                                     </tr>
@@ -90,23 +79,23 @@
 
                                 <div class="cart_totals ">
 
-                                    <h2>Resumo da Compra</h2>
+                                    <h2 style="color: #fff">Resumo da Compra</h2>
 
                                     <table cellspacing="0">
                                         <tbody>
                                             <tr class="cart-subtotal">
                                                 <th>Subtotal</th>
-                                                <td><span class="amount">R$ {function="formatPrice($cart.vlsubtotal)"}</span></td>
+                                                <td style="color: #fff"><span class="amount">R$ {function="formatPrice($cart.vlsubtotal)"}</span></td>
                                             </tr>
 
                                             <tr class="shipping">
                                                 <th>Frete</th>
-                                                <td>Frete Grátis<!--R${function="formatPrice($cart.vlfreight)"} --><!--{if="$cart.nrdays > 0"}--><small> <!--{$cart.nrdays} dia(s)--></small><!--{/if}--></td>
+                                                <td style="color: #fff">Frete Grátis<!--R${function="formatPrice($cart.vlfreight)"} --><!--{if="$cart.nrdays > 0"}--><small> <!--{$cart.nrdays} dia(s)--></small><!--{/if}--></td>
                                             </tr>
 
                                             <tr class="order-total">
                                                 <th>Total</th>
-                                                <td><strong><span class="amount">R$ {function="formatPrice($cart.vltotal)"}</span></strong> </td>
+                                                <td style="color: #fff"><strong><span class="amount">R$ {function="formatPrice($cart.vltotal)"}</span></strong> </td>
                                             </tr>
                                         </tbody>
                                     </table>

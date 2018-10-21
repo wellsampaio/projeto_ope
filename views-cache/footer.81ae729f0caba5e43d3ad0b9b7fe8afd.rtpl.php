@@ -42,6 +42,30 @@
             </div>
         </div>
     </div>
+
+     
+
+    <script src="/res/site/js/handlebars-v4.0.10.js"></script>
+    
+    <!-- Bootstrap JS form CDN -->
+    <script src="http://maxcdn.bootstrapcdn.com/bootstrap/3.2.0/js/bootstrap.min.js"></script>
+    
+    <!-- Slider -->
+    
+    <script>
+        $(function(){
+
+            if (scripts instanceof Array) {
+
+                $.each(scripts, function(index, fn){
+
+                    if (typeof fn === 'function') fn();
+
+                });
+            }
+
+        });
+    </script>
     <!-- /footer -->
     </body>
 </html>
