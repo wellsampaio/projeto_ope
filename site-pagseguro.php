@@ -17,6 +17,25 @@ use \Hcode\PagSeguro\CreditCard\Holder;
 use \Hcode\Model\Order;
 use \Hcode\Model\Cart;
 
+$app->post('/payment/notification', function(){
+
+    $url = "";
+
+    switch ($_POST['notificationType'])
+    {
+        case 'transaction':
+        $url = Config::getNotificationTransactionURL();
+        break;
+
+        default:
+        throw new Exception("Notificação inválida.");
+        break;
+    }
+
+    Transporter::getNotification($_POST['notificationCode'], $_POST['notificationType']);
+
+});
+
 $app->get('/payment/success/boleto', function(){
     
     User::verifyLogin(false);
