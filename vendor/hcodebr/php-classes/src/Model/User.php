@@ -375,6 +375,7 @@ class User extends Model {
 			INNER JOIN tb_addresses e USING(idaddress)
 			INNER JOIN tb_persons f ON f.idperson = d.idperson
 			WHERE a.iduser = :iduser
+			ORDER BY a.dtregister DESC
 		", [
 			':iduser'=>$this->getiduser()
 		]);
