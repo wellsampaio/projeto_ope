@@ -58,7 +58,7 @@ class Transporter{
 
 	}
 
-	public function getNotification(string $code, string $type)
+	public function static getNotification(string $code, string $type)
 	{
 
 		$url = "";

@@ -225,9 +225,9 @@ class User extends Model {
              $result = base64_encode($iv.$code);
 
              if ($inadmin === true) {
-                 $link = "http://www.casadedonabrasilina.com.br/admin/forgot/reset?code=$result";
+                 $link = "https://www.casadedonabrasilina.com.br/admin/forgot/reset?code=$result";
              } else {
-                 $link = "http://www.casadedonabrasilina.com.br/forgot/reset?code=$result";
+                 $link = "https://www.casadedonabrasilina.com.br/forgot/reset?code=$result";
              } 
 
              $mailer = new Mailer($data['desemail'], $data['desperson'], "Redefinir senha da Confeitaria Casa de Dona Brasilina", "forgot", array(
