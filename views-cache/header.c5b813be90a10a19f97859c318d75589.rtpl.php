@@ -16,6 +16,9 @@
         <script type="application/x-javascript"> addEventListener("load", function() { setTimeout(hideURLbar, 0); }, false); function hideURLbar(){ window.scrollTo(0,1); } </script>
         </script>
 
+        <script>function CompararData(){ campodata = document.checkout.data.value datdahoje = document.F1.hoje.value var result = true; if (campodata >= datahoje) result = false; else alert("A data informada é Retroativa...\nInforme uma data Valida")}</script>
+
+
         <script src="/res/site/js2/jquery.easydropdown.js"></script>
         <!----webfonts--->
         <link 
@@ -80,15 +83,12 @@ href='https://fonts.googleapis.com/css?family=Open+Sans:300,700,800,400,600' rel
                 <div class="top-header-right">
                     <ul>
                         <?php if( checkLogin(false) ){ ?>
-
                             <li><a href="/profile"><i class="fa fa-user"></i> <?php echo getUserName(); ?></a></li>
                             <li><a href="/logout"><i class="fa fa-close"></i> Sair</a></li>
                             <?php }else{ ?>
-
                             <li><a href="/login"><i class="fa fa-lock"></i> Login</a></li>
                             <li><a href="/login"><i class="fa fa-lock"></i> Criar Conta</a></li>
                             <?php } ?>
-
                     </ul>
                 </div>
                 <div class="clearfix"> </div>

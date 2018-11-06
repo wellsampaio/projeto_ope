@@ -135,6 +135,17 @@ $app->post("/checkout", function(){
 		exit;
 	}
 
+	$entrega=$_POST['desdelivery'];
+ 
+	if ($entrega < date('Y-m-d', strtotime("+5 day")))
+	{
+		Address::setMsgError("Data Retroativa ou não correspondem o prazo de 5 dias");
+
+		header('Location: /checkout');
+		exit;
+	}
+	 
+
 	if (!isset($_POST['desaddress']) || $_POST['desaddress'] === '') {
 
 		Address::setMsgError("Informe o endereço.");
