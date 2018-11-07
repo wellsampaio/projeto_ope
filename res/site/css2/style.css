@@ -7,7 +7,7 @@ License URL: http://creativecommons.org/licenses/by/3.0/
 html, body{
   	font-family: 'Open Sans', sans-serif;
     font-size: 100%;
-  	background:#9932CC;
+  	background:#FFE4C4;
 }
 body a{
 	transition:0.5s all;
@@ -18,7 +18,7 @@ body a{
 }
 /*-- top-header --*/
 .top-header{
-	background:#5a0f16;
+	background:#311b0c;
 }
 .top-header-left{
 	float:left;
@@ -81,7 +81,7 @@ body a{
 	outline: none;
 	position: relative;
 	transition: linear 0.5s all;
-	background: #721a23;
+	background: #5c301;
 	padding: 0.6em;
 	color:#FFF;
 }
@@ -433,7 +433,7 @@ a.buy-btn:hover{
 	display: block;
 }
 .top-grid-info{
-	background:#a76280;
+	background:#52170b;
 	padding:1em;
 }
 .top-grid-info img{
@@ -483,7 +483,7 @@ a.btn:hover{
 	color:#FFF;
 }
 .top-grids-bg span{
-	background: url(../images/top-grid-bg.png) repeat-x 0px 0px #ff97b7;
+	background: url(../images/top-grid-bg.png) repeat-x 0px 0px #FFE4C;
 	min-height: 585px;
 	width: 100%;
 	display: inline-block;
@@ -595,7 +595,7 @@ a.order:hover{
 /*--*/
 /*-- footer --*/
 .footer{
-	background:#FFEDE9;
+	background:#311b0c;
 	padding:4em 0em 0em;
 }
 .footer h4 {
@@ -701,7 +701,7 @@ i.twt:hover{
 /*-- about --*/
 .about {
 	padding: 3em 0em;
-	background:#fff;
+	background:#FFE4C4;
 }
 .about img {
 	margin: 0em 0em 2em;
@@ -712,9 +712,9 @@ i.twt:hover{
 	padding: 1em 0;
 }
 .about p {
-	font-size: 1em;
+	font-size: 1.5em;
 	font-weight:300;
-	color: #7D7F7E;
+	color: #311b0c;
 	line-height: 1.8em;
 	padding: 1em 0;
 }

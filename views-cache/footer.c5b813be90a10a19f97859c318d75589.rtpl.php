@@ -5,18 +5,9 @@
                 <div class="col-md-3 location">
                     <h4>Localização</h4>
                     <p>Rua Irapuru, 00 - Freguesia do Ó - SP, 02960070</p>
-                    <h4>hours</h4>
-                    <p>Weekdays 7 a.m.-7 p.m.</p>
-                    <p>Weekends 8 a.m.-7 p.m.</p>
-                    <p>Call for Holidays Hours.</p>
-                </div>
-                <div class="col-md-3 customer">
-                    <h4>customer service</h4>
-                    <p>Lorem ipsum dolor sit amet, consectetuer adipiscing elit, sed diam nonummy nibh euismod. </p>
-                    <h4>phone</h4>
-                    <h6>1(234)567-8910</h6>
-                    <h4>contact us</h4>
-                    <h6>contact us page.</h6>
+                    <h4>Horário de Atendimento</h4>
+                    <p>08:00 ás 18:00</p>
+                    <p>De Segunda a Sábado</p>
                 </div>
                 <div class="col-md-3 social">
                     <h4>Rede Social</h4>

@@ -1,4 +1,4 @@
-	<!---start-about---->
+<?php if(!class_exists('Rain\Tpl')){exit;}?>	<!---start-about---->
 					<div class="about">
 						<div class="container">
 							<h3>Sobre Nós</h3>

@@ -1,11 +1,11 @@
 <?php if(!class_exists('Rain\Tpl')){exit;}?>    <!-- service -->
-<div class="biseller-info">
-<div class="container">
+<div class="biseller-info" style="background: #FFE4C4">
+<div class="container" style="background: #FFE4C4">
 <h2 class="new-models"><?php echo htmlspecialchars( $category["descategory"], ENT_COMPAT, 'UTF-8', FALSE ); ?></h2>
            
             </div>
 
-            <div class="single-product-area">
+            <div class="single-product-area" style="background: #FFE4C4">
     <div class="zigzag-bottom"></div>
     <div class="container">
         <div class="row">

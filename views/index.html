@@ -38,12 +38,12 @@ License URL: http://creativecommons.org/licenses/by/3.0/
 					          <img  src="/res/site/images/slide.jpg" class="img-responsive" alt="">
 					          <div class="slider-caption">
 					          	 <div class="slider-caption-left text-center">
-					          	 	<h1>ARE YOU LOOKING FOR SWEET, STYLISH AND DELECIOUS BIRTHDAY CAKES?</h1>
-					          	 	<p>DON'T WORRY, WE CAN HELP YOU! CHECK OUR BEST CAKE SECTION.</p>
-					          	 	<a class="buy-btn" href="#">Buy Now</a>
+					          	 	<h1>VOCÊ ESTÁ PROCURANDO POR DELICIOSOS BOLOS E DOCES PARA ANIVERSÁRIOS? </h1>
+					          	 	<p>NÃO SE PREOCUPE VENHA ONHECER NOSSOS PRODUTOS</p>
+					          	 	<a class="buy-btn" href="#">Compre Agora</a>
 					          	 </div>
 					          	  <div class="slider-caption-right">
-					          	  	<a href="#"><img src="/res/site/images/iteam.png" class="img-responsive" title="name" /></a>
+					          	  	<a href="#"><img src="" class="img-responsive" title="" /></a>
 					          	  </div>
 					          	  <div class="clearfix"> </div>
 					          </div>
@@ -65,15 +65,15 @@ License URL: http://creativecommons.org/licenses/by/3.0/
 					          <!-- share-on -->
 					        </li>
 					         <li>
-					          <img  src="/res/site/images/slide.jpg" class="img-responsive" alt="">
+					          <img  src="/res/site/images/slide2.jpg" class="img-responsive" alt="">
 					          <div class="slider-caption">
 					          	 <div class="slider-caption-left text-center">
-					          	 	<h1>ARE YOU LOOKING FOR SWEET, STYLISH AND DELECIOUS BIRTHDAY CAKES?</h1>
-					          	 	<p>DON'T WORRY, WE CAN HELP YOU! CHECK OUR BEST CAKE SECTION.</p>
-					          	 	<a class="buy-btn" href="#">Buy Now</a>
+					          	 	<h1>VOCÊ ESTÁ PROCURANDO POR DELICIOSOS BOLOS E DOCES PARA ANIVERSÁRIOS? </h1>
+					          	 	<p>NÃO SE PREOCUPE VENHA ONHECER NOSSOS PRODUTOS</p>
+					          	 	<a class="buy-btn" href="#">Compre Agora</a>
 					          	 </div>
 					          	  <div class="slider-caption-right">
-					          	  	<a href="#"><img src="/res/site/images/iteam.png" class="img-responsive" title="name" /></a>
+					          	  	<a href="#"><img src="" class="img-responsive" title="" /></a>
 					          	  </div>
 					          	  <div class="clearfix"> </div>
 					          </div>
@@ -95,15 +95,15 @@ License URL: http://creativecommons.org/licenses/by/3.0/
 					          <!-- share-on -->
 					        </li>
 					        <li>
-					          <img src="/res/site/images/slide.jpg" class="img-responsive" alt="">
+					          <img src="/res/site/images/slide3.jpg" class="img-responsive" alt="">
 					           <div class="slider-caption">
 					          	 <div class="slider-caption-left text-center">
-					          	 	<h1>ARE YOU LOOKING FOR SWEET, STYLISH AND DELECIOUS BIRTHDAY CAKES?</h1>
-					          	 	<p>DON'T WORRY, WE CAN HELP YOU! CHECK OUR BEST CAKE SECTION.</p>
-					          	 	<a class="buy-btn" href="#">Buy Now</a>
+					          	 	<h1>NÓS QUEREMOS TORNAR SEU NATAL MUITO MAIS SABOROSO</h1>
+					          	 	<p>ENCOMENDE DOCES PERSONALIZADOS NATALINOS PARA TORNAR A CEIA ESPECIAL</p>
+					          	 	<a class="buy-btn" href="#">Compre Agora</a>
 					          	 </div>
 					          	  <div class="slider-caption-right">
-					          	  	<a href="#"><img src="/res/site/images/iteam.png" class="img-responsive" title="name" /></a>
+					          	  	<a href="#"><img src="" class="img-responsive" title="" /></a>
 					          	  </div>
 					          	  <div class="clearfix"> </div>
 					          </div>
@@ -125,15 +125,15 @@ License URL: http://creativecommons.org/licenses/by/3.0/
 					          <!-- share-on -->
 					        </li>
 					        <li>
-					          <img src="/res/site/images/slide.jpg" class="img-responsive" alt="">
+					          <img src="/res/site/images/slide4.jpg" class="img-responsive" alt="">
 					           <div class="slider-caption">
 					            <div class="slider-caption-left text-center">
-					          	 	<h1>ARE YOU LOOKING FOR SWEET, STYLISH AND DELECIOUS BIRTHDAY CAKES?</h1>
-					          	 	<p>DON'T WORRY, WE CAN HELP YOU! CHECK OUR BEST CAKE SECTION.</p>
-					          	 	<a class="buy-btn" href="#">Buy Now</a>
+					          	 	<h1>VENHA FAZER O SEU BUFFET DE ANIVERSÁRIO CONOSCO</h1>
+					          	 	<p>TEMOS AS MELHORES OPÇÕES QUE VÃO ALEGRAR A CRIANÇADA</p>
+					          	 	<a class="buy-btn" href="#">Compre Agora</a>
 					          	 </div>
 					          	  <div class="slider-caption-right">
-					          	  	<a href="#"><img src="/res/site/images/iteam.png" class="img-responsive" title="name" /></a>
+					          	  	<a href="#"><img src="" class="img-responsive" title="" /></a>
 					          	  </div>
 					          	  <div class="clearfix"> </div>
 					          </div>
