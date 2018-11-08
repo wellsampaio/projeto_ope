@@ -429,7 +429,7 @@
                           <tr>
                             <td class="body-signature-cell">
                               <p>Obrigado!</p>
-                              <p class="body-signature"><img src="https://www.casadedonabrasilina.com.br/res/site/images/logo.png" alt="Confeitaria Casa de Dona Brasilina"></p>
+                              <p class="body-signature"><img src="https://www.casadedonabrasilina.com.br/res/site/images/logo_email.fw.png" alt="Confeitaria Casa de Dona Brasilina"></p>
                             </td>
                           </tr>
                         </table>
@@ -451,7 +451,7 @@
         <td></td>
         <td class="container">
           <div class="content footer-lead">
-            <a href="#"><b>Get in touch</b></a> if you have any questions or feedback
+            <a href="#"><b>Entrar em contato </b></a>Entre em contato se tiver alguma dúvida ou feedback
           </div>
         </td>
         <td></td>
@@ -462,11 +462,11 @@
         <td></td>
         <td class="container">
           <div class="content">
-            <a href="#">Contact Us</a>&nbsp;&nbsp;|&nbsp;&nbsp;
+            <!--<a href="#">Contact Us</a>&nbsp;&nbsp;|&nbsp;&nbsp;-->
             <span class="footer-group">
-              <a href="#">Facebook</a>&nbsp;&nbsp;|&nbsp;&nbsp;
-              <a href="#">Twitter</a>&nbsp;&nbsp;|&nbsp;&nbsp;
-              <a href="#">Support</a>
+              <a href="https://www.facebook.com/casadedonabrasilina/">Facebook</a>&nbsp;&nbsp;|&nbsp;&nbsp;
+              <!--<a href="#">Twitter</a>&nbsp;&nbsp;|&nbsp;&nbsp;
+              <a href="#">Support</a>-->
             </span>
           </div>
         </td>

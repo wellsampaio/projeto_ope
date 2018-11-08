@@ -2,6 +2,7 @@
 <html>
     <head>
         <title>Casa de Dona Brasilina</title>
+        <link rel="icon" type="image/png" href="/res/site/images/logo2.fw.png" />
         <link href="/res/site/css2/bootstrap.css" rel='stylesheet' type='text/css' />
         <!-- jQuery (necessary for Bootstrap's JavaScript plugins) -->
         <script src="/res/site/js2/jquery.min.js"></script>
