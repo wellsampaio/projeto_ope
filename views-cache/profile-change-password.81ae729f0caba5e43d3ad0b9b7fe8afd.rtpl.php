@@ -1,28 +1,28 @@
-
+<?php if(!class_exists('Rain\Tpl')){exit;}?>
 <div class="single-product-area">
      <h2 style="text-align: center; font-size: 50px;">Minha Conta</h2><br>
     <div class="zigzag-bottom"></div>
     <div class="container">
         <div class="row">                
             <div class="col-md-3">
-                {include="profile-menu"}
+                <?php require $this->checkTemplate("profile-menu");?>
             </div>
             <div class="col-md-9">
                 <div class="cart-collaterals">
                     <h2>Alterar Senha</h2>
                 </div>
 
-                {if="$changePassError != ''"}
+                <?php if( $changePassError != '' ){ ?>
                 <div class="alert alert-danger">
-                    {$changePassError}
+                    <?php echo htmlspecialchars( $changePassError, ENT_COMPAT, 'UTF-8', FALSE ); ?>
                 </div>
-                {/if}
+                <?php } ?>
 
-                {if="$changePassSuccess != ''"}
+                <?php if( $changePassSuccess != '' ){ ?>
                 <div class="alert alert-success">
-                    {$changePassSuccess}
+                    <?php echo htmlspecialchars( $changePassSuccess, ENT_COMPAT, 'UTF-8', FALSE ); ?>
                 </div>
-                {/if}
+                <?php } ?>
                 
                 <form action="/profile/change-password" method="post">
                     <div class="form-group">
