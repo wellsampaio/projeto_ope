@@ -49,7 +49,7 @@
 						<input type="text" id="billing_state" name="descountry" placeholder="País" value="<?php echo htmlspecialchars( $address["descountry"], ENT_COMPAT, 'UTF-8', FALSE ); ?>" class="input-text ">
 					 </div>
 					 <div class="wow fadeInRight" data-wow-delay="0.4s">
-						 <span>Data de Entrega<label>*</label></span>
+						 <span>Data de Entrega<label>* </label> <label style="color: red; font-size: 9px"> *Obs: Data Retroativa não será aceita e só será aceita data posterior a 5 dias </label></span>
 						 <input type="date" id="billing_state" name="desdelivery" placeholder="Data de entrega" value="<?php echo htmlspecialchars( $address["desdelivery"], ENT_COMPAT, 'UTF-8', FALSE ); ?>" class="input-date"> 
 					 </div>
 					 <div class="wow fadeInRight" data-wow-delay="0.4s">

@@ -208,9 +208,11 @@ License URL: http://creativecommons.org/licenses/by/3.0/
 					<!--<a href="#" class="order"> </a>-->
 				</div>
 				<div class="col-md-4 bottom-grid-right">
-					<h3><span class="tweet"> </span> latest tweet</h3>
-					<p>Lorem Ipsum is simply dummy text of the printing and typesetting industry. Lorem Ipsum has been the industry's standard dummy</p>
-					<label>1 day ago</label>
+					<h3 style="color: #000"><span> </span> Serviços Oferecidos</h3>
+					<p style="color: #000">* Casamentos</p>
+					<p style="color: #000">* Festas de aniversário</p>
+					<p style="color: #000">* Buffet Infantil</p>
+					<label></label>
 				</div>
 				<div class="clearfix"> </div>
 			</div>
