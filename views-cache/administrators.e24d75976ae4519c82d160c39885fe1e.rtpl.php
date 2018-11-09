@@ -3,7 +3,7 @@
 <!-- Content Header (Page header) -->
 <section class="content-header">
   <h1>
-    Lista de Usuários
+    Lista de Funcionários
   </h1>
   <ol class="breadcrumb">
     <li><a href="/admin"><i class="fa fa-dashboard"></i> Home</a></li>
@@ -74,7 +74,8 @@
   	</div>
   </div>
 
-    Usuários Cadastrado: <?php echo htmlspecialchars( $quantUsers, ENT_COMPAT, 'UTF-8', FALSE ); ?>
+   Funcionários Cadastrados: <?php echo htmlspecialchars( $quantUsersAdmin, ENT_COMPAT, 'UTF-8', FALSE ); ?>
+
 </section>
 <!-- /.content -->
 </div>

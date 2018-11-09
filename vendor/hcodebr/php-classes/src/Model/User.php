@@ -112,6 +112,15 @@ class User extends Model {
 		
 	}
 
+	public static function listAllAdmin()
+	{
+		$sql = new Sql();
+
+		return $sql->select("SELECT COUNT(*) FROM tb_users a INNER JOIN tb_persons b USING(idperson) ORDER BY b.desperson");
+		
+	}
+
+
 	public static function listAllDash()
 	{
 		$sql = new Sql();
@@ -196,7 +205,7 @@ class User extends Model {
 		if (count($results) === 0)
 		{
 
-			throw new \Exception("Não foi possível recuperar a senha.");
+			throw new \Exception("Não foi possível recuperar a senha e-mail não foi encontrado tente novamente.");
 			
 		}
 
@@ -266,7 +275,7 @@ class User extends Model {
 	     ));
 	     if (count($results) === 0)
 	     {
-	         throw new \Exception("Não foi possível recuperar a senha.");
+	         throw new \Exception("Não foi possível recuperar a senha email não foi encontrado tente novamente.");
 	     }
 	     else
 	     {
@@ -396,6 +405,31 @@ class User extends Model {
 			SELECT SQL_CALC_FOUND_ROWS *
 			FROM tb_users a 
 			INNER JOIN tb_persons b USING(idperson) 
+			WHERE a.inadmin = 0
+			ORDER BY b.desperson
+			LIMIT $start, $itemsPerPage;
+		");
+
+ 		$resultTotal = $sql->select("SELECT FOUND_ROWS() AS nrtotal;");
+
+ 		return [
+			'data'=>$results,
+			'total'=>(int)$resultTotal[0]["nrtotal"],
+			'pages'=>ceil($resultTotal[0]["nrtotal"] / $itemsPerPage)
+		];
+ 	}
+
+ 	public static function getPageAdmin($page = 1, $itemsPerPage = 10)
+	{
+ 		$start = ($page - 1) * $itemsPerPage;
+
+ 		$sql = new Sql();
+
+ 		$results = $sql->select("
+			SELECT SQL_CALC_FOUND_ROWS *
+			FROM tb_users a 
+			INNER JOIN tb_persons b USING(idperson) 
+			WHERE a.inadmin = 1
 			ORDER BY b.desperson
 			LIMIT $start, $itemsPerPage;
 		");
@@ -420,7 +454,7 @@ class User extends Model {
 			SELECT SQL_CALC_FOUND_ROWS *
 			FROM tb_users a 
 			INNER JOIN tb_persons b USING(idperson)
-			WHERE b.desperson LIKE :search OR b.desemail = :search OR a.deslogin LIKE :search
+			WHERE b.desperson LIKE :search OR b.desemail = :search OR a.deslogin LIKE :search OR a.inadmin LIKE :search
 			ORDER BY b.desperson
 			LIMIT $start, $itemsPerPage;
 		", [
@@ -439,7 +473,17 @@ class User extends Model {
 	{ 
      	$sql = new Sql();
  
-     	$count = $sql->select("SELECT COUNT(*) AS nrtotal FROM tb_users a INNER JOIN tb_persons b USING(idperson);");
+     	$count = $sql->select("SELECT COUNT(*) AS nrtotal FROM tb_users a INNER JOIN tb_persons b USING(idperson) WHERE a.inadmin = 0;");
+     	if (count($count) > 0) {
+         	return $count[0]['nrtotal'];
+     	}
+	} 
+
+	public static function quantUsersAdmin()
+	{ 
+     	$sql = new Sql();
+ 
+     	$count = $sql->select("SELECT COUNT(*) AS nrtotal FROM tb_users a INNER JOIN tb_persons b USING(idperson) WHERE a.inadmin = 1;");
      	if (count($count) > 0) {
          	return $count[0]['nrtotal'];
      	}

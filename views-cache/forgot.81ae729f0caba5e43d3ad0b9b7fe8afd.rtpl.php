@@ -17,7 +17,13 @@
                     </p>
 
                     <div class="clear"></div>
-                </form>                    
+                </form>   
+                
+   <?php if( $error != '' ){ ?>
+                <div class="alert alert-danger">
+                    <?php echo htmlspecialchars( $error, ENT_COMPAT, 'UTF-8', FALSE ); ?>
+                </div>
+                <?php } ?>                 
             </div>
         </div>
     </div>

@@ -8,6 +8,7 @@ $app->get("/admin/users", function() {
 	User::verifyLogin();
 
 	$quantUsers = User::quantUsers();
+	$quantUsersAdmin = User::quantUsersAdmin();
 
 	$users = User::listAll();
 
@@ -45,7 +46,56 @@ $app->get("/admin/users", function() {
 		"users"=>$pagination['data'],
 		"search"=>$search,
 		"pages"=>$pages,
-		"quantUsers"=>$quantUsers
+		"quantUsers"=>$quantUsers,
+		"quantUsersAdmin"=>$quantUsersAdmin
+	));
+
+ });
+
+$app->get("/admin/administrators", function() {
+
+	User::verifyLogin();
+
+	$quantUsers = User::quantUsers();
+	$quantUsersAdmin = User::quantUsersAdmin();
+
+	$users = User::listAll();
+
+	$search = (isset($_GET['search'])) ? $_GET['search'] : "";
+
+
+	$page = (isset($_GET['page'])) ? (int)$_GET['page'] : 1;
+
+ 	if ($search != '') {
+
+ 		$pagination = User::getPageSearch($search, $page);
+
+ 	} else {
+
+ 		$pagination = User::getPageAdmin($page);
+ 	}
+
+ 	$pages = [];
+
+ 	for ($x = 0; $x < $pagination['pages']; $x++)
+	{
+ 		array_push($pages, [
+
+			'href'=>'/admin/users?'.http_build_query([
+				'page'=>$x+1,
+				'search'=>$search
+			]),
+			'text'=>$x+1
+		]);
+ 	}
+ 	$page = new PageAdmin();
+
+ 	$page->setTpl("administrators", array(
+		"users"=>$users,
+		"users"=>$pagination['data'],
+		"search"=>$search,
+		"pages"=>$pages,
+		"quantUsersAdmin"=>$quantUsersAdmin
 	));
 
  });

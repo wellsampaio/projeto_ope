@@ -1,10 +1,10 @@
-<!DOCTYPE html>
+<?php if(!class_exists('Rain\Tpl')){exit;}?><!DOCTYPE html>
 <html>
 <head>
   <meta charset="utf-8">
   <meta http-equiv="X-UA-Compatible" content="IE=edge">
-  <title>Reset Password</title>
   <link rel="icon" type="image/png" href="/res/site/images/logo2.fw.png" />
+  <title>Reset Password</title>
   <!-- Tell the browser to be responsive to screen width -->
   <meta content="width=device-width, initial-scale=1, maximum-scale=1, user-scalable=no" name="viewport">
   <!-- Bootstrap 3.3.6 -->
@@ -27,31 +27,17 @@
 <!-- Automatic element centering -->
 <div class="lockscreen-wrapper">
   <div class="lockscreen-logo">
-    <a href="/res/admin/index2.html"><b>Admin</b>Reset Password</a>
+    <a href="/res/admin/index2.html"><b>Admin</b></a>
   </div>
-  
-   <div class="help-block text-center">
-     Olá {$name}, digite uma nova senha:
-    </div>
 
-  <!-- START LOCK SCREEN ITEM -->
-  <div class="lockscreen-item">
-
-    <!-- lockscreen credentials (contains the form) -->
-    <form  action="/admin/forgot/reset" method="post">
-      <input type="hidden" name="code" value="{$code}">
-      <div class="input-group">
-        <input type="password" class="form-control" placeholder="Digite a nova senha" name="password">
-        <div class="input-group-btn">
-          <button type="submit" class="btn"><i class="fa fa-arrow-right text-muted"></i></button>
-        </div>
-      </div>
-    </form>
-    <!-- /.lockscreen credentials -->
-
-  </div>
   <!-- /.lockscreen-item -->
-  
+  <div class="help-block text-center">
+    <div class="callout callout-success">
+      <h4>E-mail enviado!</h4>
+
+      <p>Verifique as instruções no seu e-mail.</p>
+    </div>
+  </div>
   <div class="lockscreen-footer text-center">
     Copyright &copy; 2014-2016 <b><a href="" class="text-black">Studio</a></b><br>
     All rights reserved

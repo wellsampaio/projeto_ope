@@ -127,6 +127,7 @@
 
         <li> <a href="/admin"> <i class="fa fa-dashboard"></i><span>DASHBOARD</span></a></li>
         <li><a href="/admin/users"><i class="fa fa-users"></i> <span>Usuarios</span></a></li>
+        <li><a href="/admin/administrators"><i class="fa fa-users"></i> <span>Funcionários</span></a></li>
         <li><a href="/admin/categories"><i class="fa fa-link"></i> <span>Categorias</span></a></li>
         <li><a href="/admin/products"><i class="fa fa-gift"></i> <span>Produtos</span></a></li>
         <li><a href="/admin/orders"><i class="fa fa-shopping-cart"></i> <span>Pedidos</span></a></li>

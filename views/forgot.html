@@ -17,7 +17,13 @@
                     </p>
 
                     <div class="clear"></div>
-                </form>                    
+                </form>   
+                
+   {if="$error != ''"}
+                <div class="alert alert-danger">
+                    {$error}
+                </div>
+                {/if}                 
             </div>
         </div>
     </div>

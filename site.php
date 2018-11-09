@@ -413,14 +413,24 @@ $app->get("/forgot", function(){
 
 	$page = new Page();
 
-	$page->setTpl("forgot");
+	$page->setTpl("forgot", [
+		'error'=>User::getError()
+	]);
 
 
 });
 
 $app->post("/forgot", function(){
 
-	$user = User::getForgot($_POST["email"], false);
+	try {
+		$user = User::getForgot($_POST["email"], false);
+
+	} catch(Exception $e) {
+
+		User::setError($e->getMessage());
+		header("Location: /forgot");
+		exit;
+	}
 
 	header("Location: /forgot/sent");
 	exit;
