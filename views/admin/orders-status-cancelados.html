@@ -3,7 +3,7 @@
 <!-- Content Header (Page header) -->
 <section class="content-header">
   <h1>
-    Lista de Pedidos Em Aberto
+    Lista de Pedidos Cancelados
   </h1>
   <ol class="breadcrumb">
     <li><a href="/admin"><i class="fa fa-dashboard"></i> Home</a></li>
@@ -84,15 +84,15 @@
               <table class="table table-striped" style="width: 850px">
                 <thead>
                   <tr>
-                    <th style="width: 300px">Pedidos Em Aberto</th>
-                    <th>Valor Total dos Pedidos - Em Aberto</th>
+                    <th style="width: 300px">Pedidos Cancelados</th>
+                    <th>Valor Total dos Pedidos - Cancelados</th>
                     <!--<th>Valor do Frete</th>-->
                   </tr>
                 </thead>
                 <tbody>
 
-                    <td style="width: 70px">{$quantOrdersEmAberto}</td>   
-                    <td>R$ {function="formatPrice($somaVlTotalEmAberto)"}</td>                  
+                    <td style="width: 70px">{$quantOrdersCancelados}</td>   
+                    <td>R$ {function="formatPrice($somaVlTotalCancelados)"}</td>                  
                 </tbody>
               </table>
             </div>

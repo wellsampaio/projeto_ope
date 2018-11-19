@@ -202,7 +202,7 @@ desired effect
         <li><a href="/admin/orders"><i class="fa fa-shopping-cart"></i> <span>Pedidos</span></a></li>
         <li><a href="/admin/ordersstatuspago"><i class="fa fa-dollar"></i> <span>Pedidos Pagos</span></a></li>
          <li><a href="/admin/orders_aguardando_pag"><i class="fa fa-spinner"></i> <span>Pedidos Aguard Pagamento</span></a></li>
-         <li><a href="/admin/orders_em_aberto"><i class="fa fa-folder-open"></i> <span>Pedidos Em Aberto</span></a></li>
+         <li><a href="/admin/orders_cancelados"><i class="fa fa-folder-open"></i> <span>Pedidos Cancelados</span></a></li>
        
       <!-- /.sidebar-menu -->
     </section>

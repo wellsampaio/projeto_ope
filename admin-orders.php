@@ -96,17 +96,17 @@ $app->get("/admin/orders", function(){
 
 	$quantOrders = Order::quantOrders();
 
-	$somaVlTotalEmAberto = Order::somaVlTotalEmAberto();
-
 	$somaVlTotalAgPagamento = Order::somaVlTotalAgPagamento();
 
 	$somaVlTotalPago = Order::somaVlTotalPago(); 
 	
 	$somaVlTotal = Order::somaVlTotal(); 
 
-	$quantOrdersEmAberto = Order::quantOrdersEmAberto();
-
 	$quantOrdersAgPagamento = Order::quantOrdersAgPagamento();
+
+	$quantOrdersCancelados = Order::quantOrdersCancelados();
+
+	$somaVlTotalCancelados = Order::somaVlTotalCancelados();
 
 	$quantOrdersPago = Order::quantOrdersPago();
 
@@ -156,13 +156,13 @@ $app->get("/admin/orders", function(){
 		"search"=>$search,
 		"pages"=>$pages,
 		"quantOrders"=>$quantOrders,
-		"somaVlTotalEmAberto"=>$somaVlTotalEmAberto, 
 		"somaVlTotalAgPagamento"=>$somaVlTotalAgPagamento,
 		"somaVlTotalPago"=>$somaVlTotalPago,
 		"somaVlTotal"=>$somaVlTotal,
 		"quantOrdersPago"=>$quantOrdersPago,
 		"quantOrdersAgPagamento"=>$quantOrdersAgPagamento,
-		"quantOrdersEmAberto"=>$quantOrdersEmAberto,
+		"quantOrdersCancelados"=>$quantOrdersCancelados,
+		"somaVlTotalCancelados"=>$somaVlTotalCancelados
 	]);
 
  });
@@ -187,7 +187,7 @@ $app->get("/admin/ordersstatuspago", function(){
 
  	} else {
 
- 		$pagination = Order::getPage($page);
+ 		$pagination = Order::getPagePago($page);
  	}
 
 
@@ -206,7 +206,7 @@ $app->get("/admin/ordersstatuspago", function(){
  
 	{
  		array_push($pages, [
-			'href'=>'/admin/orders?'.http_build_query([
+			'href'=>'/admin/ordersstatuspago?'.http_build_query([
 				'page'=>$x+1,
 				'search'=>$search
 			]),
@@ -226,7 +226,7 @@ $app->get("/admin/ordersstatuspago", function(){
  	$page = new PageAdmin();
 
  	$page->setTpl("orders-status-pago", [
-		"orders"=>$listorderpago['data'],		
+		"orders"=>$pagination['data'],		
 		"search"=>$search,
 		"pages"=>$pages,
 		"somaVlTotalPago"=>$somaVlTotalPago,
@@ -237,14 +237,13 @@ $app->get("/admin/ordersstatuspago", function(){
 
  });
 
-$app->get("/admin/orders_em_aberto", function(){
+$app->get("/admin/orders_cancelados", function(){
 
 	User::verifyLogin();
+ 	
+ 	$somaVlTotalCancelados = Order::somaVlTotalCancelados();
 
-
-	$somaVlTotalEmAberto = Order::somaVlTotalEmAberto(); 
-
-	$quantOrdersEmAberto = Order::quantOrdersEmAberto();
+	$quantOrdersCancelados = Order::quantOrdersCancelados();
 
 	$search = (isset($_GET['search'])) ? $_GET['search'] : "";
 
@@ -256,14 +255,14 @@ $app->get("/admin/orders_em_aberto", function(){
 
  	} else {
 
- 		$pagination = Order::getPage($page);
+ 		$pagination = Order::getPageCancelados($page);
  	}
 
 
 
  	$pages = [];
 
- 	$listorderpago = Order::getlistAllOrdersEmAberto();
+ 	$listorderpago = Order::getlistAllOrdersCancelados();
 
 
 
@@ -296,12 +295,12 @@ $app->get("/admin/orders_em_aberto", function(){
 
  	$page = new PageAdmin();
 
- 	$page->setTpl("orders-status-em-aberto", [
-		"orders"=>$listorderpago['data'],		
+ 	$page->setTpl("orders-status-cancelados", [
+		"orders"=>$pagination['data'],		
 		"search"=>$search,
 		"pages"=>$pages,
-		"somaVlTotalEmAberto"=>$somaVlTotalEmAberto,
-		"quantOrdersEmAberto"=>$quantOrdersEmAberto
+		"quantOrdersCancelados"=>$quantOrdersCancelados,
+		"somaVlTotalCancelados"=>$somaVlTotalCancelados
 
 
 	]);
@@ -323,11 +322,11 @@ $app->get("/admin/orders_aguardando_pag", function(){
 
  	if ($search != '') {
 
- 		$pagination = Order::getPageSearch($search, $page);
+ 		$pagination = Order::getPageSearchAgPagamento($search, $page);
 
  	} else {
 
- 		$pagination = Order::getPage($page);
+ 		$pagination = Order::getPageAgPagamento($page);
  	}
 
 
@@ -346,7 +345,7 @@ $app->get("/admin/orders_aguardando_pag", function(){
  
 	{
  		array_push($pages, [
-			'href'=>'/admin/orders?'.http_build_query([
+			'href'=>'/admin/orders_aguardando_pag?'.http_build_query([
 				'page'=>$x+1,
 				'search'=>$search
 			]),
@@ -366,7 +365,7 @@ $app->get("/admin/orders_aguardando_pag", function(){
  	$page = new PageAdmin();
 
  	$page->setTpl("orders-status-aguardando-pag", [
-		"orders"=>$listorderpago['data'],		
+		"orders"=>$pagination['data'],		
 		"search"=>$search,
 		"pages"=>$pages,
 		"somaVlTotalAgPagamento"=>$somaVlTotalAgPagamento,

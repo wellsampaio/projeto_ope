@@ -188,6 +188,28 @@ class Cart extends Model {
 
 	}
 
+	public static function listBestSellersTen()
+	{
+
+		$sql = new Sql();
+
+		
+			return $sql->select("
+				SELECT b.idproduct, b.desproduct, b.vlprice, b.vlfilling, b.vlweight, b.desurl, 
+				COUNT(*) AS nrqtd, 
+				SUM(b.vlprice) AS vltotal
+				FROM tb_cartsproducts a 
+				INNER JOIN tb_products b ON a.idproduct = b.idproduct 
+				WHERE a.idcart = a.idcart 
+				GROUP BY b.idproduct, b.desproduct, b.vlprice, b.vlfilling, b.vlweight, b.desurl
+				ORDER BY nrqtd DESC LIMIT 10;
+
+		",[
+
+		]);
+
+	}
+
 	public function getProductsTotals()
 	{
 

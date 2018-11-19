@@ -133,7 +133,7 @@
         <li><a href="/admin/orders"><i class="fa fa-shopping-cart"></i> <span>Pedidos</span></a></li>
         <li><a href="/admin/ordersstatuspago"><i class="fa fa-dollar"></i> <span>Pedidos Pagos</span></a></li>
          <li><a href="/admin/orders_aguardando_pag"><i class="fa fa-spinner"></i> <span>Pedidos Aguard Pagamento</span></a></li>
-         <li><a href="/admin/orders_em_aberto"><i class="fa fa-folder-open"></i> <span>Pedidos Em Aberto</span></a></li>
+         <li><a href="/admin/orders_cancelados"><i class="fa fa-folder-open"></i> <span>Pedidos Cancelados</span></a></li>
 
 
       </ul>
@@ -275,12 +275,14 @@
                     <strong>Quantidade de Pedidos Por Status</strong>
                   </p>
 
+                  <br>
+
                   <div class="progress-group">
                     <span class="progress-text">Produtos Pagos</span>
                     <span class="progress-number"><b><?php echo htmlspecialchars( $quantOrdersPago, ENT_COMPAT, 'UTF-8', FALSE ); ?></b>/<?php echo htmlspecialchars( $quantOrders, ENT_COMPAT, 'UTF-8', FALSE ); ?></span>
 
                     <div class="progress sm">
-                      <div class="progress-bar progress-bar-green" style="width: <?php echo htmlspecialchars( $quantOrdersPago, ENT_COMPAT, 'UTF-8', FALSE ); ?>0px"></div>
+                      <div class="progress-bar progress-bar-green" style="width: <?php echo htmlspecialchars( $quantOrdersPago, ENT_COMPAT, 'UTF-8', FALSE ); ?>px"></div>
                     </div>
                   </div>
                   <!-- /.progress-group -->
@@ -289,16 +291,7 @@
                     <span class="progress-number"><b><?php echo htmlspecialchars( $quantOrdersAgPagamento, ENT_COMPAT, 'UTF-8', FALSE ); ?></b>/<?php echo htmlspecialchars( $quantOrders, ENT_COMPAT, 'UTF-8', FALSE ); ?></span>
 
                     <div class="progress sm">
-                      <div class="progress-bar progress-bar-aqua" style="width: <?php echo htmlspecialchars( $quantOrdersAgPagamento, ENT_COMPAT, 'UTF-8', FALSE ); ?>0px"></div>
-                    </div>
-                  </div>
-                  <!-- /.progress-group -->
-                  <div class="progress-group">
-                    <span class="progress-text">Produtos Em Aberto</span>
-                    <span class="progress-number"><b><?php echo htmlspecialchars( $quantOrdersEmAberto, ENT_COMPAT, 'UTF-8', FALSE ); ?></b>/<?php echo htmlspecialchars( $quantOrders, ENT_COMPAT, 'UTF-8', FALSE ); ?></span>
-
-                    <div class="progress sm">
-                      <div class="progress-bar progress-bar-yellow" style="width: <?php echo htmlspecialchars( $quantOrdersEmAberto, ENT_COMPAT, 'UTF-8', FALSE ); ?>0px"></div>
+                      <div class="progress-bar progress-bar-aqua" style="width: <?php echo htmlspecialchars( $quantOrdersAgPagamento, ENT_COMPAT, 'UTF-8', FALSE ); ?>px"></div>
                     </div>
                   </div>
                   <!-- /.progress-group -->
@@ -307,7 +300,7 @@
                     <span class="progress-number"><b><?php echo htmlspecialchars( $quantOrdersEntregue, ENT_COMPAT, 'UTF-8', FALSE ); ?></b>/<?php echo htmlspecialchars( $quantOrders, ENT_COMPAT, 'UTF-8', FALSE ); ?></span>
 
                     <div class="progress sm">
-                      <div class="progress-bar progress-bar-red" style="width: <?php echo htmlspecialchars( $quantOrdersEntregue, ENT_COMPAT, 'UTF-8', FALSE ); ?>0px"></div>
+                      <div class="progress-bar progress-bar-red" style="width: <?php echo htmlspecialchars( $quantOrdersEntregue, ENT_COMPAT, 'UTF-8', FALSE ); ?>px"></div>
                     </div>
                   </div>
                   <!-- /.progress-group -->
@@ -322,8 +315,8 @@
                 <div class="col-sm-3 col-xs-6">
                   <div class="description-block border-right">
                     <span class="description-percentage text-green"><i class="fa fa-usd"></i></span>
-                    <h5 class="description-header">R$ <?php echo formatPrice($somaVlTotalPago); ?></h5>
-                    <span class="description-text">VALOR DOS PEDIDOS PAGOS</span>
+                    <h5 class="description-text"><b>VALOR DOS PEDIDOS PAGOS<b></h5>
+                    <span class="description-header">R$ <?php echo formatPrice($somaVlTotalPago); ?></span>
                   </div>
                   <!-- /.description-block -->
                 </div>
@@ -331,17 +324,8 @@
                 <div class="col-sm-3 col-xs-6">
                   <div class="description-block border-right">
                     <span class="description-percentage text-blue"><i class="fa fa-usd"></i></span>
-                    <h5 class="description-header">R$ <?php echo formatPrice($somaVlTotalAgPagamento); ?></h5>
-                    <span class="description-text">VALOR DOS PEDIDOS AGUARDANDO PAGAMENTO</span>
-                  </div>
-                  <!-- /.description-block -->
-                </div>
-                <!-- /.col -->
-                <div class="col-sm-3 col-xs-6">
-                  <div class="description-block border-right">
-                    <span class="description-percentage text-yellow"><i class="fa fa-usd"></i></span>
-                    <h5 class="description-header">R$ <?php echo formatPrice($somaVlTotalEmAberto); ?></h5>
-                    <span class="description-text">VALOR DOS PEDIDOS EM ABERTO</span>
+                    <h5 class="description-text"><b>VALOR DOS PEDIDOS AGUARDANDO PAGAMENTO</b></h5>
+                    <span class="description-text">R$ <?php echo formatPrice($somaVlTotalAgPagamento); ?></span>
                   </div>
                   <!-- /.description-block -->
                 </div>
@@ -349,7 +333,7 @@
                 <div class="col-sm-3 col-xs-6">
                   <div class="description-block">
                     <span class="description-percentage text-red"><i class="fa fa-usd"></i></span>
-                    <h5 class="description-header">VALOR TOTAL DOS PEDIDOS</h5>
+                    <h5 class="description-text"><b>VALOR TOTAL DOS PEDIDOS</b></h5>
                     <span class="description-text">R$ <?php echo formatPrice($somaVlTotal); ?></span>
                   </div>
                   <!-- /.description-block -->
@@ -419,6 +403,57 @@
           <!-- TABLE: LATEST ORDERS -->
           <div class="box box-info">
             <div class="box-header with-border">
+              <h3 class="box-title">Clientes que mais Compraram</h3>
+
+              <div class="box-tools pull-right">
+                <button type="button" class="btn btn-box-tool" data-widget="collapse"><i class="fa fa-minus"></i>
+                </button>
+                <button type="button" class="btn btn-box-tool" data-widget="remove"><i class="fa fa-times"></i></button>
+              </div>
+            </div>
+            <!-- /.box-header -->
+            <div class="box-body">
+              <div class="table-responsive">
+                <table class="table no-margin">
+                  <thead>
+                  <tr>
+                    <th>Id User</th>
+                    <th>Cliente</th>
+                    <th>Total de pedidos</th>
+                    <th>Valor Total dos pedidos</th>
+                  </tr>
+                  </thead>
+                  <tbody>
+                    <?php $counter1=-1;  if( isset($listClientsOrders) && ( is_array($listClientsOrders) || $listClientsOrders instanceof Traversable ) && sizeof($listClientsOrders) ) foreach( $listClientsOrders as $key1 => $value1 ){ $counter1++; ?>
+                  <tr>
+                    <td><a href=""><?php echo htmlspecialchars( $value1["iduser"], ENT_COMPAT, 'UTF-8', FALSE ); ?></a></td>
+                    <td><?php echo htmlspecialchars( $value1["desperson"], ENT_COMPAT, 'UTF-8', FALSE ); ?></td>
+                    <td><span class="label label-success"><?php echo htmlspecialchars( $value1["totaldepedidos"], ENT_COMPAT, 'UTF-8', FALSE ); ?></span></td>
+                    <td>
+                      <div class="sparkbar" data-color="#00a65a" data-height="20">R$ <?php echo formatPrice($value1["valortotal"]); ?></div>
+                    </td>
+                  </tr>
+                  <?php }else{ ?>
+                  <tr>
+                      <td colspan="6">Nenhum pedido foi encontrado.</td>
+                  </tr>
+                  <?php } ?>
+                 
+                  </tbody>
+                </table>
+              </div>
+              <!-- /.table-responsive -->
+            </div>
+            <!-- /.box-body -->
+            <div class="box-footer clearfix">
+              <!--<a href="/admin/ordersstatuspago" class="btn btn-sm btn-default btn-flat pull-right">Ver Todos Pedidos Pagos</a>-->
+            </div>
+            <!-- /.box-footer -->
+          </div>
+
+                    <!-- TABLE: LATEST ORDERS -->
+          <div class="box box-info">
+            <div class="box-header with-border">
               <h3 class="box-title">Últimos pedidos Pagos</h3>
 
               <div class="box-tools pull-right">
@@ -467,6 +502,7 @@
             <!-- /.box-footer -->
           </div>
           <!-- /.box -->
+          <!-- /.box -->
         </div>
         <!-- /.col -->
 
@@ -482,6 +518,45 @@
           <!-- /.info-box -->
 
           
+          <!-- /.box -->
+
+           <!-- PRODUCT LIST -->
+          <div class="box box-primary">
+            <div class="box-header with-border">
+              <h3 class="box-title">Os 10 Produtos Mais Vendidos</h3>
+
+              <div class="box-tools pull-right">
+                <button type="button" class="btn btn-box-tool" data-widget="collapse"><i class="fa fa-minus"></i>
+                </button>
+                <button type="button" class="btn btn-box-tool" data-widget="remove"><i class="fa fa-times"></i></button>
+              </div>
+            </div>
+            <!-- /.box-header -->
+            <div class="box-body">
+              <ul class="products-list product-list-in-box">
+                <?php $counter1=-1;  if( isset($listBestSellersTen) && ( is_array($listBestSellersTen) || $listBestSellersTen instanceof Traversable ) && sizeof($listBestSellersTen) ) foreach( $listBestSellersTen as $key1 => $value1 ){ $counter1++; ?>
+                <li class="item">
+                  <div class="product-img">
+                    <img src="<?php echo htmlspecialchars( $value1["desphoto"], ENT_COMPAT, 'UTF-8', FALSE ); ?>" alt="Product Image">
+                  </div>
+                  <div class="product-info">
+                    <a href="javascript:void(0)" class="product-title"><?php echo htmlspecialchars( $value1["desproduct"], ENT_COMPAT, 'UTF-8', FALSE ); ?>
+                      <span class="label label-warning pull-right">R$ <?php echo formatPrice($value1["vlprice"]); ?></span></a>
+                        <span class="product-description">
+                          <?php echo htmlspecialchars( $value1["vlfilling"], ENT_COMPAT, 'UTF-8', FALSE ); ?>
+                        </span>
+                  </div>
+                </li>
+                <?php } ?>
+                <!-- /.item -->
+              </ul>
+            </div>
+            <!-- /.box-body -->
+            <div class="box-footer text-center">
+              <a href="/admin/products" class="uppercase">Ver todos os produtos</a>
+            </div>
+            <!-- /.box-footer -->
+          </div>
           <!-- /.box -->
 
           <!-- PRODUCT LIST -->

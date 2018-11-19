@@ -113,6 +113,29 @@ class Order extends Model {
 
 	}
 
+	public static function listClientsOrders()
+	{
+
+		$sql = new Sql();
+
+		
+			return $sql->select("
+				SELECT a.idorder, a.idcart, a.iduser, a.idstatus, a.idaddress, a.vltotal, d.idperson, d.deslogin,f.desperson,
+				COUNT(*) as totaldepedidos,
+				SUM(a.vltotal) as valortotal
+				FROM tb_orders a
+				INNER JOIN tb_users d ON d.iduser = a.iduser
+				INNER JOIN tb_persons f ON f.idperson = d.idperson
+				where a.idstatus = 3
+				GROUP BY a.iduser
+				LIMIT 10;
+
+		",[
+
+		]);
+
+	}
+
 	public function delete()
 	{
 		
@@ -196,6 +219,87 @@ class Order extends Model {
 		];
  	}
 
+ 	public static function getPageAgPagamento($page = 1, $itemsPerPage = 10)
+	{
+
+ 		$start = ($page - 1) * $itemsPerPage;
+ 		$sql = new Sql();
+ 		$results = $sql->select("
+			SELECT SQL_CALC_FOUND_ROWS *
+			FROM tb_orders a 
+			INNER JOIN tb_ordersstatus b USING(idstatus) 
+			INNER JOIN tb_carts c USING(idcart)
+			INNER JOIN tb_users d ON d.iduser = a.iduser
+			INNER JOIN tb_addresses e USING(idaddress)
+			INNER JOIN tb_persons f ON f.idperson = d.idperson
+			WHERE a.idstatus = 1
+			ORDER BY a.dtregister DESC
+			LIMIT $start, $itemsPerPage;
+		");
+
+ 		$resultTotal = $sql->select("SELECT FOUND_ROWS() AS nrtotal;");
+
+ 		return [
+			'data'=>$results,
+			'total'=>(int)$resultTotal[0]["nrtotal"],
+			'pages'=>ceil($resultTotal[0]["nrtotal"] / $itemsPerPage)
+		];
+ 	}
+
+ 	public static function getPagePago($page = 1, $itemsPerPage = 10)
+	{
+
+ 		$start = ($page - 1) * $itemsPerPage;
+ 		$sql = new Sql();
+ 		$results = $sql->select("
+			SELECT SQL_CALC_FOUND_ROWS *
+			FROM tb_orders a 
+			INNER JOIN tb_ordersstatus b USING(idstatus) 
+			INNER JOIN tb_carts c USING(idcart)
+			INNER JOIN tb_users d ON d.iduser = a.iduser
+			INNER JOIN tb_addresses e USING(idaddress)
+			INNER JOIN tb_persons f ON f.idperson = d.idperson
+			WHERE a.idstatus = 3
+			ORDER BY a.dtregister DESC
+			LIMIT $start, $itemsPerPage;
+		");
+
+ 		$resultTotal = $sql->select("SELECT FOUND_ROWS() AS nrtotal;");
+
+ 		return [
+			'data'=>$results,
+			'total'=>(int)$resultTotal[0]["nrtotal"],
+			'pages'=>ceil($resultTotal[0]["nrtotal"] / $itemsPerPage)
+		];
+ 	}
+
+ 	public static function getPageCancelados($page = 1, $itemsPerPage = 10)
+	{
+
+ 		$start = ($page - 1) * $itemsPerPage;
+ 		$sql = new Sql();
+ 		$results = $sql->select("
+			SELECT SQL_CALC_FOUND_ROWS *
+			FROM tb_orders a 
+			INNER JOIN tb_ordersstatus b USING(idstatus) 
+			INNER JOIN tb_carts c USING(idcart)
+			INNER JOIN tb_users d ON d.iduser = a.iduser
+			INNER JOIN tb_addresses e USING(idaddress)
+			INNER JOIN tb_persons f ON f.idperson = d.idperson
+			WHERE a.idstatus = 7
+			ORDER BY a.dtregister DESC
+			LIMIT $start, $itemsPerPage;
+		");
+
+ 		$resultTotal = $sql->select("SELECT FOUND_ROWS() AS nrtotal;");
+
+ 		return [
+			'data'=>$results,
+			'total'=>(int)$resultTotal[0]["nrtotal"],
+			'pages'=>ceil($resultTotal[0]["nrtotal"] / $itemsPerPage)
+		];
+ 	}
+
  	public static function getPageSearch($search, $page = 1, $itemsPerPage = 10)
 	{
  		$start = ($page - 1) * $itemsPerPage;
@@ -211,6 +315,37 @@ class Order extends Model {
 			INNER JOIN tb_addresses e USING(idaddress)
 			INNER JOIN tb_persons f ON f.idperson = d.idperson
 			WHERE a.idorder = :id OR f.desperson LIKE :search or b.desstatus LIKE :search or e.desdelivery LIKE :search
+			ORDER BY a.dtregister DESC
+			LIMIT $start, $itemsPerPage;
+		", [
+			':search'=>'%'.$search.'%',
+			':id'=>$search
+		]);
+
+ 		$resultTotal = $sql->select("SELECT FOUND_ROWS() AS nrtotal;");
+
+ 		return [
+			'data'=>$results,
+			'total'=>(int)$resultTotal[0]["nrtotal"],
+			'pages'=>ceil($resultTotal[0]["nrtotal"] / $itemsPerPage)
+		];
+ 	}
+
+ 	public static function getPageSearchAgPagamento($search, $page = 1, $itemsPerPage = 10)
+	{
+ 		$start = ($page - 1) * $itemsPerPage;
+
+ 		$sql = new Sql();
+
+ 		$results = $sql->select("
+			SELECT SQL_CALC_FOUND_ROWS *
+			FROM tb_orders a 
+			INNER JOIN tb_ordersstatus b USING(idstatus) 
+			INNER JOIN tb_carts c USING(idcart)
+			INNER JOIN tb_users d ON d.iduser = a.iduser
+			INNER JOIN tb_addresses e USING(idaddress)
+			INNER JOIN tb_persons f ON f.idperson = d.idperson
+			WHERE a.idorder = :id OR f.desperson LIKE :search or b.desstatus LIKE :search or e.desdelivery LIKE :search AND WHERE a.idstatus = 1
 			ORDER BY a.dtregister DESC
 			LIMIT $start, $itemsPerPage;
 		", [
@@ -291,23 +426,13 @@ class Order extends Model {
      	}
 	}
 
-	public static function quantOrdersEmAberto()
-	{ 
-     	$sql = new Sql();
- 
-     	$count = $sql->select("SELECT COUNT(*) AS nrtotal FROM tb_orders where idstatus = 1;");
-
-     	if (count($count) > 0) {
-         	return $count[0]['nrtotal'];
-     	}
-	}
 
 
 	public static function quantOrdersAgPagamento()
 	{ 
      	$sql = new Sql();
  
-     	$count = $sql->select("SELECT COUNT(*) AS nrtotal FROM tb_orders where idstatus = 2;");
+     	$count = $sql->select("SELECT COUNT(*) AS nrtotal FROM tb_orders where idstatus = 1;");
 
      	if (count($count) > 0) {
          	return $count[0]['nrtotal'];
@@ -320,6 +445,17 @@ class Order extends Model {
      	$sql = new Sql();
  
      	$count = $sql->select("SELECT COUNT(*) AS nrtotal FROM tb_orders where idstatus = 3;");
+
+     	if (count($count) > 0) {
+         	return $count[0]['nrtotal'];
+     	}
+	}
+
+	public static function quantOrdersCancelados()
+	{ 
+     	$sql = new Sql();
+ 
+     	$count = $sql->select("SELECT COUNT(*) AS nrtotal FROM tb_orders where idstatus = 7;");
 
      	if (count($count) > 0) {
          	return $count[0]['nrtotal'];
@@ -352,21 +488,11 @@ class Order extends Model {
 	}
 
 
-	public static function somaVlTotalEmAberto()
-	{ 
-     	$sql = new Sql();
- 
-     	$soma = $sql->select("select SUM(vltotal) as valor_total from tb_orders where idstatus = 1;");
-
-         	return $soma[0]['valor_total'];
-     	
-	}
-
 	public static function somaVlTotalAgPagamento()
 	{ 
      	$sql = new Sql();
  
-     	$soma = $sql->select("select SUM(vltotal) as valor_total from tb_orders where idstatus = 2;");
+     	$soma = $sql->select("select SUM(vltotal) as valor_total from tb_orders where idstatus = 1;");
 
          	return $soma[0]['valor_total'];
      	
@@ -377,6 +503,16 @@ class Order extends Model {
      	$sql = new Sql();
  
      	$soma = $sql->select("select SUM(vltotal) as valor_total from tb_orders where idstatus = 3;");
+
+         	return $soma[0]['valor_total'];
+     	
+	}
+
+	public static function somaVlTotalCancelados()
+	{ 
+     	$sql = new Sql();
+ 
+     	$soma = $sql->select("select SUM(vltotal) as valor_total from tb_orders where idstatus = 7;");
 
          	return $soma[0]['valor_total'];
      	
@@ -556,7 +692,7 @@ class Order extends Model {
 		];
  	}
 
- 	public static function getlistAllOrdersEmAberto($status = 1)
+ 	public static function getlistAllOrdersCancelados($status = 7)
 	{
 
  		$sql = new Sql();
@@ -584,7 +720,7 @@ class Order extends Model {
  	}
 
 
- 	public static function getlistAllOrdersAgPagamento($status = 2)
+ 	public static function getlistAllOrdersAgPagamento($status = 1)
 	{
 
  		$sql = new Sql();

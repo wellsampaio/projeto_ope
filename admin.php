@@ -5,6 +5,7 @@ use \Hcode\Model\User;
 use \Hcode\Model\Order;
 use \Hcode\Model\Product;
 use \Hcode\Model\Category;
+use \Hcode\Model\Cart;
 
 
 $app->get('/admin', function() {
@@ -13,19 +14,19 @@ $app->get('/admin', function() {
 
 	$users = User::listAllDash();
 	$quantUsers = User::quantUsers();
+	
+	$listBestSellersTen = Cart::listBestSellersTen();
 
 	$products = Product::listAllDash();
 
 	$quantOrders = Order::quantOrders();
 	$quantOrdersPago = Order::quantOrdersPago();
 	$quantOrdersAgPagamento = Order::quantOrdersAgPagamento();
-	$quantOrdersEmAberto = Order::quantOrdersEmAberto();
 	$quantOrdersEntregue = Order::quantOrdersEntregue();
 
 	$somaVlTotal = Order::somaVlTotal();
 	$somaVlTotalPago = Order::somaVlTotalPago(); 
 	$somaVlTotalAgPagamento = Order::somaVlTotalAgPagamento();
-	$somaVlTotalEmAberto = Order::somaVlTotalEmAberto();
 
 	$quantProducts = Product::quantProducts();
 
@@ -68,12 +69,10 @@ $app->get('/admin', function() {
 		'somaVlTotalPago'=>$somaVlTotalPago,
 		'somaVlTotalAgPagamento'=>$somaVlTotalAgPagamento,
 		'somaVlTotal'=>$somaVlTotal,
-		'somaVlTotalEmAberto'=>$somaVlTotalEmAberto,
 
 		'quantOrders'=>$quantOrders,
 		'quantOrdersPago'=>$quantOrdersPago,
 		'quantOrdersAgPagamento'=>$quantOrdersAgPagamento,
-		'quantOrdersEmAberto'=>$quantOrdersEmAberto,
 		'quantOrdersEntregue'=>$quantOrdersEntregue,
 
 		'quantUsers'=>$quantUsers,
@@ -84,7 +83,11 @@ $app->get('/admin', function() {
 
 		"orders"=>Order::listAllDash(),
 
-		'products'=>Product::checkList($products)
+		'products'=>Product::checkList($products),
+
+		'listBestSellersTen'=>Product::checkList($listBestSellersTen),
+
+		'listClientsOrders'=>Order::listClientsOrders()
 
 
 	]);

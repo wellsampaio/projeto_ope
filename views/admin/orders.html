@@ -89,7 +89,7 @@
                     <th style="width: 70px">Total de Pedidos</th>
                     <th style="width: 20px">Pedidos Pagos</th>
                     <th style="width: 50px">Pedidos Aguardando Pagamento</th>
-                    <th style="width: 150px">Pedidos Em aberto</th>
+                    <th style="width: 150px">Pedidos Cancelados</th>
                     <!--<th>Valor do Frete</th>-->
                   </tr>
                 </thead>
@@ -98,7 +98,7 @@
                     <td style="width: 70px">{$quantOrders}</td>
                     <td style="width: 70px">{$quantOrdersPago}</td>
                     <td style="width: 70px">{$quantOrdersAgPagamento}</td>
-                    <td style="width: 70px">{$quantOrdersEmAberto}</td>
+                    <td style="width: 70px">{$quantOrdersCancelados}</td>
                    
                 </tbody>
               </table>
@@ -117,7 +117,7 @@
                     <th>Valor Total dos Pedidos</th>
                     <th>Valor Total dos Pedidos - Pago</th>
                     <th>Valor Total dos Pedidos - Aguardando Pagamento</th>
-                    <th>Valor Total dos Pedidos - Em aberto</th>
+                    <th>Valor Total dos Pedidos - Cancelados</th>
                     
                     
                   </tr>
@@ -127,7 +127,7 @@
                     <td>R$ {function="formatPrice($somaVlTotal)"}</td>
                     <td>R$ {function="formatPrice($somaVlTotalPago)"}</td>
                     <td>R$ {function="formatPrice($somaVlTotalAgPagamento)"}</td>
-                    <td>R$ {function="formatPrice($somaVlTotalEmAberto)"}</td>
+                    <td>R$ {function="formatPrice($somaVlTotalCancelados)"}</td>
                     
                     
                     

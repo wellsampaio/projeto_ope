@@ -3,7 +3,7 @@
 <!-- Content Header (Page header) -->
 <section class="content-header">
   <h1>
-    Lista de Pedidos
+    Lista de Pedidos Cancelados
   </h1>
   <ol class="breadcrumb">
     <li><a href="/admin"><i class="fa fa-dashboard"></i> Home</a></li>
@@ -38,7 +38,6 @@
                     <th style="width: 10px">#</th>
                     <th>Cliente</th>
                     <th>Valor Total</th>
-                    <th>Data de Entrega</th>
                     <!--<th>Valor do Frete</th>-->
                     <th>Status</th>
                     <th style="width: 220px">&nbsp;</th>
@@ -50,7 +49,6 @@
                     <td><?php echo htmlspecialchars( $value1["idorder"], ENT_COMPAT, 'UTF-8', FALSE ); ?></td>
                     <td><?php echo htmlspecialchars( $value1["desperson"], ENT_COMPAT, 'UTF-8', FALSE ); ?></td>
                     <td>R$ <?php echo formatPrice($value1["vltotal"]); ?></td>
-                    <td><?php echo formatDate($value1["desdelivery"]); ?></td>
                     <!--<td>R$<?php echo formatPrice($value1["vlfreight"]); ?></td>-->
                     <td><?php echo htmlspecialchars( $value1["desstatus"], ENT_COMPAT, 'UTF-8', FALSE ); ?></td>
                     <td>
@@ -83,60 +81,24 @@
     <div class="col-md-12">
       <div class="box box-primary">
  <div class="box-body no-padding">
-              <table class="table table-striped">
+              <table class="table table-striped" style="width: 850px">
                 <thead>
                   <tr>
-                    <th style="width: 70px">Total de Pedidos</th>
-                    <th style="width: 20px">Pedidos Pagos</th>
-                    <th style="width: 50px">Pedidos Aguardando Pagamento</th>
-                    <th style="width: 150px">Pedidos Cancelados</th>
+                    <th style="width: 300px">Pedidos Cancelados</th>
+                    <th>Valor Total dos Pedidos - Cancelados</th>
                     <!--<th>Valor do Frete</th>-->
                   </tr>
                 </thead>
                 <tbody>
 
-                    <td style="width: 70px"><?php echo htmlspecialchars( $quantOrders, ENT_COMPAT, 'UTF-8', FALSE ); ?></td>
-                    <td style="width: 70px"><?php echo htmlspecialchars( $quantOrdersPago, ENT_COMPAT, 'UTF-8', FALSE ); ?></td>
-                    <td style="width: 70px"><?php echo htmlspecialchars( $quantOrdersAgPagamento, ENT_COMPAT, 'UTF-8', FALSE ); ?></td>
-                    <td style="width: 70px"><?php echo htmlspecialchars( $quantOrdersCancelados, ENT_COMPAT, 'UTF-8', FALSE ); ?></td>
-                   
+                    <td style="width: 70px"><?php echo htmlspecialchars( $quantOrdersCancelados, ENT_COMPAT, 'UTF-8', FALSE ); ?></td>   
+                    <td>R$ <?php echo formatPrice($somaVlTotalCancelados); ?></td>                  
                 </tbody>
               </table>
             </div>
              </div>
     </div>
-  </div>
 
-<div class="row">
-    <div class="col-md-12">
-      <div class="box box-primary">
-            <div class="box-body no-padding">
-              <table class="table table-striped">
-                <thead>
-                  <tr>
-                    <th>Valor Total dos Pedidos</th>
-                    <th>Valor Total dos Pedidos - Pago</th>
-                    <th>Valor Total dos Pedidos - Aguardando Pagamento</th>
-                    <th>Valor Total dos Pedidos - Cancelados</th>
-                    
-                    
-                  </tr>
-                </thead>
-                <tbody>
-
-                    <td>R$ <?php echo formatPrice($somaVlTotal); ?></td>
-                    <td>R$ <?php echo formatPrice($somaVlTotalPago); ?></td>
-                    <td>R$ <?php echo formatPrice($somaVlTotalAgPagamento); ?></td>
-                    <td>R$ <?php echo formatPrice($somaVlTotalCancelados); ?></td>
-                    
-                    
-                    
-                   
-                </tbody>
-              </table>
-            </div>
-             </div>
-    </div>
   </div>
 </section>
 <!-- /.content -->
