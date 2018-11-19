@@ -23,6 +23,7 @@ $app->get('/admin', function() {
 	$quantOrdersPago = Order::quantOrdersPago();
 	$quantOrdersAgPagamento = Order::quantOrdersAgPagamento();
 	$quantOrdersEntregue = Order::quantOrdersEntregue();
+	$quantOrdersCancelados = Order::quantOrdersCancelados();
 
 	$somaVlTotal = Order::somaVlTotal();
 	$somaVlTotalPago = Order::somaVlTotalPago(); 
@@ -74,6 +75,7 @@ $app->get('/admin', function() {
 		'quantOrdersPago'=>$quantOrdersPago,
 		'quantOrdersAgPagamento'=>$quantOrdersAgPagamento,
 		'quantOrdersEntregue'=>$quantOrdersEntregue,
+		'quantOrdersCancelados'=>$quantOrdersCancelados,
 
 		'quantUsers'=>$quantUsers,
 		'quantProducts'=>$quantProducts,

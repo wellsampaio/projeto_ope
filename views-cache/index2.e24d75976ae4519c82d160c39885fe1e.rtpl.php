@@ -171,7 +171,7 @@
               <i class="fa fa-gift"></i>
             </div>
             <a href="/admin/products" class="small-box-footer">
-              More info <i class="fa fa-arrow-circle-right"></i>
+              Ver Produtos <i class="fa fa-arrow-circle-right"></i>
             </a>
           </div>
         </div>
@@ -188,7 +188,7 @@
               <i class="fa fa fa-link"></i>
             </div>
             <a href="/admin/categories" class="small-box-footer">
-              More info <i class="fa fa-arrow-circle-right"></i>
+              Ver Categorias <i class="fa fa-arrow-circle-right"></i>
             </a>
           </div>
         </div>
@@ -207,7 +207,7 @@
               <i class="fa fa-shopping-cart"></i>
             </div>
             <a href="/admin/orders" class="small-box-footer">
-              More info <i class="fa fa-arrow-circle-right"></i>
+             Ver Pedidos <i class="fa fa-arrow-circle-right"></i>
             </a>
           </div>
         </div>
@@ -225,7 +225,7 @@
               <i class="ion ion-person-add"></i>
             </div>
             <a href="/admin/users" class="small-box-footer">
-              More info <i class="fa fa-arrow-circle-right"></i>
+              Ver Usuários <i class="fa fa-arrow-circle-right"></i>
             </a>
           </div>
         </div>
@@ -275,8 +275,6 @@
                     <strong>Quantidade de Pedidos Por Status</strong>
                   </p>
 
-                  <br>
-
                   <div class="progress-group">
                     <span class="progress-text">Produtos Pagos</span>
                     <span class="progress-number"><b><?php echo htmlspecialchars( $quantOrdersPago, ENT_COMPAT, 'UTF-8', FALSE ); ?></b>/<?php echo htmlspecialchars( $quantOrders, ENT_COMPAT, 'UTF-8', FALSE ); ?></span>
@@ -300,7 +298,17 @@
                     <span class="progress-number"><b><?php echo htmlspecialchars( $quantOrdersEntregue, ENT_COMPAT, 'UTF-8', FALSE ); ?></b>/<?php echo htmlspecialchars( $quantOrders, ENT_COMPAT, 'UTF-8', FALSE ); ?></span>
 
                     <div class="progress sm">
-                      <div class="progress-bar progress-bar-red" style="width: <?php echo htmlspecialchars( $quantOrdersEntregue, ENT_COMPAT, 'UTF-8', FALSE ); ?>px"></div>
+                      <div class="progress-bar progress-bar-green" style="width: <?php echo htmlspecialchars( $quantOrdersEntregue, ENT_COMPAT, 'UTF-8', FALSE ); ?>px"></div>
+                    </div>
+                  </div>
+                  <!-- /.progress-group -->
+
+                  <div class="progress-group">
+                    <span class="progress-text">Produtos Cancelados</span>
+                    <span class="progress-number"><b><?php echo htmlspecialchars( $quantOrdersCancelados, ENT_COMPAT, 'UTF-8', FALSE ); ?></b>/<?php echo htmlspecialchars( $quantOrders, ENT_COMPAT, 'UTF-8', FALSE ); ?></span>
+
+                    <div class="progress sm">
+                      <div class="progress-bar progress-bar-red" style="width: <?php echo htmlspecialchars( $quantOrdersCancelados, ENT_COMPAT, 'UTF-8', FALSE ); ?>px"></div>
                     </div>
                   </div>
                   <!-- /.progress-group -->
@@ -608,10 +616,8 @@
 
   <footer class="main-footer">
     <div class="pull-right hidden-xs">
-      <b>Version</b> 2.3.8
     </div>
-    <strong>Copyright &copy; 2014-2016 <a href="http://almsaeedstudio.com">Almsaeed Studio</a>.</strong> All rights
-    reserved.
+    <strong>Copyright &copy; 2018<a href="https://www.casadedonabrasilina.com.br"> Casa de Dona Brasilina</a>.</strong> Todos os direitos reservados.
   </footer>
 
   <!-- Control Sidebar -->

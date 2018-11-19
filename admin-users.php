@@ -81,7 +81,7 @@ $app->get("/admin/administrators", function() {
 	{
  		array_push($pages, [
 
-			'href'=>'/admin/users?'.http_build_query([
+			'href'=>'/admin/administrators?'.http_build_query([
 				'page'=>$x+1,
 				'search'=>$search
 			]),

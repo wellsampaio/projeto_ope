@@ -39,7 +39,7 @@ License URL: http://creativecommons.org/licenses/by/3.0/
 					          <div class="slider-caption">
 					          	 <div class="slider-caption-left text-center">
 					          	 	<h1>VOCÊ ESTÁ PROCURANDO POR DELICIOSOS BOLOS E DOCES PARA ANIVERSÁRIOS? </h1>
-					          	 	<p>NÃO SE PREOCUPE VENHA ONHECER NOSSOS PRODUTOS</p>
+					          	 	<p>NÃO SE PREOCUPE VENHA CONHECER NOSSOS PRODUTOS</p>
 					          	 	<a class="buy-btn" href="#">Compre Agora</a>
 					          	 </div>
 					          	  <div class="slider-caption-right">
@@ -69,7 +69,7 @@ License URL: http://creativecommons.org/licenses/by/3.0/
 					          <div class="slider-caption">
 					          	 <div class="slider-caption-left text-center">
 					          	 	<h1>VOCÊ ESTÁ PROCURANDO POR DELICIOSOS BOLOS E DOCES PARA ANIVERSÁRIOS? </h1>
-					          	 	<p>NÃO SE PREOCUPE VENHA ONHECER NOSSOS PRODUTOS</p>
+					          	 	<p>NÃO SE PREOCUPE VENHA CONHECER NOSSOS PRODUTOS</p>
 					          	 	<a class="buy-btn" href="#">Compre Agora</a>
 					          	 </div>
 					          	  <div class="slider-caption-right">
