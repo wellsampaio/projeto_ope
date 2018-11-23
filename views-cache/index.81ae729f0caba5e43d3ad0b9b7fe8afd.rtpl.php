@@ -40,7 +40,7 @@ License URL: http://creativecommons.org/licenses/by/3.0/
 					          	 <div class="slider-caption-left text-center">
 					          	 	<h1>VOCÊ ESTÁ PROCURANDO POR DELICIOSOS BOLOS E DOCES PARA ANIVERSÁRIOS? </h1>
 					          	 	<p>NÃO SE PREOCUPE VENHA CONHECER NOSSOS PRODUTOS</p>
-					          	 	<a class="buy-btn" href="#">Compre Agora</a>
+					          	 	
 					          	 </div>
 					          	  <div class="slider-caption-right">
 					          	  	<a href="#"><img src="" class="img-responsive" title="" /></a>
@@ -51,11 +51,10 @@ License URL: http://creativecommons.org/licenses/by/3.0/
 					          <div class="share-on">
 					          	<div class="share-on-grid">
 					          		<div class="share-on-grid-left">
-					          			<h3>Share On</h3>
+					          			<h3>Rede Social</h3>
 					          		</div>
 					          		<div class="share-on-grid-right">
-					          			<a href="#"><span class="facebook"> </span></a>
-					          			<a href="#"><span class="twitter"> </span></a>
+					          			<a href="https://www.facebook.com/casadedonabrasilina/" target="blank"><span class="facebook"> </span></a>
 					          			<div class="clearfix"> </div>
 					          		</div>
 					          		<div class="clearfix"> </div>
@@ -70,7 +69,7 @@ License URL: http://creativecommons.org/licenses/by/3.0/
 					          	 <div class="slider-caption-left text-center">
 					          	 	<h1>VOCÊ ESTÁ PROCURANDO POR DELICIOSOS BOLOS E DOCES PARA ANIVERSÁRIOS? </h1>
 					          	 	<p>NÃO SE PREOCUPE VENHA CONHECER NOSSOS PRODUTOS</p>
-					          	 	<a class="buy-btn" href="#">Compre Agora</a>
+					          	 	
 					          	 </div>
 					          	  <div class="slider-caption-right">
 					          	  	<a href="#"><img src="" class="img-responsive" title="" /></a>
@@ -81,11 +80,10 @@ License URL: http://creativecommons.org/licenses/by/3.0/
 					          <div class="share-on">
 					          	<div class="share-on-grid">
 					          		<div class="share-on-grid-left">
-					          			<h3>Share On</h3>
+					          			<h3>Rede Social</h3>
 					          		</div>
 					          		<div class="share-on-grid-right">
-					          			<a href="#"><span class="facebook"> </span></a>
-					          			<a href="#"><span class="twitter"> </span></a>
+					          			<a href="https://www.facebook.com/casadedonabrasilina/" target="blank"><span class="facebook"> </span></a>
 					          			<div class="clearfix"> </div>
 					          		</div>
 					          		<div class="clearfix"> </div>
@@ -100,7 +98,7 @@ License URL: http://creativecommons.org/licenses/by/3.0/
 					          	 <div class="slider-caption-left text-center">
 					          	 	<h1>NÓS QUEREMOS TORNAR SEU NATAL MUITO MAIS SABOROSO</h1>
 					          	 	<p>ENCOMENDE DOCES PERSONALIZADOS NATALINOS PARA TORNAR A CEIA ESPECIAL</p>
-					          	 	<a class="buy-btn" href="#">Compre Agora</a>
+					          	 	<a class="buy-btn" href="https://www.facebook.com/casadedonabrasilina/" target="blank">Encomende Aqui</a>
 					          	 </div>
 					          	  <div class="slider-caption-right">
 					          	  	<a href="#"><img src="" class="img-responsive" title="" /></a>
@@ -111,11 +109,10 @@ License URL: http://creativecommons.org/licenses/by/3.0/
 					          <div class="share-on">
 					          	<div class="share-on-grid">
 					          		<div class="share-on-grid-left">
-					          			<h3>Share On</h3>
+					          			<h3>Rede Social</h3>
 					          		</div>
 					          		<div class="share-on-grid-right">
-					          			<a href="#"><span class="facebook"> </span></a>
-					          			<a href="#"><span class="twitter"> </span></a>
+					          			<a href="https://www.facebook.com/casadedonabrasilina/" target="blank"><span class="facebook"> </span></a>
 					          			<div class="clearfix"> </div>
 					          		</div>
 					          		<div class="clearfix"> </div>
@@ -130,7 +127,6 @@ License URL: http://creativecommons.org/licenses/by/3.0/
 					            <div class="slider-caption-left text-center">
 					          	 	<h1>VENHA FAZER O SEU BUFFET DE ANIVERSÁRIO CONOSCO</h1>
 					          	 	<p>TEMOS AS MELHORES OPÇÕES QUE VÃO ALEGRAR A CRIANÇADA</p>
-					          	 	<a class="buy-btn" href="#">Compre Agora</a>
 					          	 </div>
 					          	  <div class="slider-caption-right">
 					          	  	<a href="#"><img src="" class="img-responsive" title="" /></a>
@@ -141,11 +137,10 @@ License URL: http://creativecommons.org/licenses/by/3.0/
 					          <div class="share-on">
 					          	<div class="share-on-grid">
 					          		<div class="share-on-grid-left">
-					          			<h3>Share On</h3>
+					          			<h3>Rede Social</h3>
 					          		</div>
 					          		<div class="share-on-grid-right">
-					          			<a href="#"><span class="facebook"> </span></a>
-					          			<a href="#"><span class="twitter"> </span></a>
+					          			<a href="https://www.facebook.com/casadedonabrasilina/" target="blank"><span class="facebook"> </span></a>
 					          			<div class="clearfix"> </div>
 					          		</div>
 					          		<div class="clearfix"> </div>
@@ -215,17 +210,6 @@ License URL: http://creativecommons.org/licenses/by/3.0/
 					<label></label>
 				</div>
 				<div class="clearfix"> </div>
-
-				<!-- Load Facebook SDK for JavaScript -->
-<div id="fb-root"></div>
-
-
-<!-- Your customer chat code -->
-<div class="fb-customerchat"
-  attribution=install_email
-  page_id="723413084433714"
-  theme_color="#0084ff">
-</div>
 			</div>
 		</div>
 		<!-- bottom-grids -->

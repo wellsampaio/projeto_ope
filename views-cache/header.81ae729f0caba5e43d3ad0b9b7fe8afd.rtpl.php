@@ -19,14 +19,6 @@
 
         <script>function CompararData(){ campodata = document.checkout.data.value datdahoje = document.F1.hoje.value var result = true; if (campodata >= datahoje) result = false; else alert("A data informada é Retroativa...\nInforme uma data Valida")}</script>
 
-        <script>(function(d, s, id) {
-  var js, fjs = d.getElementsByTagName(s)[0];
-  if (d.getElementById(id)) return;
-  js = d.createElement(s); js.id = id;
-  js.src = 'https://connect.facebook.net/en_US/sdk/xfbml.customerchat.js';
-  fjs.parentNode.insertBefore(js, fjs);
-}(document, 'script', 'facebook-jssdk'));</script>
-
 
         <script src="/res/site/js2/jquery.easydropdown.js"></script>
         <!----webfonts--->
@@ -82,7 +74,7 @@ href='https://fonts.googleapis.com/css?family=Open+Sans:300,700,800,400,600' rel
                 <div class="top-header-left">
                      <ul>
                         <li><a href="/profile">Minha Conta</a></li>
-                        <li><a href="">Contato</a></li>
+                        <li><a href="https://www.facebook.com/casadedonabrasilina/" target="blank">Contato</a></li>
                         <div class="clearfix"> </div>
                     </ul>
                 </div>
