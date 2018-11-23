@@ -276,7 +276,7 @@
                   </p>
 
                   <div class="progress-group">
-                    <span class="progress-text">Produtos Pagos</span>
+                    <span class="progress-text">Pedidos Pagos</span>
                     <span class="progress-number"><b>{$quantOrdersPago}</b>/{$quantOrders}</span>
 
                     <div class="progress sm">
@@ -285,26 +285,26 @@
                   </div>
                   <!-- /.progress-group -->
                   <div class="progress-group">
-                    <span class="progress-text">Produtos Aguardando Pagamento</span>
+                    <span class="progress-text">Pedidos Aguardando Pagamento</span>
                     <span class="progress-number"><b>{$quantOrdersAgPagamento}</b>/{$quantOrders}</span>
 
                     <div class="progress sm">
-                      <div class="progress-bar progress-bar-aqua" style="width: {$quantOrdersAgPagamento}px"></div>
+                      <div class="progress-bar progress-bar-blue" style="width: {$quantOrdersAgPagamento}px"></div>
                     </div>
                   </div>
                   <!-- /.progress-group -->
                   <div class="progress-group">
-                    <span class="progress-text">Produtos Entregue</span>
+                    <span class="progress-text">Pedidos Devolvidos </span>
                     <span class="progress-number"><b>{$quantOrdersEntregue}</b>/{$quantOrders}</span>
 
                     <div class="progress sm">
-                      <div class="progress-bar progress-bar-green" style="width: {$quantOrdersEntregue}px"></div>
+                      <div class="progress-bar progress-bar-yellow" style="width: {$quantOrdersEntregue}px"></div>
                     </div>
                   </div>
                   <!-- /.progress-group -->
 
                   <div class="progress-group">
-                    <span class="progress-text">Produtos Cancelados</span>
+                    <span class="progress-text">Pedidos Cancelados</span>
                     <span class="progress-number"><b>{$quantOrdersCancelados}</b>/{$quantOrders}</span>
 
                     <div class="progress sm">
@@ -339,10 +339,20 @@
                 </div>
                 <!-- /.col -->
                 <div class="col-sm-3 col-xs-6">
+                  <div class="description-block border-right">
+                    <span class="description-percentage text-yellow"><i class="fa fa-usd"></i></span>
+                    <h5 class="description-text"><b>VALOR DOS PEDIDOS DEVOLVIDOS</b></h5>
+                    <span class="description-text">R$ {function="formatPrice($somaVlTotalDevolvidos)"}</span>
+                  </div>
+                  <!-- /.description-block -->
+                </div>
+                <!-- /.col -->
+
+                <div class="col-sm-3 col-xs-6">
                   <div class="description-block">
                     <span class="description-percentage text-red"><i class="fa fa-usd"></i></span>
-                    <h5 class="description-text"><b>VALOR TOTAL DOS PEDIDOS</b></h5>
-                    <span class="description-text">R$ {function="formatPrice($somaVlTotal)"}</span>
+                    <h5 class="description-text"><b>VALOR DOS PEDIDOS CANCELADOS</b></h5>
+                    <span class="description-text">R$ {function="formatPrice($somaVlTotalCancelados)"}</span>
                   </div>
                   <!-- /.description-block -->
                 </div>

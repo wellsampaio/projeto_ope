@@ -17,7 +17,7 @@
         <div class="row">
             <div class="col-xs-12">
             <h2 class="page-header">
-                <img src="/res/site/img/logo.png" alt="Logo">
+                <img src="/res/site/images/logo - Copia.png" alt="Logo">
                 <small class="pull-right">Date: <?php echo date('d/m/Y'); ?></small>
             </h2>
             </div>

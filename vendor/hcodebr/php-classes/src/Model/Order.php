@@ -466,7 +466,7 @@ class Order extends Model {
 	{ 
      	$sql = new Sql();
  
-     	$count = $sql->select("SELECT COUNT(*) AS nrtotal FROM tb_orders where idstatus = 4;");
+     	$count = $sql->select("SELECT COUNT(*) AS nrtotal FROM tb_orders where idstatus = 6;");
 
      	if (count($count) > 0) {
          	return $count[0]['nrtotal'];
@@ -513,6 +513,16 @@ class Order extends Model {
      	$sql = new Sql();
  
      	$soma = $sql->select("select SUM(vltotal) as valor_total from tb_orders where idstatus = 7;");
+
+         	return $soma[0]['valor_total'];
+     	
+	}
+
+	public static function somaVlTotalDevolvidos()
+	{ 
+     	$sql = new Sql();
+ 
+     	$soma = $sql->select("select SUM(vltotal) as valor_total from tb_orders where idstatus = 6;");
 
          	return $soma[0]['valor_total'];
      	

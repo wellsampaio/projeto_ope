@@ -50,7 +50,7 @@
                         <input type="password" id="senha" name="password" class="input-text">
                     </p>
                    <p class="form-row form-row-last">
-                        <label for="senha">Confirmar senha Senha *</span>
+                        <label for="senha">Confirmar Senha *</span>
                         </label>
                         <input type="password" id="senha" name="confirm_password" class="input-text">
                     </p>

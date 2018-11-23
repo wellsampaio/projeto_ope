@@ -28,6 +28,8 @@ $app->get('/admin', function() {
 	$somaVlTotal = Order::somaVlTotal();
 	$somaVlTotalPago = Order::somaVlTotalPago(); 
 	$somaVlTotalAgPagamento = Order::somaVlTotalAgPagamento();
+	$somaVlTotalDevolvidos = Order::somaVlTotalDevolvidos();
+	$somaVlTotalCancelados = Order::somaVlTotalCancelados();
 
 	$quantProducts = Product::quantProducts();
 
@@ -70,6 +72,8 @@ $app->get('/admin', function() {
 		'somaVlTotalPago'=>$somaVlTotalPago,
 		'somaVlTotalAgPagamento'=>$somaVlTotalAgPagamento,
 		'somaVlTotal'=>$somaVlTotal,
+		'somaVlTotalDevolvidos'=>$somaVlTotalDevolvidos,
+		'somaVlTotalCancelados'=>$somaVlTotalCancelados,
 
 		'quantOrders'=>$quantOrders,
 		'quantOrdersPago'=>$quantOrdersPago,
