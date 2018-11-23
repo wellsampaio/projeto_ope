@@ -379,6 +379,14 @@ $app->post("/register", function(){
 		exit;
 	}
 
+		if ($_POST['confirm_password'] !== $_POST['password']){
+
+		User::setErrorRegister("As senhas digitadas não conferem");
+		header("Location: /login");
+		exit;
+
+	}
+
 
 	if (User::checkLoginExist($_POST['email']) === true) {
 
@@ -386,6 +394,8 @@ $app->post("/register", function(){
 		header("Location: /login");
 		exit;
 	}
+
+
 
 
 
