@@ -215,6 +215,17 @@ License URL: http://creativecommons.org/licenses/by/3.0/
 					<label></label>
 				</div>
 				<div class="clearfix"> </div>
+
+				<!-- Load Facebook SDK for JavaScript -->
+<div id="fb-root"></div>
+
+
+<!-- Your customer chat code -->
+<div class="fb-customerchat"
+  attribution=install_email
+  page_id="723413084433714"
+  theme_color="#0084ff">
+</div>
 			</div>
 		</div>
 		<!-- bottom-grids -->
