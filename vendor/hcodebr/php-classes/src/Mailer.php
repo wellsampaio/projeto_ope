@@ -79,6 +79,8 @@ class Mailer {
 			//Set the subject line
 			$this->mail->Subject = $subject ;
 
+			
+
 			//Read an HTML message body from an external file, convert referenced images to embedded,
 			//convert HTML into a basic plain-text alternative body
 			$this->mail->msgHTML($html);

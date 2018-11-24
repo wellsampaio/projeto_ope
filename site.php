@@ -543,7 +543,7 @@ $app->post("/profile", function(){
 
 	$user->update();
 
-	$SESSION[user::SESSION] = $user->getValues();
+	$_SESSION[User::SESSION] = $user->getValues();
 
 	User::setSuccess("Dados alterados com sucesso!");
 

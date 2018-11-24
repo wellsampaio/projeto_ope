@@ -64,7 +64,7 @@ class User extends Model {
 
 			$user = new User();
 
-			$data['desperson'] = utf8_encode($data['desperson']);
+			$data['desperson'] = $data['desperson'];
 
 			$user->setData($data);
 
@@ -157,7 +157,7 @@ class User extends Model {
 
 		$data = $results[0];
 
-		$data['desperson'] = utf8_encode($data['desperson']);
+		$data['desperson'] = $data['desperson'];
 
 		$this->setData($data);
 	}

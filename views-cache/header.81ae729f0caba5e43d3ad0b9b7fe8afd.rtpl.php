@@ -12,7 +12,7 @@
         <link href="/res/site/css2/style.css" rel='stylesheet' type='text/css' />
         <link rel="stylesheet" href="/res/site/css/style.css">
          <!-- Custom Theme files -->
-         <meta http-equiv="X-UA-Compatible" content="IE=edge">
+         <meta http-equiv="X-UA-Compatible" content="IE=edge" charset="ISO-8859-1">
         <meta name="viewport" content="width=device-width, initial-scale=1">
         <script type="application/x-javascript"> addEventListener("load", function() { setTimeout(hideURLbar, 0); }, false); function hideURLbar(){ window.scrollTo(0,1); } </script>
         </script>
@@ -84,7 +84,7 @@ href='https://fonts.googleapis.com/css?family=Open+Sans:300,700,800,400,600' rel
                 <div class="top-header-right">
                     <ul>
                         <?php if( checkLogin(false) ){ ?>
-                            <li><a href="/profile"><i class="fa fa-user"></i> <?php echo utf8_decode(getUserName()); ?></a></li>
+                            <li><a href="/profile"><i class="fa fa-user"></i> <?php echo getUserName(); ?></a></li>
                             <li><a href="/logout"><i class="fa fa-close"></i> Sair</a></li>
                             <?php }else{ ?>
                             <li><a href="/login"><i class="fa fa-lock"></i> Login</a></li>
