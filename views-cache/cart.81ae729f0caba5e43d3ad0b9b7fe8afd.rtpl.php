@@ -8,7 +8,7 @@
                 <div class="product-content-right">
                     <div class="woocommerce">
 
-                        <form action="/checkout">
+                        <form action="/checkout" onsubmit="return valida_form(this)">
                             
                             <?php if( $error !='' ){ ?>
                             <div class="alert alert-danger" role="alert">
@@ -58,6 +58,10 @@
                                             <span class="amount">R$ <?php echo formatPrice($value1["vltotal"]); ?></span> 
                                         </td>
                                     </tr>
+                                    <?php }else{ ?>
+                                    <div class="alert alert-info" id="qtd">
+                                        Carrinho Vazio.
+                                    </div>
                                     <?php } ?>
                                     
                                 </tbody>
@@ -104,7 +108,7 @@
                             </div>
 
                             <div class="pull-right">
-                                <input type="submit" value="Finalizar Compra" name="proceed" class="checkout-button button alt wc-forward">
+                                <input type="submit" value="Continuar" name="proceed" class="checkout-button button alt wc-forward">
                             </div>
 
                         </form>

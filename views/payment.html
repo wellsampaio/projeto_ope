@@ -78,7 +78,7 @@
                                                         </div>
 
                                                         <div class="form-row place-order">
-                                                                <button type="submit" id="place_order_boleto" name="woocommerce_checkout_place_order" class="button alt btn"><i class="fa fa-refresh fa-spin fa-fw margin-bottom hide"></i>Continuar</button>
+                                                                <button type="submit" id="place_order_boleto" name="woocommerce_checkout_place_order" class="button alt btn"><i class="fa fa-refresh fa-spin fa-fw margin-bottom hide"></i>Finalizar Compra</button>
                                                         </div>
 
                                                         <div class="clear"></div>
@@ -117,7 +117,7 @@
                                                         </fieldset>
 
                                                         <div class="form-row place-order">
-                                                                <button type="submit" id="place_order_debit" name="woocommerce_checkout_place_order" class="button alt btn"><i class="fa fa-refresh fa-spin fa-fw margin-bottom hide"></i>Continuar</button>
+                                                                <button type="submit" id="place_order_debit" name="woocommerce_checkout_place_order" class="button alt btn"><i class="fa fa-refresh fa-spin fa-fw margin-bottom hide"></i>Finalizar Compra</button>
                                                         </div>
 
                                                         <div class="clear"></div>
@@ -226,7 +226,7 @@
                                                         </div>                                                            
 
                                                         <div class="form-row place-order">
-                                                            <button type="submit" id="place_order_credit" name="woocommerce_checkout_place_order" class="button alt btn"><i class="fa fa-refresh fa-spin fa-fw margin-bottom hide"></i>Continuar</button>
+                                                            <button type="submit" id="place_order_credit" name="woocommerce_checkout_place_order" class="button alt btn"><i class="fa fa-refresh fa-spin fa-fw margin-bottom hide"></i>Finalizar Compra</button>
                                                         </div>
 
                                                         <div class="clear"></div>

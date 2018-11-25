@@ -19,6 +19,15 @@
 
         <script>function CompararData(){ campodata = document.checkout.data.value datdahoje = document.F1.hoje.value var result = true; if (campodata >= datahoje) result = false; else alert("A data informada é Retroativa...\nInforme uma data Valida")}</script>
 
+        <script type="text/javascript" language="javascript">
+function valida_form (){
+if(document.getElementById("qtd").firstChild.nodeValue = document.getElementById("qtd").firstChild.nodeValue){
+alert('Carinho Vazio, Para continuar adicione itens no carrinho.');
+return false
+}
+}
+</script>
+
 
         <script src="/res/site/js2/jquery.easydropdown.js"></script>
         <!----webfonts--->

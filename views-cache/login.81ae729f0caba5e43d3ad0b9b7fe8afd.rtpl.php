@@ -32,27 +32,27 @@
 				   <p class="form-row form-row-first">
                         <label for="nome">Nome Completo *</span>
                         </label>
-                        <input type="text" id="nome" name="name" class="input-text" value="<?php echo htmlspecialchars( $registerValues["name"], ENT_COMPAT, 'UTF-8', FALSE ); ?>">
+                        <input type="text" id="nome" name="name" class="input-text" value="<?php echo htmlspecialchars( $registerValues["name"], ENT_COMPAT, 'UTF-8', FALSE ); ?>" style="width:520px;font-size: 15px">
                     </p>
 				   <p class="form-row form-row-first">
                         <label for="email">E-mail *
                         </label>
-                        <input type="email" id="email" name="email" class="input-text" value="<?php echo htmlspecialchars( $registerValues["email"], ENT_COMPAT, 'UTF-8', FALSE ); ?>">
+                        <input type="email" id="email" name="email" class="input-text" value="<?php echo htmlspecialchars( $registerValues["email"], ENT_COMPAT, 'UTF-8', FALSE ); ?>" style="width:520px;font-size: 15px">
                     </p>
 				  <p class="form-row form-row-first">
                         <label for="phone">Telefone *
                         </label>
-                        <input type="text" id="phone" name="phone" class="input-text" value="<?php echo htmlspecialchars( $registerValues["phone"], ENT_COMPAT, 'UTF-8', FALSE ); ?>">
+                        <input type="text" id="phone" name="phone" class="input-text" value="<?php echo htmlspecialchars( $registerValues["phone"], ENT_COMPAT, 'UTF-8', FALSE ); ?>" style="width:520px;font-size: 15px">
                     </p>
 				  <p class="form-row form-row-last">
                         <label for="senha">Senha *</span>
                         </label>
-                        <input type="password" id="senha" name="password" class="input-text">
+                        <input type="password" id="senha" name="password" class="input-text" style="width:520px;font-size: 15px">
                     </p>
                    <p class="form-row form-row-last">
                         <label for="senha">Confirmar Senha *</span>
                         </label>
-                        <input type="password" id="senha" name="confirm_password" class="input-text">
+                        <input type="password" id="senha" name="confirm_password" class="input-text" style="width:520px;font-size: 15px">
                     </p>
 				  <input type="submit" value="Criar Conta" name="login" class="button">
 			    </form>
