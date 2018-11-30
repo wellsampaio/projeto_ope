@@ -395,6 +395,12 @@ $app->post("/register", function(){
 		exit;
 	}
 
+	if(!preg_match("/^([a-z-0-9 ]+)$/i",($_POST['password']))) {
+		User::setErrorRegister("Favor digitar apenas letras e números");
+		header("Location: /login");
+		exit;
+	} 
+
 
 
 
@@ -414,7 +420,7 @@ $app->post("/register", function(){
 
 	User::login($_POST['email'], $_POST['password']);
 
-	header('Location: /checkout');
+	header('Location: /cart');
 	exit;
 
 });
