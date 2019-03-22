@@ -29,7 +29,7 @@
                     <div class="clearfix"> </div>
             </div>
             <div class="footer-bottom">
-                <p>&copy; Casa de Dona Brasilina.<a href="http://www.casadedonabrasilina.com.br" target="_blank"> www.casadedonabrasilina.com.br</a></p>
+                <p>Copyright &copy 2018. <a href="https://www.casadedonabrasilina.com.br" target="_blank">Casa de Dona Brasilina.</a> Todos os direitos reservados.</p>
             </div>
         </div>
     </div>

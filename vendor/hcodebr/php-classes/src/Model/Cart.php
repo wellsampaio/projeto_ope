@@ -173,12 +173,14 @@ class Cart extends Model {
 
 		
 			return $sql->select("
-				SELECT b.idproduct, b.desproduct, b.vlprice, b.vlfilling, b.vlweight, b.desurl, 
+				SELECT b.idproduct, b.desproduct, b.vlprice, b.vlfilling, b.vlweight, b.desurl,c.iduser,d.idstatus,
 				COUNT(*) AS nrqtd, 
 				SUM(b.vlprice) AS vltotal
 				FROM tb_cartsproducts a 
 				INNER JOIN tb_products b ON a.idproduct = b.idproduct 
-				WHERE a.idcart = a.idcart 
+				INNER JOIN tb_carts c ON c.idcart = a.idcart
+                INNER JOIN tb_orders d ON c.idcart = d.idcart
+				WHERE a.idcart = a.idcart and d.idstatus = 3 and c.iduser is not null
 				GROUP BY b.idproduct, b.desproduct, b.vlprice, b.vlfilling, b.vlweight, b.desurl
 				ORDER BY nrqtd DESC LIMIT 4;
 
@@ -195,12 +197,14 @@ class Cart extends Model {
 
 		
 			return $sql->select("
-				SELECT b.idproduct, b.desproduct, b.vlprice, b.vlfilling, b.vlweight, b.desurl, 
+				SELECT b.idproduct, b.desproduct, b.vlprice, b.vlfilling, b.vlweight, b.desurl,c.iduser,d.idstatus,
 				COUNT(*) AS nrqtd, 
 				SUM(b.vlprice) AS vltotal
 				FROM tb_cartsproducts a 
 				INNER JOIN tb_products b ON a.idproduct = b.idproduct 
-				WHERE a.idcart = a.idcart 
+                INNER JOIN tb_carts c ON c.idcart = a.idcart
+				INNER JOIN tb_orders d ON c.idcart = d.idcart
+				WHERE a.idcart = a.idcart and d.idstatus = 3 and c.iduser is not null
 				GROUP BY b.idproduct, b.desproduct, b.vlprice, b.vlfilling, b.vlweight, b.desurl
 				ORDER BY nrqtd DESC LIMIT 10;
 

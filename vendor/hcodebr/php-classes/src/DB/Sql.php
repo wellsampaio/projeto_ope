@@ -4,10 +4,10 @@ namespace Hcode\DB;
 
 class Sql {
 
-	const HOSTNAME = "br934.hostgator.com.br";
-	const USERNAME = "casaded1_user";
-	const PASSWORD = "F0rceroot";
-	const DBNAME = "casaded1_db";
+	const HOSTNAME = "localhost";
+	const USERNAME = "root";
+	const PASSWORD = "";
+	const DBNAME = "db_ecommerce";
 
 	private $conn;
 
