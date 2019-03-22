@@ -64,7 +64,7 @@
                             </tr>
                             <tr class="order-total">
                                 <th>Total do Pedido</th>
-                                <td style="color: #fff"><strong><span class="amount">R$ <?php echo htmlspecialchars( $cart["vltotal"], ENT_COMPAT, 'UTF-8', FALSE ); ?></span></strong> </td>
+                                <td><strong><span class="amount">R$ <?php echo htmlspecialchars( $cart["vltotal"], ENT_COMPAT, 'UTF-8', FALSE ); ?></span></strong> </td>
                             </tr>
                         </tfoot>
                     </table>
