@@ -260,7 +260,7 @@
               <div class="row">
                 <div class="col-md-8">
                   <p class="text-center">
-                    <strong>Valor das Vendas: 1 Jan, 2018 - 31 Dez, 2018</strong>
+                    <strong>Valor das Vendas: 1 Jan, 2019 - 31 Dez, 2019</strong>
                   </p>
 
                   <div class="chart">

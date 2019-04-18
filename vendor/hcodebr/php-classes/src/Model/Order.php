@@ -492,9 +492,14 @@ class Order extends Model {
 	{ 
      	$sql = new Sql();
  
-     	$soma = $sql->select("select SUM(vltotal) as valor_total from tb_orders where idstatus = 1;");
+     	$soma = $sql->select("
+			SELECT sum(vlnetamount) as valor_total 
+			FROM tb_orders a 
+			INNER JOIN tb_orderspagseguro b ON a.idorder = b.idorder
+			WHERE idstatus = 1
+     	");
 
-         	return $soma[0]['valor_total'];
+        return $soma[0]['valor_total'];
      	
 	}
 
@@ -502,9 +507,14 @@ class Order extends Model {
 	{ 
      	$sql = new Sql();
  
-     	$soma = $sql->select("select SUM(vltotal) as valor_total from tb_orders where idstatus = 3;");
+     	$soma = $sql->select("
+     		SELECT sum(vlnetamount) as valor_total 
+			FROM tb_orders a 
+			INNER JOIN tb_orderspagseguro b ON a.idorder = b.idorder
+			WHERE idstatus = 3;
+		");
 
-         	return $soma[0]['valor_total'];
+        return $soma[0]['valor_total'];
      	
 	}
 
@@ -512,9 +522,14 @@ class Order extends Model {
 	{ 
      	$sql = new Sql();
  
-     	$soma = $sql->select("select SUM(vltotal) as valor_total from tb_orders where idstatus = 7;");
+     	$soma = $sql->select("
+     		SELECT sum(vlnetamount) as valor_total 
+			FROM tb_orders a 
+			INNER JOIN tb_orderspagseguro b ON a.idorder = b.idorder
+			WHERE idstatus = 7;
+		");
 
-         	return $soma[0]['valor_total'];
+        return $soma[0]['valor_total'];
      	
 	}
 
@@ -522,9 +537,14 @@ class Order extends Model {
 	{ 
      	$sql = new Sql();
  
-     	$soma = $sql->select("select SUM(vltotal) as valor_total from tb_orders where idstatus = 6;");
+     	$soma = $sql->select("
+     		SELECT sum(vlnetamount) as valor_total 
+			FROM tb_orders a 
+			INNER JOIN tb_orderspagseguro b ON a.idorder = b.idorder
+			WHERE idstatus = 6	
+		");
 
-         	return $soma[0]['valor_total'];
+        return $soma[0]['valor_total'];
      	
 	}
 
@@ -542,9 +562,14 @@ class Order extends Model {
 	{ 
      	$sql = new Sql();
  
-     	$soma = $sql->select("select SUM(vltotal) as valor_total from tb_orders where MONTH(dtregister) = '1' AND year(dtregister) = '2018' AND idstatus = 3;");
+     	$soma = $sql->select("
+     		SELECT sum(vlnetamount) as valor_total 
+			FROM tb_orders a 
+			INNER JOIN tb_orderspagseguro b ON a.idorder = b.idorder
+			WHERE MONTH(b.dtregister) = '1' AND year(b.dtregister) = '2019' AND idstatus = 3;"
+		);
 
-         	return $soma[0]['valor_total'];
+        return $soma[0]['valor_total'];
      	
 	}
 
@@ -552,9 +577,14 @@ class Order extends Model {
 	{ 
      	$sql = new Sql();
  
-     	$soma = $sql->select("select SUM(vltotal) as valor_total from tb_orders where MONTH(dtregister) = '2' AND year(dtregister) = '2018' AND idstatus = 3;");
+     	$soma = $sql->select("
+			SELECT sum(vlnetamount) as valor_total 
+			FROM tb_orders a 
+			INNER JOIN tb_orderspagseguro b ON a.idorder = b.idorder
+			WHERE MONTH(b.dtregister) = '2' AND year(b.dtregister) = '2019' AND idstatus = 3;
+		");
 
-         	return $soma[0]['valor_total'];
+        return $soma[0]['valor_total'];
      	
 	}
 
@@ -562,9 +592,14 @@ class Order extends Model {
 	{ 
      	$sql = new Sql();
  
-     	$soma = $sql->select("select SUM(vltotal) as valor_total from tb_orders where MONTH(dtregister) = '3' AND year(dtregister) = '2018' AND idstatus = 3;");
+     	$soma = $sql->select("
+     		SELECT sum(vlnetamount) as valor_total 
+			FROM tb_orders a 
+			INNER JOIN tb_orderspagseguro b ON a.idorder = b.idorder
+			WHERE MONTH(b.dtregister) = '3' AND year(b.dtregister) = '2019' AND idstatus = 3;
+     	");
 
-         	return $soma[0]['valor_total'];
+        return $soma[0]['valor_total'];
      	
 	}
 
@@ -572,9 +607,14 @@ class Order extends Model {
 	{ 
      	$sql = new Sql();
  
-     	$soma = $sql->select("select SUM(vltotal) as valor_total from tb_orders where MONTH(dtregister) = '4' AND year(dtregister) = '2018' AND idstatus = 3;");
+     	$soma = $sql->select("
+     		SELECT sum(vlnetamount) as valor_total 
+			FROM tb_orders a 
+			INNER JOIN tb_orderspagseguro b ON a.idorder = b.idorder
+			WHERE MONTH(b.dtregister) = '4' AND year(b.dtregister) = '2019' AND idstatus = 3;
+     	");
 
-         	return $soma[0]['valor_total'];
+        return $soma[0]['valor_total'];
      	
 	}
 
@@ -582,16 +622,24 @@ class Order extends Model {
 	{ 
      	$sql = new Sql();
  
-     	$soma = $sql->select("select SUM(vltotal) as valor_total from tb_orders where MONTH(dtregister) = '5' AND year(dtregister) = '2018' AND idstatus = 3;");
+     	$soma = $sql->select("
+     		SELECT sum(vlnetamount) as valor_total 
+			FROM tb_orders a 
+			INNER JOIN tb_orderspagseguro b ON a.idorder = b.idorder
+			WHERE MONTH(b.dtregister) = '5' AND year(b.dtregister) = '2019' AND idstatus = 3;
+		");
 
-         	return $soma[0]['valor_total'];	
+        return $soma[0]['valor_total'];	
 	}
 
 	public static function TotalPagoMesJun()
 	{ 
      	$sql = new Sql();
  
-     	$soma = $sql->select("select SUM(vltotal) as valor_total from tb_orders where MONTH(dtregister) = '6' AND year(dtregister) = '2018' AND idstatus = 3;");
+     	$soma = $sql->select("SELECT sum(vlnetamount) as valor_total 
+			FROM tb_orders a 
+			INNER JOIN tb_orderspagseguro b ON a.idorder = b.idorder
+			WHERE MONTH(b.dtregister) = '6' AND year(b.dtregister) = '2019' AND idstatus = 3;");
 
          	return $soma[0]['valor_total'];	
 	}
@@ -600,7 +648,10 @@ class Order extends Model {
 	{ 
      	$sql = new Sql();
  
-     	$soma = $sql->select("select SUM(vltotal) as valor_total from tb_orders where MONTH(dtregister) = '7' AND year(dtregister) = '2018' AND idstatus = 3;");
+     	$soma = $sql->select("SELECT sum(vlnetamount) as valor_total 
+			FROM tb_orders a 
+			INNER JOIN tb_orderspagseguro b ON a.idorder = b.idorder
+			WHERE MONTH(b.dtregister) = '7' AND year(b.dtregister) = '2019' AND idstatus = 3;");
 
          	return $soma[0]['valor_total'];	
 	}
@@ -609,7 +660,10 @@ class Order extends Model {
 	{ 
      	$sql = new Sql();
  
-     	$soma = $sql->select("select SUM(vltotal) as valor_total from tb_orders where MONTH(dtregister) = '8' AND year(dtregister) = '2018' AND idstatus = 3;");
+     	$soma = $sql->select("SELECT sum(vlnetamount) as valor_total 
+			FROM tb_orders a 
+			INNER JOIN tb_orderspagseguro b ON a.idorder = b.idorder
+			WHERE MONTH(b.dtregister) = '8' AND year(b.dtregister) = '2019' AND idstatus = 3;");
 
          	return $soma[0]['valor_total'];	
 	}
@@ -618,7 +672,10 @@ class Order extends Model {
 	{ 
      	$sql = new Sql();
  
-     	$soma = $sql->select("select SUM(vltotal) as valor_total from tb_orders where MONTH(dtregister) = '9' AND year(dtregister) = '2018' AND idstatus = 3;");
+     	$soma = $sql->select("SELECT sum(vlnetamount) as valor_total 
+			FROM tb_orders a 
+			INNER JOIN tb_orderspagseguro b ON a.idorder = b.idorder
+			WHERE MONTH(b.dtregister) = '9' AND year(b.dtregister) = '2019' AND idstatus = 3;");
 
          	return $soma[0]['valor_total'];	
 	}
@@ -627,7 +684,10 @@ class Order extends Model {
 	{ 
      	$sql = new Sql();
  
-     	$soma = $sql->select("select SUM(vltotal) as valor_total from tb_orders where MONTH(dtregister) = '10' AND year(dtregister) = '2018' AND idstatus = 3;");
+     	$soma = $sql->select("SELECT sum(vlnetamount) as valor_total 
+			FROM tb_orders a 
+			INNER JOIN tb_orderspagseguro b ON a.idorder = b.idorder
+			WHERE MONTH(b.dtregister) = '10' AND year(b.dtregister) = '2019' AND idstatus = 3;");
 
          	return $soma[0]['valor_total'];	
 	}
@@ -636,7 +696,10 @@ class Order extends Model {
 	{ 
      	$sql = new Sql();
  
-     	$soma = $sql->select("select SUM(vltotal) as valor_total from tb_orders where MONTH(dtregister) = '11' AND year(dtregister) = '2018' AND idstatus = 3;");
+     	$soma = $sql->select("SELECT sum(vlnetamount) as valor_total 
+			FROM tb_orders a 
+			INNER JOIN tb_orderspagseguro b ON a.idorder = b.idorder
+			WHERE MONTH(b.dtregister) = '11' AND year(b.dtregister) = '2019' AND idstatus = 3;");
 
          	return $soma[0]['valor_total'];	
 	}
@@ -645,7 +708,10 @@ class Order extends Model {
 	{ 
      	$sql = new Sql();
  
-     	$soma = $sql->select("select SUM(vltotal) as valor_total from tb_orders where MONTH(dtregister) = '12' AND year(dtregister) = '2018' AND idstatus = 3;");
+     	$soma = $sql->select("SELECT sum(vlnetamount) as valor_total 
+			FROM tb_orders a 
+			INNER JOIN tb_orderspagseguro b ON a.idorder = b.idorder
+			WHERE MONTH(b.dtregister) = '12' AND year(b.dtregister) = '2019' AND idstatus = 3;");
 
          	return $soma[0]['valor_total'];	
 	}
