@@ -3,6 +3,7 @@
 use \Hcode\PageAdmin;
 use \Hcode\Model\User;
 use \Hcode\Model\Order;
+use \Hcode\Model\OrderReport;
 use \Hcode\Model\Product;
 use \Hcode\Model\Category;
 use \Hcode\Model\Cart;
@@ -19,17 +20,22 @@ $app->get('/admin', function() {
 
 	$products = Product::listAllDash();
 
-	$quantOrders = Order::quantOrders();
-	$quantOrdersPago = Order::quantOrdersPago();
-	$quantOrdersAgPagamento = Order::quantOrdersAgPagamento();
-	$quantOrdersEntregue = Order::quantOrdersEntregue();
-	$quantOrdersCancelados = Order::quantOrdersCancelados();
+	$quantOrders = OrderReport::quantOrders();
+	$quantOrdersPago = OrderReport::quantOrdersPago();
+	$quantOrdersAgPagamento = OrderReport::quantOrdersAgPagamento();
+	$quantOrdersEntregue = OrderReport::quantOrdersEntregue();
+	$quantOrdersCancelados = OrderReport::quantOrdersCancelados();
 
 	$somaVlTotal = Order::somaVlTotal();
-	$somaVlTotalPago = Order::somaVlTotalPago(); 
-	$somaVlTotalAgPagamento = Order::somaVlTotalAgPagamento();
-	$somaVlTotalDevolvidos = Order::somaVlTotalDevolvidos();
-	$somaVlTotalCancelados = Order::somaVlTotalCancelados();
+	$somaVlTotalPago = OrderReport::somaVlTotalPago(); 
+	$somaVlTotalAgPagamento = OrderReport::somaVlTotalAgPagamento();
+	$somaVlTotalDevolvidos = OrderReport::somaVlTotalDevolvidos();
+	$somaVlTotalCancelados = OrderReport::somaVlTotalCancelados();
+
+	$somaVlTotalPago2019 = OrderReport::somaVlTotalPago2019();
+	$somaVlTotalPago2020 = OrderReport::somaVlTotalPago2020();
+	$somaVlTotalPago2021 = OrderReport::somaVlTotalPago2021();
+	$somaVlTotalPago2022 = OrderReport::somaVlTotalPago2022();
 
 	$quantProducts = Product::quantProducts();
 
@@ -75,6 +81,11 @@ $app->get('/admin', function() {
 		'somaVlTotalDevolvidos'=>$somaVlTotalDevolvidos,
 		'somaVlTotalCancelados'=>$somaVlTotalCancelados,
 
+		'somaVlTotalPago2019'=>$somaVlTotalPago2019,
+		'somaVlTotalPago2020Tri'=>$somaVlTotalPago2020,
+		'somaVlTotalPago2021Tri'=>$somaVlTotalPago2021,
+		'somaVlTotalPago2022'=>$somaVlTotalPago2022,
+
 		'quantOrders'=>$quantOrders,
 		'quantOrdersPago'=>$quantOrdersPago,
 		'quantOrdersAgPagamento'=>$quantOrdersAgPagamento,
@@ -106,14 +117,15 @@ $app->get('/admin/dashboard', function() {
 
 	User::verifyLogin();
 
-	
+	$somaVlTotalCancelados = Order::somaVlTotalCancelados();
+
+	$quantOrdersCancelados = Order::quantOrdersCancelados();
+
 	$quantUsers = User::quantUsers();
 
 	$quantOrders = Order::quantOrders();
 
 	$quantOrdersPago = Order::quantOrdersPago();
-
-	$quantOrdersEmAberto = Order::quantOrdersEmAberto();
 
 	$quantOrdersEntregue = Order::quantOrdersEntregue();
 
@@ -125,22 +137,61 @@ $app->get('/admin/dashboard', function() {
 
 	$somaVlTotalAgPagamento = Order::somaVlTotalAgPagamento();
 
+	$somaVlTotalPago2019 = OrderReport::somaVlTotalPago2019();
+	$somaVlTotalPago2020 = OrderReport::somaVlTotalPago2020();
+	$somaVlTotalPago2021 = OrderReport::somaVlTotalPago2021();
+	$somaVlTotalPago2022 = OrderReport::somaVlTotalPago2022();
+
+	$quantOrdersPagoJan = OrderReport::quantOrdersPagoJan();
+	$quantOrdersPagoFev = OrderReport::quantOrdersPagoFev();
+	$quantOrdersPagoMar = OrderReport::quantOrdersPagoMar();
+	$quantOrdersPagoAbril = OrderReport::quantOrdersPagoAbril();
+	$quantOrdersPagoMaio= OrderReport::quantOrdersPagoMaio();
+	$quantOrdersPagoJun = OrderReport::quantOrdersPagoJun();
+	$quantOrdersPagoJul = OrderReport::quantOrdersPagoJul();
+	$quantOrdersPagoAgo = OrderReport::quantOrdersPagoAgo();
+	$quantOrdersPagoSet = OrderReport::quantOrdersPagoSet();
+	$quantOrdersPagoOut = OrderReport::quantOrdersPagoOut();
+	$quantOrdersPagoNov = OrderReport::quantOrdersPagoNov();
+	$quantOrdersPagoDez = OrderReport::quantOrdersPagoDez();
+
+
 
 	$page = new PageAdmin([
 		"header"=>false,
 		"footer"=>false
 	]);
 
-	$page->setTpl("flot",[
+	$page->setTpl("morris",[
 		"quantUsers"=>$quantUsers,
 		"quantOrders"=>$quantOrders,
-		"quantOrdersEmAberto"=>$quantOrdersEmAberto,
 		"quantOrdersPago"=>$quantOrdersPago,
 		"quantOrdersEntregue"=>$quantOrdersEntregue,
 		"quantOrdersAgPagamento"=>$quantOrdersAgPagamento,
+		'somaVlTotalCancelados'=>$somaVlTotalCancelados,
 		"somaVlTotal"=>$somaVlTotal,
 		"somaVlTotalPago"=>$somaVlTotalPago,
 		"somaVlTotalAgPagamento"=>$somaVlTotalAgPagamento,
+		'quantOrdersCancelados'=>$quantOrdersCancelados,
+
+		'somaVlTotalPago2019'=>$somaVlTotalPago2019,
+		'somaVlTotalPago2020Tri'=>$somaVlTotalPago2020,
+		'somaVlTotalPago2021Tri'=>$somaVlTotalPago2021,
+		'somaVlTotalPago2022'=>$somaVlTotalPago2022,
+
+		'quantOrdersPagoJan'=>$quantOrdersPagoJan,
+		'quantOrdersPagoFev'=>$quantOrdersPagoFev,
+		'quantOrdersPagoMar'=>$quantOrdersPagoMar,
+		'quantOrdersPagoAbril'=>$quantOrdersPagoAbril,
+		'quantOrdersPagoMaio'=>$quantOrdersPagoMaio,
+		'quantOrdersPagoJun'=>$quantOrdersPagoJun,
+		'quantOrdersPagoJul'=>$quantOrdersPagoJul,
+		'quantOrdersPagoAgo'=>$quantOrdersPagoAgo,
+		'quantOrdersPagoSet'=>$quantOrdersPagoSet,
+		'quantOrdersPagoOut'=>$quantOrdersPagoOut,
+		'quantOrdersPagoNov'=>$quantOrdersPagoNov,
+		'quantOrdersPagoDez'=>$quantOrdersPagoDez,
+
 	]);
     
 	

@@ -1,4 +1,4 @@
-<!DOCTYPE html>
+<?php if(!class_exists('Rain\Tpl')){exit;}?><!DOCTYPE html>
 <html>
 <head>
   <meta charset="utf-8">
@@ -56,7 +56,7 @@
           <li class="dropdown user user-menu">
             <a href="#" class="dropdown-toggle" data-toggle="dropdown">
               <img src="/res/admin/dist/img/avatar6.png" class="user-image" alt="User Image">
-              <span class="hidden-xs">{function="getUserName()"}</span>
+              <span class="hidden-xs"><?php echo getUserName(); ?></span>
             </a>
             <ul class="dropdown-menu">
               <!-- User image -->
@@ -64,7 +64,7 @@
                 <img src="/res/admin/dist/img/avatar6.png" class="img-circle" alt="User Image">
 
                 <p>
-                  Usuario - {function="getUserName()"}
+                  Usuario - <?php echo getUserName(); ?>
                   <small>Membro do admin</small>
                 </p>
               </li>
@@ -104,7 +104,7 @@
           <img src="/res/admin/dist/img/avatar6.png" class="img-circle" alt="User Image">
         </div>
         <div class="pull-left info">
-          <p>{function="getUserName()"}</p>
+          <p><?php echo getUserName(); ?></p>
           <a href="#"><i class="fa fa-circle text-success"></i> Online</a>
         </div>
       </div>
@@ -229,7 +229,7 @@
         <div class="col-md-3 col-sm-6 col-xs-12">
           <div class="small-box bg-aqua">
             <div class="inner">
-              <h3>{$quantOrders}</h3>
+              <h3><?php echo htmlspecialchars( $quantOrders, ENT_COMPAT, 'UTF-8', FALSE ); ?></h3>
 
               <p>Pedidos</p>
             </div>
@@ -244,7 +244,7 @@
         <div class="col-md-3 col-sm-6 col-xs-12">
           <div class="small-box bg-green">
             <div class="inner">
-              <h3>{$quantOrdersPago}</h3>
+              <h3><?php echo htmlspecialchars( $quantOrdersPago, ENT_COMPAT, 'UTF-8', FALSE ); ?></h3>
 
               <p>Pedidos Pagos</p>
             </div>
@@ -260,7 +260,7 @@
         <div class="col-md-3 col-sm-6 col-xs-12">
           <div class="small-box bg-orange">
             <div class="inner">
-              <h3>{$quantOrdersAgPagamento}</h3>
+              <h3><?php echo htmlspecialchars( $quantOrdersAgPagamento, ENT_COMPAT, 'UTF-8', FALSE ); ?></h3>
 
               <p>Pedidos Aguardando Pagamento</p>
             </div>
@@ -275,7 +275,7 @@
            <!-- small box -->
           <div class="small-box bg-green">
             <div class="inner">
-              <h3>{$quantOrdersEntregue}</h3>
+              <h3><?php echo htmlspecialchars( $quantOrdersEntregue, ENT_COMPAT, 'UTF-8', FALSE ); ?></h3>
 
               <p>Pedidos Entregue</p>
             </div>
@@ -296,7 +296,7 @@
 
             <div class="info-box-content">
               <span class="info-box-text">Valor Total dos Pedidos Pagos</span>
-              <span class="info-box-number">R$ {function="formatPrice($somaVlTotalPago)"}</span>
+              <span class="info-box-number">R$ <?php echo formatPrice($somaVlTotalPago); ?></span>
             </div>
             <!-- /.info-box-content -->
           </div>
@@ -310,7 +310,7 @@
 
             <div class="info-box-content">
               <span class="info-box-text">Valor total dos Pedidos</span>
-              <span class="info-box-number">R$ {function="formatPrice($somaVlTotal)"}</span>
+              <span class="info-box-number">R$ <?php echo formatPrice($somaVlTotal); ?></span>
             </div>
             <!-- /.info-box-content -->
           </div>
@@ -324,7 +324,7 @@
 
             <div class="info-box-content">
               <span class="info-box-text">Valor Total Aguardando Pagamento</span>
-              <span class="info-box-number">R$ {function="formatPrice($somaVlTotalAgPagamento)"}</span>
+              <span class="info-box-number">R$ <?php echo formatPrice($somaVlTotalAgPagamento); ?></span>
             </div>
             <!-- /.info-box-content -->
           </div>
@@ -587,7 +587,7 @@
      */
 
     var bar_data = {
-      data: [["Em Aberto", {$quantOrdersCancelados}], ["Aguardando Pagamento", {$quantOrdersAgPagamento}], ["Pago", {$quantOrdersPago}],["Entregue", {$quantOrdersEntregue}]],
+      data: [["Em Aberto", <?php echo htmlspecialchars( $quantOrdersCancelados, ENT_COMPAT, 'UTF-8', FALSE ); ?>], ["Aguardando Pagamento", <?php echo htmlspecialchars( $quantOrdersAgPagamento, ENT_COMPAT, 'UTF-8', FALSE ); ?>], ["Pago", <?php echo htmlspecialchars( $quantOrdersPago, ENT_COMPAT, 'UTF-8', FALSE ); ?>],["Entregue", <?php echo htmlspecialchars( $quantOrdersEntregue, ENT_COMPAT, 'UTF-8', FALSE ); ?>]],
       color: "#3c8dbc"
     };
     $.plot("#bar-chart", [bar_data], {
@@ -616,9 +616,9 @@
      */
 
     var donutData = [
-      {label: "Series2", data: {$somaVlTotalPago}, color: "#3c8dbc"},
-      {label: "Series3", data: {$somaVlTotalPago}, color: "#0073b7"},
-      {label: "Series4", data: {$somaVlTotalPago}, color: "#00c0ef"}
+      {label: "Series2", data: <?php echo htmlspecialchars( $somaVlTotalPago, ENT_COMPAT, 'UTF-8', FALSE ); ?>, color: "#3c8dbc"},
+      {label: "Series3", data: <?php echo htmlspecialchars( $somaVlTotalPago, ENT_COMPAT, 'UTF-8', FALSE ); ?>, color: "#0073b7"},
+      {label: "Series4", data: <?php echo htmlspecialchars( $somaVlTotalPago, ENT_COMPAT, 'UTF-8', FALSE ); ?>, color: "#00c0ef"}
     ];
     $.plot("#donut-chart", donutData, {
       series: {
