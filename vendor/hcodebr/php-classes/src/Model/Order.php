@@ -48,7 +48,7 @@ class Order extends Model {
 				d.idperson, d.deslogin,
 				e.desaddress, e.desnumber, e.descomplement, e.descity, e.desstate, e.descountry, e.deszipcode, e.desdistrict, e.desdelivery,
 				f.desperson, f.desemail, f.nrphone,
-				g.descode, g.vlgrossamount, g.vldiscountamount, g.vlfeeamount, g.vlnetamount, g.vlextraamount, g.despaymentlink
+				g.descode, g.vlgrossamount, g.vldiscountamount, g.vlfeeamount, g.vlnetamount, g.vlextraamount, g.despaymentlink, g.quantity
 			FROM tb_orders a 
 			INNER JOIN tb_ordersstatus b USING(idstatus) 
 			INNER JOIN tb_carts c USING(idcart)
@@ -391,13 +391,14 @@ class Order extends Model {
 		float $vlfeeamont,
 		float $vlnetamount,
 		float $extraamount,
-		string $despaymentlink = ""	
+		string $despaymentlink = "",
+		int $quantity	
 	)
 	{
 
 		$sql = new Sql();
 
-		$sql->query("CALL sp_orderspagseguro_save(:idorder, :descode, :vlgrossamount, :vldisccountamount, :vlfeeamont, :vlnetamount, :extraamount, :despaymentlink)", [
+		$sql->query("CALL sp_orderspagseguro_save(:idorder, :descode, :vlgrossamount, :vldisccountamount, :vlfeeamont, :vlnetamount, :extraamount, :despaymentlink, :quantity)", [
 			':idorder'=>$this->getidorder(),
 			':descode'=>$descode,
 			':vlgrossamount'=>$vlgrossamount,
@@ -405,7 +406,8 @@ class Order extends Model {
 			':vlfeeamont'=>$vlfeeamont,
 			':vlnetamount'=>$vlnetamount,
 			':extraamount'=>$extraamount,
-			':despaymentlink'=>$despaymentlink
+			':despaymentlink'=>$despaymentlink,
+			':quantity'=>$quantity
 		]);
 
 	}

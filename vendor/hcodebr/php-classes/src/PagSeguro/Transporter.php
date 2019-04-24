@@ -51,7 +51,8 @@ class Transporter{
             (float)$xml->feeAmount,
             (float)$xml->netAmount,
             (float)$xml->extraAmount,
-            (string)$xml->paymentLink
+            (string)$xml->paymentLink,
+            (int)$xml->installmentCount
         );
 
 		return $xml;
