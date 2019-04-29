@@ -5,7 +5,7 @@ namespace Hcode\DB;
 class Sql {
 
 	const HOSTNAME = "162.241.203.172";
-	const USERNAME = "casade60_admin";
+	const USERNAME = "root";
 	const PASSWORD = "F0rceroot";
 	const DBNAME = "casade60_db_ecommerce";
 
