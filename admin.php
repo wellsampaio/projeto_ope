@@ -113,7 +113,7 @@ $app->get('/admin', function() {
 
 });
 
-$app->get('/admin/dashboard', function() {
+$app->get('/admin/graphic_orders', function() {
 
 	User::verifyLogin();
 
@@ -191,6 +191,8 @@ $app->get('/admin/dashboard', function() {
 		'quantOrdersPagoOut'=>$quantOrdersPagoOut,
 		'quantOrdersPagoNov'=>$quantOrdersPagoNov,
 		'quantOrdersPagoDez'=>$quantOrdersPagoDez,
+
+
 
 	]);
     

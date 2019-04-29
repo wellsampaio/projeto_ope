@@ -66,6 +66,8 @@ $app->post("/admin/products/create", function(){
 
 	$product = new Product();
 
+	$_POST['desurl'] = $_POST['desproduct'];
+
 	$product->setData($_POST);
 
 	$product->save();
@@ -102,6 +104,8 @@ $app->post("/admin/products/:idproduct", function($idproduct) {
 	$product = new Product();
 
 	$product->get((int)$idproduct);
+
+	$_POST['desurl'] = $_POST['desproduct'];
 
 	$product->setData($_POST);
 
