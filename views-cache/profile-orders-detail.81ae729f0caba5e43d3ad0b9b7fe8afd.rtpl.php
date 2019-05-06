@@ -66,6 +66,22 @@
                                 <th>Total do Pedido</th>
                                 <td><strong><span class="amount">R$ <?php echo htmlspecialchars( $cart["vltotal"], ENT_COMPAT, 'UTF-8', FALSE ); ?></span></strong> </td>
                             </tr>
+                            <tr class="order-status">
+                                <th>Status do Pedido</th>
+                                <td><strong><span class="amount"><?php echo htmlspecialchars( $order["desstatus"], ENT_COMPAT, 'UTF-8', FALSE ); ?></span></strong> </td>
+                            </tr>
+                            <tr class="method-pagamento">
+                                <th>Método de Pagamento</th>
+                                <?php if( ($order["despaymentlink"])=='' ){ ?>
+                                <td><strong><span class="amount">Cartão</span></strong> </td>
+                                <?php }else{ ?>
+                                <td><strong><span class="amount">Boleto</span></strong> </td>
+                                <?php } ?>
+                            </tr>
+                            <tr class="order-parcelas">
+                                <th>Parcelas</th>
+                                <td><strong><span class="amount"><?php echo htmlspecialchars( $order["quantity"], ENT_COMPAT, 'UTF-8', FALSE ); ?></span></strong> </td>
+                            </tr>
                         </tfoot>
                     </table>
                     <div id="payment">

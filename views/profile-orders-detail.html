@@ -66,6 +66,22 @@
                                 <th>Total do Pedido</th>
                                 <td><strong><span class="amount">R$ {$cart.vltotal}</span></strong> </td>
                             </tr>
+                            <tr class="order-status">
+                                <th>Status do Pedido</th>
+                                <td><strong><span class="amount">{$order.desstatus}</span></strong> </td>
+                            </tr>
+                            <tr class="method-pagamento">
+                                <th>Método de Pagamento</th>
+                                {if="($order.despaymentlink)==''"}
+                                <td><strong><span class="amount">Cartão</span></strong> </td>
+                                {else}
+                                <td><strong><span class="amount">Boleto</span></strong> </td>
+                                {/if}
+                            </tr>
+                            <tr class="order-parcelas">
+                                <th>Parcelas</th>
+                                <td><strong><span class="amount">{$order.quantity}</span></strong> </td>
+                            </tr>
                         </tfoot>
                     </table>
                     <div id="payment">
