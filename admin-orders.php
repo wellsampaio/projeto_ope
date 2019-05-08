@@ -276,7 +276,7 @@ $app->get("/admin/orders_cancelados", function(){
  
 	{
  		array_push($pages, [
-			'href'=>'/admin/orders?'.http_build_query([
+			'href'=>'/admin/orders_cancelados?'.http_build_query([
 				'page'=>$x+1,
 				'search'=>$search
 			]),

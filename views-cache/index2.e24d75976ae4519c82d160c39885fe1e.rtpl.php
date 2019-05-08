@@ -560,7 +560,7 @@
                   </div>
                   <div class="product-info">
                     <a href="javascript:void(0)" class="product-title"><?php echo htmlspecialchars( $value1["desproduct"], ENT_COMPAT, 'UTF-8', FALSE ); ?>
-                      <span class="label label-warning pull-right">R$ <?php echo formatPrice($value1["vlprice"]); ?></span></a>
+                      <span class="label label-warning pull-right">QTD <?php echo htmlspecialchars( $value1["nrqtd"], ENT_COMPAT, 'UTF-8', FALSE ); ?></span></a>
                         <span class="product-description">
                           <?php echo htmlspecialchars( $value1["vlfilling"], ENT_COMPAT, 'UTF-8', FALSE ); ?>
                         </span>

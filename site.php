@@ -401,6 +401,12 @@ $app->post("/register", function(){
 		exit;
 	} 
 
+	if(!preg_match("/^[\w$@]{6,}$/",($_POST['password']))) {
+		User::setErrorRegister("Senha digitada é Menor que 6 Caracteres ");
+		header("Location: /login");
+		exit;
+	} 
+
 
 
 

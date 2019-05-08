@@ -4,13 +4,13 @@ namespace Hcode\PagSeguro;
 
 class Config{
 
-	const SANDBOX = true;
+	const SANDBOX = false;
 
 	const SANDBOX_EMAIL = "wellington.victalino@gmail.com";
 	const PRODUCTION_EMAIL = "wellington.victalino@gmail.com";
 
 	const SANDBOX_TOKEN = "24F19271CF5B42ED8CE789EEB0EECF6B";
-	const PRODUCTION_TOKEN = "";
+	const PRODUCTION_TOKEN = "7FA6F0929BCA4AB1BF47CEBB67A6E7D2";
 
 	const SANDBOX_SESSIONS = "https://ws.sandbox.pagseguro.uol.com.br/v2/sessions";
 	const PRODUCTION_SESSIONS = "https://ws.pagseguro.uol.com.br/v2/sessions";
