@@ -433,7 +433,7 @@
                                 clearError();
 
                                 // Opções de parcelamento disponíveis.
-                                $( "#installments_field" ).html( '<option disabled="disabled"></option>' );
+                                 $("#installments_field").html("<option value=''>Escolha as Parcelas</option>");
 
                                 // Template das parcelas com juros.
                                 var tplInstallmentFree = Handlebars.compile( $( "#tpl-installment-free" ).html() );
