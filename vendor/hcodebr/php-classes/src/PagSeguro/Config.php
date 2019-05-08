@@ -4,7 +4,7 @@ namespace Hcode\PagSeguro;
 
 class Config{
 
-	const SANDBOX = false;
+	const SANDBOX = true;
 
 	const SANDBOX_EMAIL = "wellington.victalino@gmail.com";
 	const PRODUCTION_EMAIL = "wellington.victalino@gmail.com";
@@ -24,7 +24,7 @@ class Config{
 	const SANDBOX_URL_NOTIFICATION = "https://ws.sandbox.pagseguro.uol.com.br/v2/transactions/notifications/";
 	const PRODUCTION_URL_NOTIFICATION = "https://ws.pagseguro.uol.com.br/v2/transactions/notifications/";
 
-	const  MAX_INSTALL_MENT_NO_INTEREST = 1;
+	const  MAX_INSTALL_MENT_NO_INTEREST = 2;
 	const  MAX_INSTALLMENT = 10;
 
 	const NOTIFICATION_URL = "http://www.casadedonabrasilina.com.br/payment/notification";
