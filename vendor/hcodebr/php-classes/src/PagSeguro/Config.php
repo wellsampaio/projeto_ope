@@ -4,7 +4,7 @@ namespace Hcode\PagSeguro;
 
 class Config{
 
-	const SANDBOX = true;
+	const SANDBOX = false;
 
 	const SANDBOX_EMAIL = "wellington.victalino@gmail.com";
 	const PRODUCTION_EMAIL = "wellington.victalino@gmail.com";
