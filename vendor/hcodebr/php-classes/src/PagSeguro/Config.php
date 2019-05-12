@@ -10,7 +10,7 @@ class Config{
 	const PRODUCTION_EMAIL = "casadedonabrasilina@gmail.com";
 
 	const SANDBOX_TOKEN = "";
-	const PRODUCTION_TOKEN = "ef35ed86-f2b5-4342-b19f-161250bbdc8fb4e2a5be490983e08e26ab5d3eef9e023aad-def3-4988-8f31-b91d7f8a0550";
+	const PRODUCTION_TOKEN = "55b7e207-abe3-4a0f-a535-45e3d95d4fb727f2d1da404aafad566e073b5d68b31000f6-51fa-4597-b013-282fda7ddd71";
 
 	const SANDBOX_SESSIONS = "https://ws.sandbox.pagseguro.uol.com.br/v2/sessions";
 	const PRODUCTION_SESSIONS = "https://ws.pagseguro.uol.com.br/v2/sessions";
