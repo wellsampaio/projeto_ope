@@ -6,11 +6,11 @@ class Config{
 
 	const SANDBOX = false;
 
-	const SANDBOX_EMAIL = "wellington.victalino@gmail.com";
-	const PRODUCTION_EMAIL = "wellington.victalino@gmail.com";
+	const SANDBOX_EMAIL = "";
+	const PRODUCTION_EMAIL = "casadedonabrasilina@gmail.com";
 
-	const SANDBOX_TOKEN = "24F19271CF5B42ED8CE789EEB0EECF6B";
-	const PRODUCTION_TOKEN = "7FA6F0929BCA4AB1BF47CEBB67A6E7D2";
+	const SANDBOX_TOKEN = "";
+	const PRODUCTION_TOKEN = "ef35ed86-f2b5-4342-b19f-161250bbdc8fb4e2a5be490983e08e26ab5d3eef9e023aad-def3-4988-8f31-b91d7f8a0550";
 
 	const SANDBOX_SESSIONS = "https://ws.sandbox.pagseguro.uol.com.br/v2/sessions";
 	const PRODUCTION_SESSIONS = "https://ws.pagseguro.uol.com.br/v2/sessions";
