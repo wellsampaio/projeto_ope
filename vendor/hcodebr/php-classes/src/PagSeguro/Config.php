@@ -6,10 +6,10 @@ class Config{
 
 	const SANDBOX = false;
 
-	const SANDBOX_EMAIL = "";
+	const SANDBOX_EMAIL = "casadedonabrasilina@gmail.com";
 	const PRODUCTION_EMAIL = "casadedonabrasilina@gmail.com";
 
-	const SANDBOX_TOKEN = "";
+	const SANDBOX_TOKEN = "EF8BF7E910C14C3CBF61B07E2244BA09";
 	const PRODUCTION_TOKEN = "55b7e207-abe3-4a0f-a535-45e3d95d4fb727f2d1da404aafad566e073b5d68b31000f6-51fa-4597-b013-282fda7ddd71";
 
 	const SANDBOX_SESSIONS = "https://ws.sandbox.pagseguro.uol.com.br/v2/sessions";
